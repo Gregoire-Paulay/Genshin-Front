@@ -1,0 +1,884 @@
+/* ------------ GENERAL ----------- */
+:root {
+  --bcgdark: #1a1d24;
+  --moduleDark: #272935;
+  --moduleDarkBlue: #1a2436;
+  --moduleGrayBlue: #1e293b;
+  --moduleLightDark: #334155;
+  --gray: #72778b;
+  --light: white;
+  --moduleLight: #f2ece7;
+  --orange: #dea923;
+  --gold: #deb76c;
+  --star4: #9776b3;
+  --star5: #b48252;
+  --blue: #60a5fa;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  font-size: 12px;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 25px;
+  text-align: center;
+}
+h2 {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px 0;
+}
+h6 {
+  font-size: 16px;
+}
+
+.fa-star {
+  color: gold;
+}
+
+/* ---- Gestion light/dark mode --- */
+.night {
+  background-color: var(--bcgdark);
+  color: var(--light);
+}
+.light {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+.moon {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 28px;
+  color: var(--dark);
+  background-color: var(--light);
+  border: none;
+  border-radius: 50%;
+  border: 1px solid white;
+  z-index: 1;
+}
+.moon:hover {
+  border: 1px solid black;
+  background-color: gray;
+}
+.sun {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 26px;
+  color: var(--light);
+  border: 1px solid var(--dark);
+  background-color: var(--dark);
+  border-radius: 50%;
+  z-index: 1;
+}
+.sun:hover {
+  border: 1px solid white;
+  background-color: gray;
+}
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* ------------ HEADER ------------ */
+/* -------------------------------- */
+/* -------------------------------- */
+header {
+  border-bottom: 1px solid lightgray;
+  /* border: 3px solid red; */
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 15px 0;
+  margin-bottom: 40px;
+}
+header img {
+  width: 250px;
+  height: 100px;
+}
+header img:hover {
+  cursor: pointer;
+}
+
+.headerNav {
+  border: 2px solid green;
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+.headerNav > p {
+  border: 1px solid black;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.headerNav > p:hover {
+  cursor: pointer;
+  color: #ffcc03;
+}
+/* -------------------------------- */
+/* -------------------------------- */
+/* ------------- MAIN ------------- */
+/* -------------------------------- */
+/* -------------------------------- */
+
+/* -------------------------------- */
+/* ---- Page Liste Personnages ---- */
+/* -------------------------------- */
+.allFilters {
+  background-color: var(--moduleLightDark);
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  position: relative;
+}
+.showFiltersNight {
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: flex-end;
+}
+.showFiltersNight > button {
+  border: 2px solid var(--moduleLightDark);
+  margin-bottom: 15px;
+  background-color: var(--moduleLightDark);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 9px;
+}
+.hideFiltersNight {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: flex;
+  gap: 12px;
+}
+.hideFiltersNight > button {
+  border: 2px solid var(--bcgdark);
+
+  background-color: var(--bcgdark);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 9px;
+}
+.hideFiltersNight > button:hover {
+  cursor: pointer;
+  border: 2px solid var(--blue);
+}
+.filtersNight {
+  display: flex;
+  gap: 12px;
+}
+.filtersNight > div {
+  border: 2px solid var(--moduleDark);
+  background-color: var(--bcgdark);
+  display: flex;
+  padding: 3px 5px;
+  border-radius: 7px;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+.filtersNight img {
+  height: 20px;
+}
+.filtersNight > div:hover {
+  cursor: pointer;
+  border: 2px solid var(--moduleLight);
+}
+
+.characterListNight {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--moduleLightDark);
+  padding: 20px 0;
+  border-radius: 25px;
+  border: 2px solid rgb(116, 100, 10);
+}
+.characterBigButtonNight {
+  border: 3px solid var(--bcgdark);
+  background-color: var(--moduleGrayBlue);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 180px;
+  color: white;
+}
+.characterBigButtonNight:hover {
+  cursor: pointer;
+  border: 3px solid whitesmoke;
+  color: var(--blue);
+}
+.characterBigButtonNight > img:first-child {
+  /* border: 3px solid blue; */
+  height: 180px;
+}
+
+.characterListDay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--moduleLight);
+  padding: 20px 0;
+  border-radius: 25px;
+  border: 2px solid #222222;
+}
+
+.characterName {
+  width: 100%;
+  padding: 5px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-top: 1px solid black;
+}
+.star4BCG {
+  width: 100%;
+  background-color: var(--star4);
+  border-radius: 17px 17px 0 0;
+}
+.star5BCG {
+  width: 100%;
+  background-color: var(--star5);
+  border-radius: 17px 17px 0 0;
+}
+.characterElement {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 35px;
+}
+
+/* -------------------------------- */
+/* --- Page Détail Personnages ---- */
+/* -------------------------------- */
+.characterDetailsNight {
+  /* border: 3px solid red; */
+  background-color: var(--moduleDark);
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 25px;
+}
+.characterDescriptionNight {
+  border: 2px solid var(--bcgdark);
+  background-color: var(--moduleLightDark);
+  padding: 8px;
+  border-radius: 12px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+}
+.characterDescriptionNight > img {
+  height: 500px;
+  object-fit: contain;
+}
+.characterDescriptionNight > div {
+  /* border: 5px solid green; */
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.descriptionDetailsNight {
+  border: 1px solid var(--light);
+  width: 50%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.descriptionDetailsNight > div {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+}
+.descriptionDetailsNight > div > img {
+  width: 25px;
+}
+
+.allUpgradesNight {
+  /* border: 3px solid coral; */
+  background-color: var(--moduleLightDark);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 20px;
+  align-items: center;
+  padding: 0 0 10px 0;
+}
+.allUpgradesNight > div:first-child {
+  /* border: 3px solid pink; */
+  background-color: var(--moduleDarkBlue);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+  font-weight: bold;
+}
+.allUpgradesNight > div:first-child > p {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* border: 2px solid blue; */
+  padding: 10px 0;
+}
+.allUpgradesNight > div:first-child > p:hover {
+  cursor: pointer;
+  background-color: var(--bcgdark);
+}
+
+.allTalentsNight {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.talentsNight {
+  border: 2px solid var(--bcgdark);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--moduleDark);
+  padding: 10px;
+  gap: 5px;
+  border-radius: 12px;
+  width: 97%;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+.talentsNight > div:first-child {
+  /* border: 2px solid lightcoral; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.talentsNight > div > p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+}
+
+.talentsDescriptionNight {
+  border: 2px solid yellowgreen;
+  /* margin-top: 8px; */
+}
+.talentsTitleNight {
+  font-weight: bold;
+  margin-top: 7px;
+  margin-bottom: 2px;
+}
+
+/* -------------------------------- */
+/* ---- Page Liste Weekly Boss ---- */
+/* -------------------------------- */
+.allWeeklyBossNight {
+  /* border: 2px solid pink; */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 10px;
+}
+.allWeeklyBossNight > div {
+  /* border: 3px solid blue; */
+  display: flex;
+  padding: 8px;
+  border-radius: 20px;
+  gap: 20px;
+  background-color: var(--moduleLightDark);
+}
+
+.weeklyBossIconNight {
+  border: 2px solid black;
+  background-color: var(--moduleDark);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  gap: 25px;
+  padding: 10px;
+}
+.weeklyBossIconNight:hover {
+  cursor: pointer;
+  border: 2px solid var(--moduleLight);
+  padding: 5px;
+}
+.weeklyBossIconNight > img {
+  width: 100%;
+  border-radius: 10px;
+}
+.weeklyBossIconNight > p {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.allRewardsNight {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  width: 73%;
+  background-color: var(--moduleDark);
+  border-radius: 20px;
+}
+.allRewardsNight > div {
+  /* border: 3px solid purple; */
+  background-color: var(--moduleLightDark);
+  display: flex;
+  gap: 20px;
+  border-radius: 12px;
+}
+.rewardsIconNight {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  text-align: center;
+  background-color: var(--star5);
+  border-radius: 12px;
+}
+.rewardsIconNight:hover {
+  cursor: pointer;
+  border: 2px solid var(--moduleLight);
+}
+.rewardsIconNight > img {
+  width: 100%;
+}
+.rewardsIconNight > p {
+  background-color: var(--bcgdark);
+  width: 100%;
+  padding: 8px 5px;
+  font-size: 14px;
+  border-radius: 0 0 8px 8px;
+}
+
+.charactersBossNight {
+  /* border: 3px solid darkorange; */
+  display: flex;
+  gap: 8px;
+  padding: 3px;
+  align-items: center;
+}
+.charactersBossNight > div {
+  border: 2px solid var(--moduleLightDark);
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 130px;
+  border-radius: 6px;
+}
+.charactersBossNight > div:hover {
+  border: 2px solid var(--moduleLight);
+  cursor: pointer;
+  color: var(--blue);
+}
+.charactersBossNight > div > img {
+  /* border: 5px solid blue; */
+  height: 100px;
+}
+.charactersBossNight > div > p {
+  height: 30px;
+  font-size: 14px;
+  background-color: var(--bcgdark);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 0 0 4px 4px;
+}
+
+/* -------------------------------- */
+/* --- Page Details Weekly Boss --- */
+/* -------------------------------- */
+.weeklyBossDetailsNight {
+  /* border: 5px solid red; */
+  display: flex;
+  gap: 20px;
+}
+
+.weeklyBossDescriptionNight {
+  border: 1px solid var(--gold);
+  background-color: var(--moduleDark);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 100%;
+}
+.weeklyBossDescriptionNight > h2 {
+  background-color: var(--gold);
+  color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 18px 18px 0 0;
+}
+.weeklyBossDescriptionNight > h6 {
+  background-color: var(--moduleGrayBlue);
+  color: var(--gold);
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+.weeklyBossDescriptionNight > div:first-of-type {
+  background-color: var(--moduleLightDark);
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  font-size: 15px;
+}
+.weeklyBossDescriptionNight > div:first-of-type:hover {
+  cursor: pointer;
+}
+
+.weeklyBossPictureChoiceNight {
+  border-bottom: 2px solid var(--moduleLightDark);
+  width: 50%;
+  display: flex;
+  padding: 6px 0;
+  justify-content: center;
+}
+.weeklyBossPictureChoiceBorderBottomNight {
+  border-bottom: 2px solid var(--gold);
+  color: var(--gold);
+  width: 50%;
+  display: flex;
+  padding: 6px 0;
+  justify-content: center;
+}
+.weeklyBossDescriptionNight > img {
+  /* border: 2px solid pink; */
+  width: 100%;
+  background-color: var(--bcgdark);
+}
+.weeklyBossElementNight {
+  /* border: 3px solid limegreen; */
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+.weeklyBossElementNight > p {
+  /* border: 2px solid yellow; */
+  width: 120px;
+  font-size: 17px;
+  color: var(--gold);
+}
+.weeklyBossElementNight > div {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.weeklyBossElementNight > div > div {
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.weeklyBossElementNight img {
+  width: 30px;
+}
+
+.weeklyBossLocationNight {
+  /* border: 3px solid limegreen; */
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-bottom: 15px;
+}
+.weeklyBossLocationNight > p {
+  /* border: 2px solid yellow; */
+  width: 120px;
+  font-size: 17px;
+  color: var(--gold);
+}
+.weeklyBossLocationNight img {
+  width: 30px;
+}
+.weeklyBossLocationNight > div {
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.weeklyBossAllRewardsNight {
+  /* border: 3px solid yellow; */
+  width: 65%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.weeklyBossAllRewardsNight h3 {
+  /* border: 3px solid pink; */
+  background-color: var(--gold);
+  border-right: 1px solid black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+  width: 19%;
+  text-align: center;
+  border-radius: 17px 0 0 17px;
+}
+
+.weeklyBossUniqueMaterialsNight {
+  /* border: 2px solid white; */
+  background-color: var(--moduleLightDark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+}
+.weeklyBossUniqueMaterialsNight > div {
+  /* border: 3px solid yellowgreen; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+  padding: 5px;
+}
+.weeklyBossUniqueMaterialsNight > div > div {
+  /* border: 3px solid purple; */
+  background-color: var(--moduleDark);
+  display: flex;
+  gap: 20px;
+  border-radius: 12px;
+}
+.uniqueMaterialsIconNight {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  text-align: center;
+  background-color: var(--star5);
+  border-radius: 12px;
+}
+.uniqueMaterialsIconNight > img {
+  width: 100%;
+  object-fit: contain;
+}
+.uniqueMaterialsIconNight > p {
+  background-color: var(--bcgdark);
+  width: 100%;
+  padding: 6px 3px;
+  font-size: 13px;
+  border-radius: 0 0 8px 8px;
+}
+.uniqueMaterialsCharacterNight {
+  /* border: 3px solid darkorange; */
+  display: flex;
+  gap: 8px;
+  padding: 3px;
+  align-items: center;
+}
+.uniqueMaterialsCharacterNight > div {
+  border: 2px solid var(--moduleDark);
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* height: 110px; */
+  width: 80px;
+  border-radius: 6px;
+}
+.uniqueMaterialsCharacterNight > div:hover {
+  border: 2px solid var(--moduleLight);
+  cursor: pointer;
+  color: var(--blue);
+}
+.uniqueMaterialsCharacterNight > div > img {
+  /* border: 5px solid blue; */
+  width: 100%;
+}
+.uniqueMaterialsCharacterNight > div > p {
+  height: 30px;
+  font-size: 12px;
+  background-color: var(--bcgdark);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5px;
+  border-radius: 0 0 4px 4px;
+}
+
+.weeklyBossAscensionMaterialsNight {
+  /* border: 3px solid green; */
+  background-color: var(--moduleLightDark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+.weeklyBossAscensionMaterialsNight > div {
+  /* border: 4px solid purple; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  padding: 8px;
+  gap: 4px;
+  width: 80%;
+}
+.weeklyBossAscensionMaterialsNight > div > div {
+  /* border: 2px solid orange; */
+  background-color: var(--gray);
+  width: calc((100% - 24px) / 6);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 8px;
+  /* padding: 3px; */
+}
+.weeklyBossAscensionMaterialsNight img {
+  width: 100%;
+}
+.weeklyBossAscensionMaterialsNight p {
+  background-color: var(--bcgdark);
+  border-radius: 0 0 5px 5px;
+  padding: 4px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+/* -------------------------------- */
+/* -------------------------------- */
+/* ------------ FOOTER ------------ */
+/* -------------------------------- */
+/* -------------------------------- */
+footer {
+  padding: 30px;
+  margin-top: 40px;
+  border-top: 1px solid lightgray;
+  background-color: #190d33;
+  color: white;
+}
+footer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+footer > div > div:first-of-type {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 50px;
+  border-bottom: 1px solid #333333;
+  padding-bottom: 10px;
+}
+
+.footerDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footerDescription > p:first-of-type {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.footerLink {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.footerLink > p:first-child {
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+footer a:hover {
+  cursor: pointer;
+  color: var(--orange);
+}
+
+/* ----------------------------------- */
+/* ----------------------------------- */
+/* ----------- MEDIA QUERY ----------- */
+/* ----------------------------------- */
+/* ----------------------------------- */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 95%;
+  }
+}
+
+/* ----------- MEDIA 500PX ----------- */
+@media (max-width: 500px) {
+  footer > div > div:first-of-type {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .footerDescription {
+    align-items: center;
+  }
+  .footerMe {
+    text-align: center;
+  }
+}
