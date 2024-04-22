@@ -29,7 +29,7 @@ const WeeklyBossDetails = () => {
         const { data } = await axios.get(
           `http://localhost:3000/boss/weekly/details?id=${id}`
         );
-        console.log(data);
+        // console.log(data);
 
         setBossDetails(data);
         setIsLoading(false);
@@ -99,6 +99,12 @@ const WeeklyBossDetails = () => {
               <img src={bossDetails?.art2} alt="artwork boss" />
             )}
 
+            <div className="weeklyBossTextNight">
+              {bossDetails?.description.map((description, index) => {
+                return <div key={index}>{description.text}</div>;
+              })}
+            </div>
+
             <div>
               <div className="weeklyBossElementNight">
                 <p>Éléments</p>
@@ -127,6 +133,7 @@ const WeeklyBossDetails = () => {
           </div>
 
           <div className="weeklyBossAllRewardsNight">
+            <h2>Récompenses du Boss</h2>
             <div className="weeklyBossUniqueMaterialsNight">
               <h3>Matériaux d'amélioration de personnage</h3>
               <div>

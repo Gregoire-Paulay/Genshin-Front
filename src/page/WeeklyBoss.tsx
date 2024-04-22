@@ -55,7 +55,7 @@ const WeeklyBoss = (): JSX.Element => {
     <div className="container">
       {theme === "night" ? (
         <div>
-          <h1>Liste des Boss hebdomadaires</h1>
+          <h1 className="weeklyBossTitleNight">Liste des Boss hebdomadaires</h1>
           <div className="allWeeklyBossNight">
             {bossData?.map((boss) => {
               return (

@@ -1,20 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { ZodError, z } from "zod";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useThemeContext } from "../context/theme-context";
 import HashLoader from "react-spinners/HashLoader";
 
 //Type
-import { normalBossListSchema } from "../Schema/NormalBossSchema";
-type NormalBoss = z.infer<typeof normalBossListSchema>;
+import { normalBossSchema } from "../Schema/NormalBossSchema";
+type NormalBoss = z.infer<typeof normalBossSchema>;
 
-// Fonction
-import { sortBossAlphabetically } from "../utils/sortFunction";
-
-const NormalBoss = (): JSX.Element => {
+const NormalBossDetails = (): JSX.Element => {
+  const { id } = useParams();
   const { theme } = useThemeContext();
-  const navigate = useNavigate();
 
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -24,10 +22,10 @@ const NormalBoss = (): JSX.Element => {
     const fetchData = async () => {
       try {
         setError(null);
-        const { data } = await axios.get(`http://localhost:3000/boss/normal`);
+        const { data } = await axios.get(
+          `http://localhost:3000/boss/normal/details?id=${id}`
+        );
         console.log(data);
-
-        sortBossAlphabetically(data);
 
         setBossData(data);
         setIsLoading(false);
@@ -59,30 +57,41 @@ const NormalBoss = (): JSX.Element => {
 
   return (
     <div className="container">
+      {/* <p>Élémentosaure abyssal morgivre</p>
+      <p>Élémentosaure abyssal mangéclair</p> */}
       {theme === "night" ? (
-        <div>
-          <h1 className="normalBossTitleNight">Liste des Boss de monde</h1>
-          <div className="allNormalBossNight">
-            {bossData?.map((boss) => {
-              return (
-                <div
-                  key={boss.id}
-                  onClick={() => {
-                    navigate("/NormalBoss/Details/" + boss.id);
-                  }}
-                >
-                  <img src={boss.icon} alt="icon boss" />
-                  <p>{boss.name}</p>
-                </div>
-              );
-            })}
+        <div className="normalBossDetailsNight">
+          <div className="normalBossDescriptionNight">
+            <h2>{bossData?.name}</h2>
+            <h6>{bossData?.title}</h6>
+            <img src={bossData?.art} alt="artwork boss" />
+
+            <div className="normalBossTextNight">
+              {bossData?.description.map((description, index) => {
+                return <div key={index}>{description.text}</div>;
+              })}
+            </div>
+
+            <div></div>
           </div>
+
+          <div>Récompenses</div>
         </div>
       ) : (
-        ""
+        <div>Jour</div>
       )}
+
+      {/* <div>
+                  {boss.uniqueRewards.length ? (
+                    boss.uniqueRewards.map((reward) => {
+                      return <div>{reward.name} </div>;
+                    })
+                  ) : (
+                    <p>{boss.uniqueRewards.name}</p>
+                  )}
+                </div> */}
     </div>
   );
 };
 
-export default NormalBoss;
+export default NormalBossDetails;

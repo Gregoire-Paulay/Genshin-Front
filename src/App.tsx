@@ -14,6 +14,7 @@ import CharactersDetails from "./page/CharacterDetails";
 import WeeklyBoss from "./page/WeeklyBoss";
 import WeeklyBossDetails from "./page/WeeklyBossDetails";
 import NormalBoss from "./page/NormalBoss";
+import NormalBossDetails from "./page/NormalBossDetails";
 
 function App() {
   const { theme } = useThemeContext();
@@ -36,7 +37,10 @@ function App() {
             element={<WeeklyBossDetails />}
           ></Route>
           <Route path="/NormalBoss" element={<NormalBoss />}></Route>
-          <Route></Route>
+          <Route
+            path="/NormalBoss/Details/:id"
+            element={<NormalBossDetails />}
+          ></Route>
           <Route></Route>
           <Route></Route>
           <Route></Route>

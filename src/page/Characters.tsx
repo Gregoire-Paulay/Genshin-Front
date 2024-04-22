@@ -20,7 +20,7 @@ type Element =
 type Rarity = 4 | 5;
 
 // Fonction
-import { sortCharacterAlphabetically } from "../utils/sortCharacters";
+import { sortCharacterAlphabetically } from "../utils/sortFunction";
 
 const Characters = (): JSX.Element => {
   const { theme } = useThemeContext();

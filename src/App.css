@@ -9,10 +9,11 @@
   --light: white;
   --moduleLight: #f2ece7;
   --orange: #dea923;
-  --gold: #deb76c;
+  --gold: #e7b14c;
   --star4: #9776b3;
   --star5: #b48252;
   --blue: #60a5fa;
+  --bcgBlue: #64a1eb;
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -27,7 +28,6 @@ body {
 h1 {
   font-size: 32px;
   font-weight: bold;
-  padding-bottom: 25px;
   text-align: center;
 }
 h2 {
@@ -404,6 +404,15 @@ header img:hover {
 /* -------------------------------- */
 /* ---- Page Liste Weekly Boss ---- */
 /* -------------------------------- */
+.weeklyBossTitleNight {
+  color: black;
+  background-color: var(--gold);
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
 .allWeeklyBossNight {
   /* border: 2px solid pink; */
   display: flex;
@@ -444,6 +453,7 @@ header img:hover {
 .weeklyBossIconNight > p {
   font-size: 25px;
   font-weight: bold;
+  text-align: center;
 }
 
 .allRewardsNight {
@@ -595,6 +605,22 @@ header img:hover {
   width: 100%;
   background-color: var(--bcgdark);
 }
+
+.weeklyBossTextNight {
+  /* border: 3px solid purple; */
+  background-color: var(--moduleDarkBlue);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 6px;
+  gap: 8px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid var(--gold);
+}
+.weeklyBossTextNight > div {
+  /* border: 3px solid darkcyan; */
+  font-size: 13px;
+}
+
 .weeklyBossElementNight {
   /* border: 3px solid limegreen; */
   display: flex;
@@ -652,12 +678,22 @@ header img:hover {
   gap: 5px;
 }
 
+/* ----------- Rewards ------------ */
 .weeklyBossAllRewardsNight {
   /* border: 3px solid yellow; */
   width: 65%;
-  padding: 5px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.weeklyBossAllRewardsNight > h2 {
+  color: black;
+  background-color: var(--bcgBlue);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border-radius: 15px;
 }
 .weeklyBossAllRewardsNight h3 {
   /* border: 3px solid pink; */
@@ -765,7 +801,6 @@ header img:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
   border-radius: 20px;
 }
 .weeklyBossAscensionMaterialsNight > div {
@@ -797,6 +832,74 @@ header img:hover {
   height: 42px;
   display: flex;
   align-items: center;
+}
+
+/* -------------------------------- */
+/* ---- Page Liste Normal Boss ---- */
+/* -------------------------------- */
+.normalBossTitleNight {
+  color: black;
+  background-color: var(--gold);
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+.allNormalBossNight {
+  border: 2px solid var(--gold);
+  background-color: var(--moduleLightDark);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px 15px;
+  border-radius: 25px;
+}
+.allNormalBossNight > div {
+  border: 2px solid var(--moduleLightDark);
+  width: calc((100% - 75px) / 5);
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+.allNormalBossNight > div:hover {
+  border: 2px solid var(--moduleLight);
+  cursor: pointer;
+}
+.allNormalBossNight img {
+  background-color: var(--bcgdark);
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+.allNormalBossNight p {
+  /* border: 2px solid purple; */
+  background-color: var(--moduleDark);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 0 0 12px 12px;
+}
+
+/* -------------------------------- */
+/* --- Page Détails Normal Boss --- */
+/* -------------------------------- */
+.normalBossDetailsNight {
+  border: 4px solid yellow;
+  display: flex;
+}
+.normalBossDescriptionNight {
+  border: 3px solid purple;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+.normalBossDescriptionNight img {
+  width: 100%;
 }
 
 /* -------------------------------- */

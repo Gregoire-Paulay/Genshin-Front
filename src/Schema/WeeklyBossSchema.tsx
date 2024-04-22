@@ -24,6 +24,7 @@ export const WeeklyBossDetailsSchema = z.object({
   art: z.string().url(),
   art2: z.string(),
   title: z.string(),
+  description: z.array(z.object({ text: z.string() })),
   element: z.array(z.object({ name: z.string(), icon: z.string().url() })),
   region: z.object({
     name: z.string(),
