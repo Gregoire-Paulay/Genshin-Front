@@ -13,13 +13,25 @@ export const CharactersListSchema = z.array(
 export const CharacterDetailsSchema = z.object({
   id: z.string(),
   name: z.string(),
-  title: z.string(),
+  release_date: z.string(),
   star: z.number(),
+  title: z.string(),
+  other_title: z.array(z.object({ name: z.string() })),
+  real_name: z.string().optional(),
+  description: z.string(),
   art: z.string().url(),
   icon: z.string().url(),
-  weapon: z.object({ type: z.string(), icon: z.string() }),
-  element: z.object({ type: z.string(), icon: z.string() }),
-  region: z.object({ name: z.string(), icon: z.string() }),
+  wish: z.string().url().optional(),
+  archon: z.string().url().optional(),
+  element: z.object({ type: z.string(), icon: z.string().url() }),
+  weapon: z.object({ type: z.string(), icon: z.string().url() }),
+  birthday: z.string(),
+  dish: z.object({ name: z.string(), icon: z.string() }).optional(),
+  namecard: z.object({ name: z.string(), icon: z.string() }).optional(),
+  affiliation: z.array(z.object({ name: z.string() })).optional(),
+  region: z.array(
+    z.object({ name: z.string(), icon: z.string().url().optional() })
+  ),
   ascension_materials: z.object({
     mora: z.object({
       name: z.string(),
@@ -194,7 +206,7 @@ export const CharacterDetailsSchema = z.object({
   constellation_upgrade: z.array(
     z.object({
       name: z.string(),
-      level: z.number(),
+      level: z.number().or(z.string()),
       description: z.object({
         text: z.string(),
         effect: z.array(z.object({ text: z.string() })).optional(),

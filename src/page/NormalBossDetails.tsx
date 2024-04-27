@@ -13,6 +13,7 @@ type NormalBoss = z.infer<typeof normalBossSchema>;
 const NormalBossDetails = (): JSX.Element => {
   const { id } = useParams();
   const { theme } = useThemeContext();
+  const navigate = useNavigate();
 
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -57,8 +58,6 @@ const NormalBossDetails = (): JSX.Element => {
 
   return (
     <div className="container">
-      {/* <p>Élémentosaure abyssal morgivre</p>
-      <p>Élémentosaure abyssal mangéclair</p> */}
       {theme === "night" ? (
         <div className="normalBossDetailsNight">
           <div className="normalBossDescriptionNight">
@@ -66,30 +65,100 @@ const NormalBossDetails = (): JSX.Element => {
             <h6>{bossData?.title}</h6>
             <img src={bossData?.art} alt="artwork boss" />
 
-            <div className="normalBossTextNight">
-              {bossData?.description.map((description, index) => {
-                return <div key={index}>{description.text}</div>;
-              })}
-            </div>
+            {bossData?.id === "B17" ? (
+              <div className="coralBossDescriptionNight">
+                <p>Élémentosaure abyssal morgivre</p>
+                <div>{bossData.description[0].text}</div>
+                <p>Élémentosaure abyssal mangéclair</p>
+                <div>{bossData.description[1].text}</div>
+              </div>
+            ) : (
+              <div className="normalBossTextNight">
+                {bossData?.description.map((description, index) => {
+                  return <div key={index}>{description.text}</div>;
+                })}
+              </div>
+            )}
 
-            <div></div>
+            {bossData?.element && (
+              <div className="normalBossElementNight">
+                <p>Éléments</p>
+                <div>
+                  {bossData?.element.map((element) => {
+                    return (
+                      <div key={element.name}>
+                        <img src={element.icon} alt="icon élément" />
+                        <p>{element.name}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            <div className="normalBossLocationNight">
+              <p>Localisations</p>
+              <div>
+                <img src={bossData?.region.icon} alt="icon region" />
+                <p>
+                  {bossData?.region.name} - {bossData?.region.location}
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div>Récompenses</div>
+          <div className="normalBossAllRewardsNight">
+            <h2>Récompenses du Boss</h2>
+            <div className="normalBossUniqueMaterialsNight">
+              <h3>Matériaux d'amélioration de personnage</h3>
+              <div>
+                {bossData?.uniqueRewards.map((rewards) => {
+                  return (
+                    <div key={rewards.name}>
+                      <div className="uniqueMaterialsIconNight">
+                        <img src={rewards.icon} alt="icon rewards" />
+                        <p>{rewards.name}</p>
+                      </div>
+
+                      <div className="uniqueMaterialsNormalBossCharacterNight">
+                        {rewards.character.map((character) => {
+                          return (
+                            <div
+                              key={character.id}
+                              onClick={() => {
+                                navigate("/Characters/Details/" + character.id);
+                              }}
+                            >
+                              <img src={character.icon} alt="icon character" />
+                              <p>{character.name}</p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="normalBossAscensionMaterialsNight">
+              <h3>Matériaux d'élévation de personnage</h3>
+              <div>
+                {bossData?.rewards.map((reward) => {
+                  return (
+                    <div key={reward.name}>
+                      <img src={reward.icon} alt="icon récompense" />
+                      <p>{reward.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <div>Jour</div>
       )}
-
-      {/* <div>
-                  {boss.uniqueRewards.length ? (
-                    boss.uniqueRewards.map((reward) => {
-                      return <div>{reward.name} </div>;
-                    })
-                  ) : (
-                    <p>{boss.uniqueRewards.name}</p>
-                  )}
-                </div> */}
     </div>
   );
 };

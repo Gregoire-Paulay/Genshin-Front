@@ -1,4 +1,4 @@
-/* ------------ GENERAL ----------- */
+/* ---------- GENERAL ---------- */
 :root {
   --bcgdark: #1a1d24;
   --moduleDark: #272935;
@@ -48,7 +48,7 @@ h6 {
   color: gold;
 }
 
-/* ---- Gestion light/dark mode --- */
+/* -- Gestion light/dark mode -- */
 .night {
   background-color: var(--bcgdark);
   color: var(--light);
@@ -93,11 +93,35 @@ h6 {
   background-color: gray;
 }
 
-/* -------------------------------- */
-/* -------------------------------- */
-/* ------------ HEADER ------------ */
-/* -------------------------------- */
-/* -------------------------------- */
+/* --- Icone Unique Materials -- */
+.uniqueMaterialsIconNight {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  text-align: center;
+  background-color: var(--star5);
+  border-radius: 12px;
+  > img {
+    width: 100%;
+    object-fit: contain;
+  }
+  > p {
+    background-color: var(--bcgdark);
+    width: 100%;
+    padding: 6px 3px;
+    font-size: 13px;
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------- HEADER ---------- */
+/* ----------------------------- */
+/* ----------------------------- */
 header {
   border-bottom: 1px solid lightgray;
   /* border: 3px solid red; */
@@ -106,13 +130,13 @@ header {
   gap: 30px;
   padding: 15px 0;
   margin-bottom: 40px;
-}
-header img {
-  width: 250px;
-  height: 100px;
-}
-header img:hover {
-  cursor: pointer;
+  img {
+    width: 250px;
+    height: 100px;
+  }
+  img:hover {
+    cursor: pointer;
+  }
 }
 
 .headerNav {
@@ -120,26 +144,26 @@ header img:hover {
   display: flex;
   width: 60%;
   justify-content: space-between;
+  > p {
+    border: 1px solid black;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  > p:hover {
+    cursor: pointer;
+    color: #ffcc03;
+  }
 }
-.headerNav > p {
-  border: 1px solid black;
-  font-size: 25px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-.headerNav > p:hover {
-  cursor: pointer;
-  color: #ffcc03;
-}
-/* -------------------------------- */
-/* -------------------------------- */
-/* ------------- MAIN ------------- */
-/* -------------------------------- */
-/* -------------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------- MAIN ------------ */
+/* ----------------------------- */
+/* ----------------------------- */
 
-/* -------------------------------- */
-/* ---- Page Liste Personnages ---- */
-/* -------------------------------- */
+/* ----------------------------- */
+/* --- Page Liste Personnages -- */
+/* ----------------------------- */
 .allFilters {
   background-color: var(--moduleLightDark);
   padding: 12px;
@@ -151,16 +175,20 @@ header img:hover {
   /* border: 1px solid blue; */
   display: flex;
   justify-content: flex-end;
-}
-.showFiltersNight > button {
-  border: 2px solid var(--moduleLightDark);
-  margin-bottom: 15px;
-  background-color: var(--moduleLightDark);
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 5px 8px;
-  border-radius: 9px;
+  > button {
+    border: 2px solid var(--moduleLightDark);
+    margin-bottom: 15px;
+    background-color: var(--moduleLightDark);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 9px;
+  }
+  > button:hover {
+    cursor: pointer;
+    border: 2px solid var(--blue);
+  }
 }
 .hideFiltersNight {
   position: absolute;
@@ -168,41 +196,41 @@ header img:hover {
   right: 12px;
   display: flex;
   gap: 12px;
-}
-.hideFiltersNight > button {
-  border: 2px solid var(--bcgdark);
-
-  background-color: var(--bcgdark);
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 5px 8px;
-  border-radius: 9px;
-}
-.hideFiltersNight > button:hover {
-  cursor: pointer;
-  border: 2px solid var(--blue);
+  > button {
+    border: 2px solid var(--bcgdark);
+    background-color: var(--bcgdark);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 8px;
+    border-radius: 9px;
+  }
+  > button:hover {
+    cursor: pointer;
+    border: 2px solid var(--blue);
+  }
 }
 .filtersNight {
   display: flex;
   gap: 12px;
-}
-.filtersNight > div {
-  border: 2px solid var(--moduleDark);
-  background-color: var(--bcgdark);
-  display: flex;
-  padding: 3px 5px;
-  border-radius: 7px;
-  gap: 4px;
-  align-items: center;
-  justify-content: center;
-}
-.filtersNight img {
-  height: 20px;
-}
-.filtersNight > div:hover {
-  cursor: pointer;
-  border: 2px solid var(--moduleLight);
+  > div {
+    border: 2px solid var(--moduleDark);
+    background-color: var(--bcgdark);
+    display: flex;
+    padding: 3px 5px;
+    border-radius: 7px;
+    font-size: 16px;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+  }
+  > div:hover {
+    cursor: pointer;
+    border: 2px solid var(--moduleLight);
+  }
+  img {
+    height: 20px;
+  }
 }
 
 .characterListNight {
@@ -213,26 +241,38 @@ header img:hover {
   background-color: var(--moduleLightDark);
   padding: 20px 0;
   border-radius: 25px;
-  border: 2px solid rgb(116, 100, 10);
-}
-.characterBigButtonNight {
-  border: 3px solid var(--bcgdark);
-  background-color: var(--moduleGrayBlue);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  width: 180px;
-  color: white;
-}
-.characterBigButtonNight:hover {
-  cursor: pointer;
-  border: 3px solid whitesmoke;
-  color: var(--blue);
-}
-.characterBigButtonNight > img:first-child {
-  /* border: 3px solid blue; */
-  height: 180px;
+  border: 2px solid var(--gold);
+  > div {
+    border: 3px solid var(--bcgdark);
+    background-color: var(--moduleGrayBlue);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 180px;
+    color: white;
+  }
+  > div:hover {
+    cursor: pointer;
+    border: 3px solid whitesmoke;
+    color: var(--blue);
+  }
+  > div > img:first-child {
+    /* border: 3px solid blue; */
+    height: 180px;
+  }
+  > div > p {
+    width: 100%;
+    padding: 5px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid black;
+  }
 }
 
 .characterListDay {
@@ -246,18 +286,6 @@ header img:hover {
   border: 2px solid #222222;
 }
 
-.characterName {
-  width: 100%;
-  padding: 5px;
-  height: 50px;
-  font-weight: bold;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-top: 1px solid black;
-}
 .star4BCG {
   width: 100%;
   background-color: var(--star4);
@@ -275,9 +303,9 @@ header img:hover {
   width: 35px;
 }
 
-/* -------------------------------- */
-/* --- Page Détail Personnages ---- */
-/* -------------------------------- */
+/* ----------------------------- */
+/* -- Page Détail Personnages -- */
+/* ----------------------------- */
 .characterDetailsNight {
   /* border: 3px solid red; */
   background-color: var(--moduleDark);
@@ -285,29 +313,29 @@ header img:hover {
   gap: 15px;
   padding: 20px;
   border-radius: 25px;
-}
-.characterDescriptionNight {
-  border: 2px solid var(--bcgdark);
-  background-color: var(--moduleLightDark);
-  padding: 8px;
-  border-radius: 12px;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  align-items: center;
-}
-.characterDescriptionNight > img {
-  height: 500px;
-  object-fit: contain;
-}
-.characterDescriptionNight > div {
-  /* border: 5px solid green; */
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
+  > div:first-of-type {
+    border: 2px solid var(--bcgdark);
+    background-color: var(--moduleLightDark);
+    padding: 8px;
+    border-radius: 12px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+  }
+  > div:first-of-type > img {
+    height: 500px;
+    object-fit: contain;
+  }
+  > div:first-of-type > div {
+    /* border: 5px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .descriptionDetailsNight {
@@ -317,15 +345,15 @@ header img:hover {
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-.descriptionDetailsNight > div {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  align-items: center;
-}
-.descriptionDetailsNight > div > img {
-  width: 25px;
+  > div {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+  }
+  > div > img {
+    width: 25px;
+  }
 }
 
 .allUpgradesNight {
@@ -337,28 +365,28 @@ header img:hover {
   gap: 20px;
   align-items: center;
   padding: 0 0 10px 0;
-}
-.allUpgradesNight > div:first-child {
-  /* border: 3px solid pink; */
-  background-color: var(--moduleDarkBlue);
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  font-size: 16px;
-  font-weight: bold;
-}
-.allUpgradesNight > div:first-child > p {
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  /* border: 2px solid blue; */
-  padding: 10px 0;
-}
-.allUpgradesNight > div:first-child > p:hover {
-  cursor: pointer;
-  background-color: var(--bcgdark);
+  > div:first-child {
+    /* border: 3px solid pink; */
+    background-color: var(--moduleDarkBlue);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  > div:first-child > p {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 2px solid blue; */
+    padding: 10px 0;
+  }
+  > div:first-child > p:hover {
+    cursor: pointer;
+    background-color: var(--bcgdark);
+  }
 }
 
 .allTalentsNight {
@@ -378,32 +406,38 @@ header img:hover {
   width: 97%;
   margin-bottom: 6px;
   font-size: 14px;
-}
-.talentsNight > div:first-child {
-  /* border: 2px solid lightcoral; */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.talentsNight > div > p:first-child {
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
+  > div:first-child {
+    /* border: 2px solid lightcoral; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  > div > p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+  }
 }
 
 .talentsDescriptionNight {
   border: 2px solid yellowgreen;
+  padding: 5px;
   /* margin-top: 8px; */
+  > div {
+    border: 2px solid coral;
+  }
 }
 .talentsTitleNight {
+  /* border: 3px solid purple; */
   font-weight: bold;
   margin-top: 7px;
   margin-bottom: 2px;
+  font-size: 15px;
 }
 
-/* -------------------------------- */
-/* ---- Page Liste Weekly Boss ---- */
-/* -------------------------------- */
+/* ----------------------------- */
+/* -- Page Liste Weekly Boss --- */
+/* ----------------------------- */
 .weeklyBossTitleNight {
   color: black;
   background-color: var(--gold);
@@ -413,20 +447,21 @@ header img:hover {
   border-radius: 15px;
   margin-bottom: 10px;
 }
+
 .allWeeklyBossNight {
   /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
   gap: 30px;
   padding: 10px;
-}
-.allWeeklyBossNight > div {
-  /* border: 3px solid blue; */
-  display: flex;
-  padding: 8px;
-  border-radius: 20px;
-  gap: 20px;
-  background-color: var(--moduleLightDark);
+  > div {
+    /* border: 3px solid blue; */
+    display: flex;
+    padding: 8px;
+    border-radius: 20px;
+    gap: 20px;
+    background-color: var(--moduleLightDark);
+  }
 }
 
 .weeklyBossIconNight {
@@ -440,20 +475,20 @@ header img:hover {
   width: 300px;
   gap: 25px;
   padding: 10px;
+  > img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  > p {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+  }
 }
 .weeklyBossIconNight:hover {
   cursor: pointer;
   border: 2px solid var(--moduleLight);
   padding: 5px;
-}
-.weeklyBossIconNight > img {
-  width: 100%;
-  border-radius: 10px;
-}
-.weeklyBossIconNight > p {
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
 }
 
 .allRewardsNight {
@@ -465,13 +500,13 @@ header img:hover {
   width: 73%;
   background-color: var(--moduleDark);
   border-radius: 20px;
-}
-.allRewardsNight > div {
-  /* border: 3px solid purple; */
-  background-color: var(--moduleLightDark);
-  display: flex;
-  gap: 20px;
-  border-radius: 12px;
+  > div {
+    /* border: 3px solid purple; */
+    background-color: var(--moduleLightDark);
+    display: flex;
+    gap: 20px;
+    border-radius: 12px;
+  }
 }
 .rewardsIconNight {
   border: 2px solid black;
@@ -483,20 +518,20 @@ header img:hover {
   text-align: center;
   background-color: var(--star5);
   border-radius: 12px;
+  > img {
+    width: 100%;
+  }
+  > p {
+    background-color: var(--bcgdark);
+    width: 100%;
+    padding: 8px 5px;
+    font-size: 14px;
+    border-radius: 0 0 8px 8px;
+  }
 }
 .rewardsIconNight:hover {
   cursor: pointer;
   border: 2px solid var(--moduleLight);
-}
-.rewardsIconNight > img {
-  width: 100%;
-}
-.rewardsIconNight > p {
-  background-color: var(--bcgdark);
-  width: 100%;
-  padding: 8px 5px;
-  font-size: 14px;
-  border-radius: 0 0 8px 8px;
 }
 
 .charactersBossNight {
@@ -505,84 +540,46 @@ header img:hover {
   gap: 8px;
   padding: 3px;
   align-items: center;
-}
-.charactersBossNight > div {
-  border: 2px solid var(--moduleLightDark);
-  background-color: var(--gray);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 130px;
-  border-radius: 6px;
-}
-.charactersBossNight > div:hover {
-  border: 2px solid var(--moduleLight);
-  cursor: pointer;
-  color: var(--blue);
-}
-.charactersBossNight > div > img {
-  /* border: 5px solid blue; */
-  height: 100px;
-}
-.charactersBossNight > div > p {
-  height: 30px;
-  font-size: 14px;
-  background-color: var(--bcgdark);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-radius: 0 0 4px 4px;
+  > div {
+    border: 2px solid var(--moduleLightDark);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 130px;
+    border-radius: 6px;
+  }
+  > div:hover {
+    border: 2px solid var(--moduleLight);
+    cursor: pointer;
+    color: var(--blue);
+  }
+  > div > img {
+    /* border: 5px solid blue; */
+    height: 100px;
+  }
+  > div > p {
+    height: 30px;
+    font-size: 14px;
+    background-color: var(--bcgdark);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0 0 4px 4px;
+  }
 }
 
-/* -------------------------------- */
-/* --- Page Details Weekly Boss --- */
-/* -------------------------------- */
+/* ----------------------------- */
+/* - Page Details Weekly Boss -- */
+/* ----------------------------- */
 .weeklyBossDetailsNight {
   /* border: 5px solid red; */
   display: flex;
   gap: 20px;
-}
-
-.weeklyBossDescriptionNight {
-  border: 1px solid var(--gold);
-  background-color: var(--moduleDark);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  height: 100%;
-}
-.weeklyBossDescriptionNight > h2 {
-  background-color: var(--gold);
-  color: black;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  border-radius: 18px 18px 0 0;
-}
-.weeklyBossDescriptionNight > h6 {
-  background-color: var(--moduleGrayBlue);
-  color: var(--gold);
-  font-weight: bold;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 8px 0;
-}
-.weeklyBossDescriptionNight > div:first-of-type {
-  background-color: var(--moduleLightDark);
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  font-size: 15px;
-}
-.weeklyBossDescriptionNight > div:first-of-type:hover {
-  cursor: pointer;
 }
 
 .weeklyBossPictureChoiceNight {
@@ -600,10 +597,49 @@ header img:hover {
   padding: 6px 0;
   justify-content: center;
 }
-.weeklyBossDescriptionNight > img {
-  /* border: 2px solid pink; */
-  width: 100%;
-  background-color: var(--bcgdark);
+
+.weeklyBossDescriptionNight {
+  border: 1px solid var(--gold);
+  background-color: var(--moduleDark);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 100%;
+  > h2 {
+    background-color: var(--gold);
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 18px 18px 0 0;
+  }
+  > h6 {
+    background-color: var(--moduleGrayBlue);
+    color: var(--gold);
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  > div:first-of-type {
+    /* border: 3px solid blue; */
+    background-color: var(--moduleLightDark);
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 15px;
+  }
+  > div:first-of-type:hover {
+    cursor: pointer;
+  }
+  > img {
+    /* border: 2px solid pink; */
+    width: 100%;
+    background-color: var(--bcgdark);
+  }
 }
 
 .weeklyBossTextNight {
@@ -615,14 +651,14 @@ header img:hover {
   gap: 8px;
   border-top: 1px solid black;
   border-bottom: 1px solid var(--gold);
-}
-.weeklyBossTextNight > div {
-  /* border: 3px solid darkcyan; */
-  font-size: 13px;
+  > div {
+    /* border: 3px solid darkcyan; */
+    font-size: 13px;
+  }
 }
 
 .weeklyBossElementNight {
-  /* border: 3px solid limegreen; */
+  /* border: 3px solid purple; */
   display: flex;
   align-items: center;
   gap: 25px;
@@ -630,27 +666,32 @@ header img:hover {
   margin-left: 8px;
   margin-bottom: 25px;
   width: 100%;
-}
-.weeklyBossElementNight > p {
-  /* border: 2px solid yellow; */
-  width: 120px;
-  font-size: 17px;
-  color: var(--gold);
-}
-.weeklyBossElementNight > div {
-  /* border: 2px solid red; */
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.weeklyBossElementNight > div > div {
-  /* border: 2px solid blue; */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.weeklyBossElementNight img {
-  width: 30px;
+  > p {
+    /* border: 2px solid yellow; */
+    width: 120px;
+    font-size: 17px;
+    color: var(--gold);
+  }
+  > div {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 250px;
+  }
+  > div > div {
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  img {
+    width: 30px;
+  }
+  > div p {
+    /* border: 1px solid red; */
+    font-size: 15px;
+  }
 }
 
 .weeklyBossLocationNight {
@@ -661,24 +702,29 @@ header img:hover {
   margin-top: 10px;
   margin-left: 8px;
   margin-bottom: 15px;
-}
-.weeklyBossLocationNight > p {
-  /* border: 2px solid yellow; */
-  width: 120px;
-  font-size: 17px;
-  color: var(--gold);
-}
-.weeklyBossLocationNight img {
-  width: 30px;
-}
-.weeklyBossLocationNight > div {
-  /* border: 2px solid red; */
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  > p {
+    /* border: 2px solid yellow; */
+    width: 120px;
+    font-size: 17px;
+    color: var(--gold);
+  }
+  img {
+    width: 35px;
+  }
+  > div {
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 250px;
+  }
+  > div > p {
+    /* border: 2px solid palevioletred; */
+    font-size: 14px;
+  }
 }
 
-/* ----------- Rewards ------------ */
+/* --------- Rewards ----------- */
 .weeklyBossAllRewardsNight {
   /* border: 3px solid yellow; */
   width: 65%;
@@ -686,27 +732,27 @@ header img:hover {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-}
-.weeklyBossAllRewardsNight > h2 {
-  color: black;
-  background-color: var(--bcgBlue);
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  border-radius: 15px;
-}
-.weeklyBossAllRewardsNight h3 {
-  /* border: 3px solid pink; */
-  background-color: var(--gold);
-  border-right: 1px solid black;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  color: black;
-  font-size: 18px;
-  width: 19%;
-  text-align: center;
-  border-radius: 17px 0 0 17px;
+  > h2 {
+    color: black;
+    background-color: var(--bcgBlue);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  h3 {
+    /* border: 3px solid pink; */
+    background-color: var(--gold);
+    border-right: 1px solid black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 18px;
+    width: 19%;
+    text-align: center;
+    border-radius: 17px 0 0 17px;
+  }
 }
 
 .weeklyBossUniqueMaterialsNight {
@@ -716,83 +762,63 @@ header img:hover {
   justify-content: space-between;
   align-items: center;
   border-radius: 20px;
-}
-.weeklyBossUniqueMaterialsNight > div {
-  /* border: 3px solid yellowgreen; */
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 80%;
-  padding: 5px;
-}
-.weeklyBossUniqueMaterialsNight > div > div {
-  /* border: 3px solid purple; */
-  background-color: var(--moduleDark);
-  display: flex;
-  gap: 20px;
-  border-radius: 12px;
-}
-.uniqueMaterialsIconNight {
-  border: 2px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  text-align: center;
-  background-color: var(--star5);
-  border-radius: 12px;
-}
-.uniqueMaterialsIconNight > img {
   width: 100%;
-  object-fit: contain;
+  > div {
+    /* border: 3px solid yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 80%;
+    padding: 5px;
+  }
+  > div > div {
+    /* border: 3px solid purple; */
+    background-color: var(--moduleDark);
+    display: flex;
+    gap: 20px;
+    border-radius: 12px;
+  }
 }
-.uniqueMaterialsIconNight > p {
-  background-color: var(--bcgdark);
-  width: 100%;
-  padding: 6px 3px;
-  font-size: 13px;
-  border-radius: 0 0 8px 8px;
-}
+
 .uniqueMaterialsCharacterNight {
   /* border: 3px solid darkorange; */
   display: flex;
   gap: 8px;
   padding: 3px;
   align-items: center;
-}
-.uniqueMaterialsCharacterNight > div {
-  border: 2px solid var(--moduleDark);
-  background-color: var(--gray);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  /* height: 110px; */
-  width: 80px;
-  border-radius: 6px;
-}
-.uniqueMaterialsCharacterNight > div:hover {
-  border: 2px solid var(--moduleLight);
-  cursor: pointer;
-  color: var(--blue);
-}
-.uniqueMaterialsCharacterNight > div > img {
-  /* border: 5px solid blue; */
-  width: 100%;
-}
-.uniqueMaterialsCharacterNight > div > p {
-  height: 30px;
-  font-size: 12px;
-  background-color: var(--bcgdark);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 5px;
-  border-radius: 0 0 4px 4px;
+  > div {
+    border: 2px solid var(--moduleDark);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* height: 110px; */
+    width: 80px;
+    border-radius: 6px;
+  }
+  > div:hover {
+    border: 2px solid var(--moduleLight);
+    cursor: pointer;
+    color: var(--blue);
+  }
+  > div > img {
+    /* border: 5px solid blue; */
+    width: 100%;
+  }
+  > div > p {
+    height: 30px;
+    font-size: 12px;
+    background-color: var(--bcgdark);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5px;
+    border-radius: 0 0 4px 4px;
+  }
 }
 
 .weeklyBossAscensionMaterialsNight {
@@ -802,41 +828,41 @@ header img:hover {
   align-items: center;
   justify-content: space-between;
   border-radius: 20px;
-}
-.weeklyBossAscensionMaterialsNight > div {
-  /* border: 4px solid purple; */
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 5px;
-  padding: 8px;
-  gap: 4px;
-  width: 80%;
-}
-.weeklyBossAscensionMaterialsNight > div > div {
-  /* border: 2px solid orange; */
-  background-color: var(--gray);
-  width: calc((100% - 24px) / 6);
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  border-radius: 8px;
-  /* padding: 3px; */
-}
-.weeklyBossAscensionMaterialsNight img {
-  width: 100%;
-}
-.weeklyBossAscensionMaterialsNight p {
-  background-color: var(--bcgdark);
-  border-radius: 0 0 5px 5px;
-  padding: 4px;
-  height: 42px;
-  display: flex;
-  align-items: center;
+  > div {
+    /* border: 4px solid purple; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    padding: 8px;
+    gap: 4px;
+    width: 80%;
+  }
+  > div > div {
+    /* border: 2px solid orange; */
+    background-color: var(--gray);
+    width: calc((100% - 24px) / 6);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+    /* padding: 3px; */
+  }
+  img {
+    width: 100%;
+  }
+  p {
+    background-color: var(--bcgdark);
+    border-radius: 0 0 5px 5px;
+    padding: 4px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
 }
 
-/* -------------------------------- */
-/* ---- Page Liste Normal Boss ---- */
-/* -------------------------------- */
+/* ----------------------------- */
+/* -- Page Liste Normal Boss --- */
+/* ----------------------------- */
 .normalBossTitleNight {
   color: black;
   background-color: var(--gold);
@@ -846,6 +872,7 @@ header img:hover {
   border-radius: 15px;
   margin-bottom: 20px;
 }
+
 .allNormalBossNight {
   border: 2px solid var(--gold);
   background-color: var(--moduleLightDark);
@@ -854,124 +881,392 @@ header img:hover {
   gap: 15px;
   padding: 20px 15px;
   border-radius: 25px;
-}
-.allNormalBossNight > div {
-  border: 2px solid var(--moduleLightDark);
-  width: calc((100% - 75px) / 5);
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px;
-}
-.allNormalBossNight > div:hover {
-  border: 2px solid var(--moduleLight);
-  cursor: pointer;
-}
-.allNormalBossNight img {
-  background-color: var(--bcgdark);
-  width: 100%;
-  border-radius: 12px 12px 0 0;
-}
-.allNormalBossNight p {
-  /* border: 2px solid purple; */
-  background-color: var(--moduleDark);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  padding: 5px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 0 0 12px 12px;
+  > div {
+    border: 2px solid var(--moduleLightDark);
+    width: calc((100% - 75px) / 5);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+  }
+  > div:hover {
+    border: 2px solid var(--moduleLight);
+    cursor: pointer;
+  }
+  img {
+    background-color: var(--bcgdark);
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+  p {
+    /* border: 2px solid purple; */
+    background-color: var(--moduleDark);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 0 0 12px 12px;
+  }
 }
 
-/* -------------------------------- */
-/* --- Page Détails Normal Boss --- */
-/* -------------------------------- */
+/* ----------------------------- */
+/* -- Page Détails Normal Boss - */
+/* ----------------------------- */
 .normalBossDetailsNight {
-  border: 4px solid yellow;
+  /* border: 4px solid yellow; */
   display: flex;
+  gap: 20px;
 }
 .normalBossDescriptionNight {
-  border: 3px solid purple;
+  border: 2px solid var(--gold);
+  background-color: var(--moduleDark);
+  border-radius: 20px;
   width: 350px;
   display: flex;
   flex-direction: column;
-}
-.normalBossDescriptionNight img {
-  width: 100%;
+  > h2 {
+    /* border: 2px solid pink; */
+    background-color: var(--gold);
+    color: black;
+    text-align: center;
+    border-radius: 16px 16px 0 0;
+  }
+  > h6 {
+    background-color: var(--moduleGrayBlue);
+    color: var(--gold);
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  > img {
+    /* border: 3px solid red; */
+    background-color: var(--bcgdark);
+    width: 100%;
+  }
 }
 
-/* -------------------------------- */
-/* -------------------------------- */
-/* ------------ FOOTER ------------ */
-/* -------------------------------- */
-/* -------------------------------- */
+.normalBossTextNight {
+  /* border: 2px solid purple; */
+  background-color: var(--moduleDarkBlue);
+  border-top: 1px solid black;
+  border-bottom: 1px solid var(--gold);
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  > div {
+    /* border: 2px solid darkolivegreen; */
+    font-size: 13px;
+  }
+}
+.coralBossDescriptionNight {
+  /* border: 3px solid lightseagreen; */
+  background-color: var(--moduleDarkBlue);
+  border-top: 1px solid black;
+  border-bottom: 1px solid var(--gold);
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  > p {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  > div {
+    /* border: 2px solid darkolivegreen; */
+    font-size: 13px;
+  }
+  > div:first-of-type {
+    /* border: 2px solid red; */
+    margin-bottom: 11px;
+  }
+}
+
+.normalBossElementNight {
+  /* border: 3px solid purple; */
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-bottom: 25px;
+  width: 100%;
+  > p {
+    /* border: 2px solid yellow; */
+    width: 120px;
+    font-size: 17px;
+    color: var(--gold);
+  }
+  > div {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 250px;
+  }
+  > div > div {
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  img {
+    width: 30px;
+  }
+  > div p {
+    /* border: 1px solid red; */
+    font-size: 15px;
+  }
+}
+
+.normalBossLocationNight {
+  /* border: 3px solid limegreen; */
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-bottom: 15px;
+  > p {
+    /* border: 2px solid yellow; */
+    width: 120px;
+    font-size: 17px;
+    color: var(--gold);
+  }
+  img {
+    width: 35px;
+  }
+  > div {
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 250px;
+  }
+  > div > p {
+    /* border: 2px solid palevioletred; */
+    font-size: 14px;
+  }
+}
+
+/* --------- Rewards ----------- */
+.normalBossAllRewardsNight {
+  /* border: 3px solid yellow; */
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  > h2 {
+    color: black;
+    background-color: var(--bcgBlue);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  h3 {
+    /* border: 3px solid pink; */
+    background-color: var(--gold);
+    border-right: 1px solid black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 18px;
+    width: 19%;
+    text-align: center;
+    border-radius: 17px 0 0 17px;
+  }
+}
+
+.normalBossUniqueMaterialsNight {
+  /* border: 2px solid white; */
+  background-color: var(--moduleLightDark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  width: 100%;
+  > div {
+    /* border: 3px solid yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 81%;
+  }
+  > div > div {
+    /* border: 3px solid purple; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .uniqueMaterialsIconNight {
+    margin-top: 5px;
+  }
+}
+
+.uniqueMaterialsNormalBossCharacterNight {
+  /* border: 1px solid var(--gold); */
+  background-color: var(--moduleDark);
+  border-bottom-right-radius: 18px;
+  display: flex;
+  gap: 8px;
+  padding: 3px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  > div {
+    border: 2px solid var(--moduleDark);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* height: 110px; */
+    width: 90px;
+    border-radius: 6px;
+  }
+  > div:hover {
+    border: 2px solid var(--moduleLight);
+    cursor: pointer;
+    color: var(--blue);
+  }
+  > div > img {
+    /* border: 5px solid blue; */
+    width: 100%;
+  }
+  > div > p {
+    height: 30px;
+    font-size: 12px;
+    background-color: var(--bcgdark);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5px;
+    border-radius: 0 0 3px 3px;
+  }
+}
+
+.normalBossAscensionMaterialsNight {
+  /* border: 3px solid green; */
+  background-color: var(--moduleLightDark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  > div {
+    /* border: 4px solid purple; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    padding: 8px;
+    gap: 4px;
+    width: 80%;
+  }
+  > div > div {
+    /* border: 2px solid orange; */
+    background-color: var(--gray);
+    width: calc((100% - 24px) / 6);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+    /* padding: 3px; */
+  }
+  img {
+    width: 100%;
+  }
+  p {
+    background-color: var(--bcgdark);
+    border-radius: 0 0 5px 5px;
+    padding: 4px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ----------------------------- */
+/* ----------------------------- */
+/* ---------- FOOTER ----------- */
+/* ----------------------------- */
+/* ----------------------------- */
 footer {
   padding: 30px;
   margin-top: 40px;
   border-top: 1px solid lightgray;
   background-color: #190d33;
   color: white;
-}
-footer > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-footer > div > div:first-of-type {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  gap: 50px;
-  border-bottom: 1px solid #333333;
-  padding-bottom: 10px;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  > div > div:first-of-type {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 50px;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover {
+    cursor: pointer;
+    color: var(--orange);
+  }
 }
 
 .footerDescription {
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-.footerDescription > p:first-of-type {
-  font-weight: bold;
-  font-size: 20px;
-  margin-bottom: 8px;
+  > p:first-of-type {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
 }
 .footerLink {
   display: flex;
   flex-direction: column;
   gap: 6px;
-}
-.footerLink > p:first-child {
-  color: var(--orange);
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 9px;
-}
-
-footer a {
-  text-decoration: none;
-  color: white;
-}
-footer a:hover {
-  cursor: pointer;
-  color: var(--orange);
+  > p:first-child {
+    color: var(--orange);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 9px;
+  }
 }
 
-/* ----------------------------------- */
-/* ----------------------------------- */
-/* ----------- MEDIA QUERY ----------- */
-/* ----------------------------------- */
-/* ----------------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* -------- MEDIA QUERY -------- */
+/* ----------------------------- */
+/* ----------------------------- */
 @media (max-width: 1200px) {
   .container {
     max-width: 95%;
   }
 }
 
-/* ----------- MEDIA 500PX ----------- */
+/* -------- MEDIA 500PX -------- */
 @media (max-width: 500px) {
   footer > div > div:first-of-type {
     flex-direction: column;

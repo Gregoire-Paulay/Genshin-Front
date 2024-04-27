@@ -61,7 +61,7 @@ const CharactersDetails = () => {
     <div className="container">
       {theme === "night" ? (
         <div className="characterDetailsNight">
-          <div className="characterDescriptionNight">
+          <div>
             <h2>{characterDetails?.name}</h2>
             <p>{characterDetails?.title}</p>
             <img src={characterDetails?.art} alt="" />

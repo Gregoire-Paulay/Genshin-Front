@@ -270,7 +270,6 @@ const Characters = (): JSX.Element => {
               return (
                 <div
                   key={character.id}
-                  className="characterBigButtonNight"
                   onClick={() => {
                     navigate("/Characters/Details/" + character.id);
                   }}
@@ -285,7 +284,7 @@ const Characters = (): JSX.Element => {
                     alt="Élément personnages"
                     className="characterElement"
                   />
-                  <p className="characterName">{character.name}</p>
+                  <p>{character.name}</p>
                 </div>
               );
             })}

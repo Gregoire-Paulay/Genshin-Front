@@ -14,12 +14,17 @@ export const normalBossSchema = z.object({
   title: z.string().optional(),
   art: z.string().url(),
   icon: z.string().url(),
+  region: z.object({
+    name: z.string(),
+    icon: z.string().url(),
+    location: z.string(),
+  }),
   element: z
     .array(z.object({ name: z.string(), icon: z.string().url() }))
     .optional(),
   description: z.array(z.object({ text: z.string() })),
-  uniqueRewards: z
-    .object({
+  uniqueRewards: z.array(
+    z.object({
       name: z.string(),
       icon: z.string().url(),
       worldLevel: z.number(),
@@ -31,22 +36,7 @@ export const normalBossSchema = z.object({
         })
       ),
     })
-    .or(
-      z.array(
-        z.object({
-          name: z.string(),
-          icon: z.string().url(),
-          worldLevel: z.number(),
-          character: z.array(
-            z.object({
-              name: z.string(),
-              icon: z.string().url(),
-              id: z.string(),
-            })
-          ),
-        })
-      )
-    ),
+  ),
   rewards: z.array(
     z.object({
       name: z.string(),
