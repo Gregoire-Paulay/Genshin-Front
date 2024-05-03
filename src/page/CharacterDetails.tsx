@@ -25,11 +25,14 @@ const CharactersDetails = () => {
       try {
         setError(null);
         const { data } = await axios.get(
-          `http://localhost:3000/characters/details?id=${id}`
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/characters/details?id=${id}`
         );
-        console.log(data);
+        // console.log(data);
 
-        setCharactersDetails(data);
+        const characterDetailsParsed = CharacterDetailsSchema.parse(data);
+        console.log(characterDetailsParsed);
+
+        setCharactersDetails(characterDetailsParsed);
         setIsLoading(false);
       } catch (error) {
         if (error instanceof ZodError) {
@@ -99,8 +102,8 @@ const CharactersDetails = () => {
               <div className="descriptionDetailsNight">
                 <h6>Region</h6>
                 <div>
-                  <img src={characterDetails?.region.icon} alt="icon element" />
-                  <p>{characterDetails?.region.name}</p>
+                  {/* <img src={characterDetails?.region.icon} alt="icon element" />
+                  <p>{characterDetails?.region.name}</p> */}
                 </div>
               </div>
 

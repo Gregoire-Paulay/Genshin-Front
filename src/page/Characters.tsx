@@ -69,20 +69,26 @@ const Characters = (): JSX.Element => {
     const fetchData = async () => {
       try {
         setError(null);
-        const { data } = await axios.get(`http://localhost:3000/characters`);
+        const { data } = await axios.get(
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/characters`
+        );
         // console.log(data);
 
         // On se sert de la fonction pour trier par ordre alphabétique
         sortCharacterAlphabetically(data);
 
+        const allCharactersParsed = CharactersListSchema.parse(data);
+        console.log(allCharactersParsed);
+
         // Tri avec le filtre des éléments
         if (elementFilters || rarityFilters) {
-          setCharactersData(charatersFilters(data));
+          setIsLoading(true);
+          setCharactersData(charatersFilters(allCharactersParsed));
           setIsLoading(false);
           return;
         }
 
-        setCharactersData(data);
+        setCharactersData(allCharactersParsed);
         setIsLoading(false);
       } catch (error) {
         if (error instanceof ZodError) {
@@ -94,6 +100,7 @@ const Characters = (): JSX.Element => {
     };
     fetchData();
   }, [elementFilters, rarityFilters]);
+  // console.log("DATA", charactersData);
 
   if (error)
     return (

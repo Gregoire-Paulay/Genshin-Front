@@ -27,11 +27,14 @@ const WeeklyBossDetails = () => {
         setError(null);
 
         const { data } = await axios.get(
-          `http://localhost:3000/boss/weekly/details?id=${id}`
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/boss/weekly/details?id=${id}`
         );
         // console.log(data);
 
-        setBossDetails(data);
+        const weeklyBossDetailsParsed = WeeklyBossDetailsSchema.parse(data);
+        // console.log(weeklyBossDetailsParsed);
+
+        setBossDetails(weeklyBossDetailsParsed);
         setIsLoading(false);
       } catch (error) {
         if (error instanceof ZodError) {
@@ -146,7 +149,7 @@ const WeeklyBossDetails = () => {
                       </div>
 
                       <div className="uniqueMaterialsCharacterNight">
-                        {rewards.character.map((character) => {
+                        {rewards.character?.map((character) => {
                           return (
                             <div
                               key={character.id}
@@ -171,7 +174,12 @@ const WeeklyBossDetails = () => {
               <div>
                 {bossDetails?.rewards.map((reward) => {
                   return (
-                    <div key={reward.name}>
+                    <div
+                      key={reward.name}
+                      onClick={() => {
+                        navigate("/Stone/Details/" + reward.id);
+                      }}
+                    >
                       <img src={reward.icon} alt="icon récompense" />
                       <p>{reward.name}</p>
                     </div>

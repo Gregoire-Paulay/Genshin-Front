@@ -37,6 +37,13 @@ const Header = (): JSX.Element => {
           >
             Boss de monde
           </p>
+          <p
+            onClick={() => {
+              navigate("/NormalBoss");
+            }}
+          >
+            Matériaux d'aptitudes
+          </p>
         </div>
       </div>
     </header>

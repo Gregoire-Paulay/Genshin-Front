@@ -21,9 +21,15 @@ const WeeklyBoss = (): JSX.Element => {
     const fetchData = async () => {
       try {
         setError(null);
-        const { data } = await axios.get(`http://localhost:3000/boss/weekly`);
+        const { data } = await axios.get(
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/boss/weekly`
+        );
         // console.log(data);
-        setBossData(data);
+
+        const weeklyBossListParsed = WeeklyBossListSchema.parse(data);
+        // console.log(weeklyBossListParsed);
+
+        setBossData(weeklyBossListParsed);
         setIsLoading(false);
       } catch (error) {
         if (error instanceof ZodError) {
@@ -85,7 +91,7 @@ const WeeklyBoss = (): JSX.Element => {
                           </div>
 
                           <div className="charactersBossNight">
-                            {rewards.character.map((character) => {
+                            {rewards.character?.map((character) => {
                               return (
                                 <div
                                   key={character.id}
@@ -137,7 +143,7 @@ const WeeklyBoss = (): JSX.Element => {
                         </div>
 
                         <div className="charactersBoss">
-                          {rewards.character.map((character) => {
+                          {rewards.character?.map((character) => {
                             return (
                               <div
                                 key={character.id}

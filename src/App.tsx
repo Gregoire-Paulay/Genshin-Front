@@ -15,6 +15,7 @@ import WeeklyBoss from "./page/WeeklyBoss";
 import WeeklyBossDetails from "./page/WeeklyBossDetails";
 import NormalBoss from "./page/NormalBoss";
 import NormalBossDetails from "./page/NormalBossDetails";
+import StoneDetails from "./page/StoneDetails";
 
 function App() {
   const { theme } = useThemeContext();
@@ -41,6 +42,8 @@ function App() {
             path="/NormalBoss/Details/:id"
             element={<NormalBossDetails />}
           ></Route>
+          <Route path="/Stone/Details/:id" element={<StoneDetails />}></Route>
+          <Route></Route>
           <Route></Route>
           <Route></Route>
           <Route></Route>

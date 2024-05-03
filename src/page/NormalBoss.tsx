@@ -24,12 +24,17 @@ const NormalBoss = (): JSX.Element => {
     const fetchData = async () => {
       try {
         setError(null);
-        const { data } = await axios.get(`http://localhost:3000/boss/normal`);
-        console.log(data);
+        const { data } = await axios.get(
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/boss/normal`
+        );
+        // console.log(data);
 
         sortBossAlphabetically(data);
 
-        setBossData(data);
+        const normalBossListParsed = normalBossListSchema.parse(data);
+        // console.log(normalBossListParsed);
+
+        setBossData(normalBossListParsed);
         setIsLoading(false);
       } catch (error) {
         if (error instanceof ZodError) {

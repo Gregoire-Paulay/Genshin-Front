@@ -10,8 +10,11 @@
   --moduleLight: #f2ece7;
   --orange: #dea923;
   --gold: #e7b14c;
-  --star4: #9776b3;
-  --star5: #b48252;
+  --star1: #51545d;
+  --star2: #3f9154;
+  --star3: #3d85ac;
+  --star4: #885fa6;
+  --star5: #ac7d40;
   --blue: #60a5fa;
   --bcgBlue: #64a1eb;
 }
@@ -142,7 +145,6 @@ header {
 .headerNav {
   border: 2px solid green;
   display: flex;
-  width: 60%;
   justify-content: space-between;
   > p {
     border: 1px solid black;
@@ -734,7 +736,7 @@ header {
   gap: 20px;
   > h2 {
     color: black;
-    background-color: var(--bcgBlue);
+    background-color: var(--gold);
     display: flex;
     width: 100%;
     justify-content: center;
@@ -742,7 +744,7 @@ header {
   }
   h3 {
     /* border: 3px solid pink; */
-    background-color: var(--gold);
+    background-color: var(--bcgBlue);
     border-right: 1px solid black;
     height: 100%;
     display: flex;
@@ -838,6 +840,7 @@ header {
     width: 80%;
   }
   > div > div {
+    border: 2px solid var(--moduleLightDark);
     /* border: 2px solid orange; */
     background-color: var(--gray);
     width: calc((100% - 24px) / 6);
@@ -846,6 +849,10 @@ header {
     text-align: center;
     border-radius: 8px;
     /* padding: 3px; */
+  }
+  > div > div:hover {
+    cursor: pointer;
+    border: 2px solid var(--moduleLight);
   }
   img {
     width: 100%;
@@ -923,6 +930,7 @@ header {
 .normalBossDescriptionNight {
   border: 2px solid var(--gold);
   background-color: var(--moduleDark);
+  height: 100%;
   border-radius: 20px;
   width: 350px;
   display: flex;
@@ -1064,7 +1072,7 @@ header {
   gap: 20px;
   > h2 {
     color: black;
-    background-color: var(--bcgBlue);
+    background-color: var(--gold);
     display: flex;
     width: 100%;
     justify-content: center;
@@ -1072,7 +1080,7 @@ header {
   }
   h3 {
     /* border: 3px solid pink; */
-    background-color: var(--gold);
+    background-color: var(--bcgBlue);
     border-right: 1px solid black;
     height: 100%;
     display: flex;
@@ -1110,6 +1118,33 @@ header {
   }
   .uniqueMaterialsIconNight {
     margin-top: 5px;
+  }
+
+  .uniqueMaterialsIconNight2 {
+    /* border: 3px solid red; */
+    background-color: var(--moduleDark);
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    > div:first-of-type {
+      /* border: 3px solid coral; */
+      background-color: var(--star5);
+      display: flex;
+      flex-direction: column;
+      width: 160px;
+      border-radius: 9px;
+      > img {
+        width: 100%;
+      }
+      > p {
+        background-color: var(--bcgdark);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border-radius: 0 0 7px 7px;
+      }
+    }
   }
 }
 
@@ -1158,6 +1193,45 @@ header {
   }
 }
 
+.uniqueMaterialsNormalBossCharacterNight2 {
+  /* border: 3px solid darkcyan; */
+  background-color: var(--moduleDark);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  > div {
+    border: 1px solid var(--moduleDark);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* height: 110px; */
+    width: 110px;
+    border-radius: 6px;
+  }
+  > div:hover {
+    border: 2px solid var(--moduleLight);
+    cursor: pointer;
+    color: var(--blue);
+  }
+  > div > img {
+    /* border: 5px solid blue; */
+    width: 100%;
+  }
+  > div > p {
+    font-size: 12px;
+    background-color: var(--bcgdark);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 0 0 4px 4px;
+  }
+}
+
 .normalBossAscensionMaterialsNight {
   /* border: 3px solid green; */
   background-color: var(--moduleLightDark);
@@ -1175,6 +1249,7 @@ header {
     width: 80%;
   }
   > div > div {
+    border: 2px solid var(--moduleLightDark);
     /* border: 2px solid orange; */
     background-color: var(--gray);
     width: calc((100% - 24px) / 6);
@@ -1184,16 +1259,259 @@ header {
     border-radius: 8px;
     /* padding: 3px; */
   }
+  > div > div:hover {
+    cursor: pointer;
+    border: 2px solid var(--moduleLight);
+  }
   img {
     width: 100%;
   }
   p {
     background-color: var(--bcgdark);
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 6px 6px;
     padding: 4px;
     height: 42px;
     display: flex;
     align-items: center;
+  }
+}
+
+/* ----------------------------- */
+/* ----- Page Détails Stone ---- */
+/* ----------------------------- */
+.stoneNight {
+  /* border: 3px solid green; */
+  display: flex;
+  gap: 20px;
+}
+
+.stoneDescriptionNight {
+  border: 2px solid var(--gold);
+  background-color: var(--moduleDarkBlue);
+  border-radius: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  > h2 {
+    background-color: var(--gold);
+    color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 16px 16px 0 0;
+  }
+  > div:first-of-type {
+    /* border: 2px solid purple; */
+    background-color: var(--moduleGrayBlue);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    font-size: 17px;
+    width: 100%;
+  }
+  > div:first-of-type > p {
+    /* border: 1px solid darkorange; */
+    padding: 6px 8px;
+  }
+  > div:first-of-type > p:hover {
+    cursor: pointer;
+  }
+  > div:nth-of-type(3) {
+    /* border: 2px solid darkcyan; */
+    border-top: 1px solid black;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 90px;
+    padding: 5px;
+    font-size: 14px;
+  }
+  > div:nth-of-type(3) > img {
+    width: 45px;
+  }
+  > div:nth-of-type(4) {
+    /* border: 2px solid darkcyan; */
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 5px;
+    font-size: 14px;
+  }
+  > div:nth-of-type(4) > p {
+    text-align: center;
+    font-size: 13px;
+  }
+}
+.stonePictureChoiceNight {
+  border-bottom: 2px solid var(--gold);
+  color: var(--gold);
+}
+.pictureStoneNight {
+  /* border: 2px solid red; */
+  background-color: var(--bcgdark);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  > img {
+    width: 70%;
+  }
+}
+
+.stoneDetailsNight {
+  /* border: 2px solid blue; */
+  display: flex;
+  flex-direction: column;
+  > p {
+    background-color: var(--gold);
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    display: flex;
+    padding: 7px;
+    justify-content: center;
+    width: 100%;
+  }
+  > div {
+    /* border: 2px solid darkorchid; */
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px 5px 10px 5px;
+  }
+  > div > div {
+    /* border: 1px solid lightseagreen; */
+    display: flex;
+    gap: 8px;
+  }
+}
+
+/* ----------- LOOT ------------ */
+.stoneLootNight {
+  /* border: 2px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 880px;
+  > div {
+    border: 2px solid var(--gold);
+    /* border: 5px solid coral; */
+    width: 100%;
+    gap: 10px;
+    background-color: var(--moduleDark);
+    display: flex;
+    flex-direction: column;
+    border-radius: 17px;
+  }
+  > div > h3 {
+    background-color: var(--gold);
+    color: black;
+    display: flex;
+    justify-content: center;
+    border-radius: 13px 13px 0 0;
+  }
+  > div > div:nth-of-type(2) {
+    /* border: 4px solid limegreen; */
+    margin-bottom: 12px;
+  }
+}
+
+.stoneBossNight {
+  /* border: 3px solid red; */
+  background-color: var(--moduleLightDark);
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 15px;
+  > p {
+    /* border: 3px solid darkblue; */
+    background-color: var(--bcgBlue);
+    color: black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 12px;
+  }
+  > div {
+    /* border: 3px solid darkmagenta; */
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+    gap: 10px;
+  }
+}
+
+.stoneIconBossNight {
+  border: 1px solid var(--moduleLightDark);
+  /* border: 2px solid pink; */
+  width: calc((100% - 40px) / 5);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  > img {
+    width: 100%;
+    background-color: var(--gray);
+    border-radius: 9px 9px 0 0;
+  }
+  > p {
+    /* border: 2px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 0 0 9px 9px;
+    font-size: 12px;
+    padding: 3px 0;
+    height: 100%;
+    background-color: var(--bcgdark);
+  }
+}
+.stoneIconBossNight:hover {
+  cursor: pointer;
+  color: var(--blue);
+  border: 2px solid white;
+}
+
+.stoneCharacterNight {
+  /* padding: 20px; */
+  > div {
+    /* border: 3px solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 10px 10px 10px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+  > div > div {
+    /* border: 2px solid purple; */
+    border: 1px solid var(--moduleDark);
+    width: calc((100% - 60px) / 7);
+    border-radius: 8px;
+  }
+  > div > div:hover {
+    cursor: pointer;
+    color: var(--blue);
+    border: 2px solid var(--moduleLight);
+  }
+  img {
+    width: 100%;
+    background-color: var(--gray);
+    border-radius: 5px 5px 0 0;
+  }
+  p {
+    text-align: center;
+    background-color: var(--bcgdark);
+    padding: 3px 0;
+    border-radius: 0 0 5px 5px;
   }
 }
 
