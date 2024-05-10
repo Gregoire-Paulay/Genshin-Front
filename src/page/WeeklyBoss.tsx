@@ -59,67 +59,14 @@ const WeeklyBoss = (): JSX.Element => {
 
   return (
     <div className="container">
-      {theme === "night" ? (
-        <div>
-          <h1 className="weeklyBossTitleNight">Liste des Boss hebdomadaires</h1>
-          <div className="allWeeklyBossNight">
-            {bossData?.map((boss) => {
-              return (
-                <div key={boss.id}>
-                  <div
-                    className="weeklyBossIconNight"
-                    onClick={() => {
-                      navigate("/WeeklyBoss/Details/" + boss.id);
-                    }}
-                  >
-                    <img src={boss.icon} alt="icon boss" />
-                    <p>{boss.name}</p>
-                  </div>
-
-                  <div className="allRewardsNight">
-                    {boss.uniqueRewards.map((rewards) => {
-                      return (
-                        <div key={rewards.name}>
-                          <div
-                            className="rewardsIconNight"
-                            onClick={() => {
-                              navigate("/WeeklyBoss/Details/" + boss.id);
-                            }}
-                          >
-                            <img src={rewards.icon} alt="icon rewards" />
-                            <p>{rewards.name}</p>
-                          </div>
-
-                          <div className="charactersBossNight">
-                            {rewards.character?.map((character) => {
-                              return (
-                                <div
-                                  key={character.id}
-                                  onClick={() => {
-                                    navigate(
-                                      "/Characters/Details/" + character.id
-                                    );
-                                  }}
-                                >
-                                  <img
-                                    src={character.icon}
-                                    alt="icon character"
-                                  />
-                                  <p>{character.name}</p>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ) : (
+      <div>
+        <h1
+          className={
+            theme === "night" ? "weeklyBossTitleNight" : "weeklyBossTitleDay"
+          }
+        >
+          Liste des Boss hebdomadaires
+        </h1>
         <div className="allWeeklyBoss">
           {bossData?.map((boss) => {
             return (
@@ -133,13 +80,19 @@ const WeeklyBoss = (): JSX.Element => {
                   <img src={boss.icon} alt="icon boss" />
                   <p>{boss.name}</p>
                 </div>
+
                 <div className="allRewards">
                   {boss.uniqueRewards.map((rewards) => {
                     return (
                       <div key={rewards.name}>
-                        <div className="rewardsIcon">
-                          <p>{rewards.name}</p>
+                        <div
+                          className="rewardsIcon"
+                          onClick={() => {
+                            navigate("/WeeklyBoss/Details/" + boss.id);
+                          }}
+                        >
                           <img src={rewards.icon} alt="icon rewards" />
+                          <p>{rewards.name}</p>
                         </div>
 
                         <div className="charactersBoss">
@@ -170,7 +123,7 @@ const WeeklyBoss = (): JSX.Element => {
             );
           })}
         </div>
-      )}
+      </div>
     </div>
   );
 };

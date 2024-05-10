@@ -39,7 +39,7 @@ const Header = (): JSX.Element => {
           </p>
           <p
             onClick={() => {
-              navigate("/NormalBoss");
+              navigate("");
             }}
           >
             Matériaux d'aptitudes

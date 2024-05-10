@@ -24,6 +24,7 @@ const NormalBoss = (): JSX.Element => {
     const fetchData = async () => {
       try {
         setError(null);
+        // const { data } = await axios.get(`http://localhost:3000/boss/normal`);
         const { data } = await axios.get(
           `https://site--genshinapi--m8kkvg9l2hpy.code.run/boss/normal`
         );
@@ -64,28 +65,34 @@ const NormalBoss = (): JSX.Element => {
 
   return (
     <div className="container">
-      {theme === "night" ? (
-        <div>
-          <h1 className="normalBossTitleNight">Liste des Boss de monde</h1>
-          <div className="allNormalBossNight">
-            {bossData?.map((boss) => {
-              return (
-                <div
-                  key={boss.id}
-                  onClick={() => {
-                    navigate("/NormalBoss/Details/" + boss.id);
-                  }}
-                >
-                  <img src={boss.icon} alt="icon boss" />
-                  <p>{boss.name}</p>
-                </div>
-              );
-            })}
-          </div>
+      <div>
+        <h1
+          className={
+            theme === "night" ? "normalBossTitleNight" : "normalBossTitleDay"
+          }
+        >
+          Liste des Boss de monde
+        </h1>
+        <div
+          className={
+            theme === "night" ? "allNormalBossNight" : "allNormalBossDay"
+          }
+        >
+          {bossData?.map((boss) => {
+            return (
+              <div
+                key={boss.id}
+                onClick={() => {
+                  navigate("/NormalBoss/Details/" + boss.id);
+                }}
+              >
+                <img src={boss.icon} alt="icon boss" />
+                <p>{boss.name}</p>
+              </div>
+            );
+          })}
         </div>
-      ) : (
-        ""
-      )}
+      </div>
     </div>
   );
 };

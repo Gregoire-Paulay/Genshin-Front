@@ -24,8 +24,11 @@ const StoneDetails = (): JSX.Element => {
     const fetchData = async () => {
       try {
         setError(null);
+        // const { data } = await axios.get(
+        //   `https://site--genshinapi--m8kkvg9l2hpy.code.run/stone/details?id=${id}`
+        // );
         const { data } = await axios.get(
-          `https://site--genshinapi--m8kkvg9l2hpy.code.run/stone/details?id=${id}`
+          `http://localhost:3000/stone/details?id=${id}`
         );
         // console.log(data);
 
@@ -62,166 +65,197 @@ const StoneDetails = (): JSX.Element => {
 
   return (
     <div className="container">
-      {theme === "night" ? (
-        <div className="stoneNight">
-          <div className="stoneDescriptionNight">
-            <h2>{stoneData?.name}</h2>
+      <div className="stone">
+        <div
+          className={
+            theme === "night" ? "stoneDescriptionNight" : "stoneDescriptionDay"
+          }
+        >
+          <h2>{stoneData?.name}</h2>
+          <div>
+            <p
+              onClick={() => {
+                setPicture("Éclat");
+              }}
+              className={
+                picture === "Éclat"
+                  ? theme === "night"
+                    ? "stonePictureChoiceNight"
+                    : "stonePictureChoiceDay"
+                  : ""
+              }
+            >
+              Éclat
+            </p>
+            <p
+              onClick={() => {
+                setPicture("Fragment");
+              }}
+              className={
+                picture === "Fragment"
+                  ? theme === "night"
+                    ? "stonePictureChoiceNight"
+                    : "stonePictureChoiceDay"
+                  : ""
+              }
+            >
+              Fragment
+            </p>
+            <p
+              onClick={() => {
+                setPicture("Morceau");
+              }}
+              className={
+                picture === "Morceau"
+                  ? theme === "night"
+                    ? "stonePictureChoiceNight"
+                    : "stonePictureChoiceDay"
+                  : ""
+              }
+            >
+              Morceau
+            </p>
+            <p
+              onClick={() => {
+                setPicture("Pierre");
+              }}
+              className={
+                picture === "Pierre"
+                  ? theme === "night"
+                    ? "stonePictureChoiceNight"
+                    : "stonePictureChoiceDay"
+                  : ""
+              }
+            >
+              Pierre
+            </p>
+          </div>
+
+          <div
+            className={
+              theme === "night" ? "pictureStoneNight" : "pictureStoneDay"
+            }
+          >
+            {picture === "Éclat" && (
+              <img src={stoneData?.stone[0].icon} alt="picture éclat" />
+            )}
+            {picture === "Fragment" && (
+              <img src={stoneData?.stone[1].icon} alt="picture fragment" />
+            )}
+            {picture === "Morceau" && (
+              <img src={stoneData?.stone[2].icon} alt="picture morceau" />
+            )}
+            {picture === "Pierre" && (
+              <img src={stoneData?.stone[3].icon} alt="picture pierre" />
+            )}
+          </div>
+
+          <div>
+            <p>Élément</p>
+            <img src={stoneData?.icon} alt="élément" />
+          </div>
+
+          <div>
+            <p>Type</p>
+            <p>Matériau d'élévation de personnage</p>
+          </div>
+
+          <div className="stoneDetails">
+            <p className={theme === "light" ? "titleBackgroundBlue" : ""}>
+              Description
+            </p>
             <div>
-              <p
-                onClick={() => {
-                  setPicture("Éclat");
-                }}
-                className={picture === "Éclat" ? "stonePictureChoiceNight" : ""}
-              >
-                Éclat
-              </p>
-              <p
-                onClick={() => {
-                  setPicture("Fragment");
-                }}
-                className={
-                  picture === "Fragment" ? "stonePictureChoiceNight" : ""
-                }
-              >
-                Fragment
-              </p>
-              <p
-                onClick={() => {
-                  setPicture("Morceau");
-                }}
-                className={
-                  picture === "Morceau" ? "stonePictureChoiceNight" : ""
-                }
-              >
-                Morceau
-              </p>
-              <p
-                onClick={() => {
-                  setPicture("Pierre");
-                }}
-                className={
-                  picture === "Pierre" ? "stonePictureChoiceNight" : ""
-                }
-              >
-                Pierre
-              </p>
-            </div>
-
-            <div className="pictureStoneNight">
-              {picture === "Éclat" && (
-                <img src={stoneData?.stone[0].icon} alt="picture éclat" />
-              )}
-              {picture === "Fragment" && (
-                <img src={stoneData?.stone[1].icon} alt="picture fragment" />
-              )}
-              {picture === "Morceau" && (
-                <img src={stoneData?.stone[2].icon} alt="picture morceau" />
-              )}
-              {picture === "Pierre" && (
-                <img src={stoneData?.stone[3].icon} alt="picture pierre" />
-              )}
-            </div>
-
-            <div>
-              <p>Élément</p>
-              <img src={stoneData?.icon} alt="élément" />
-            </div>
-            <div>
-              <p>Type</p>
-              <p>Matériau d'élévation de personnage</p>
-            </div>
-
-            <div className="stoneDetailsNight">
-              <p>Description</p>
-              <div>
-                {stoneData?.description.map((description) => {
-                  return <div key={description.text}>{description.text}</div>;
-                })}
-              </div>
-            </div>
-
-            <div className="stoneDetailsNight">
-              <p>Obtention</p>
-              <div>
-                {stoneData?.obtainment.map((obtainment) => {
-                  return (
-                    <div key={obtainment.text}>
-                      <p>⏺</p> <p>{obtainment.text}</p>
-                    </div>
-                  );
-                })}
-              </div>
+              {stoneData?.description.map((description) => {
+                return <div key={description.text}>{description.text}</div>;
+              })}
             </div>
           </div>
 
-          <div className="stoneLootNight">
+          <div className="stoneDetails">
+            <p className={theme === "light" ? "titleBackgroundBlue" : ""}>
+              Obtention
+            </p>
             <div>
-              <h3>Obtention des {stoneData?.name}</h3>
-
-              <div className="stoneBossNight">
-                <p>Boss hebdomadaires</p>
-                <div>
-                  {stoneData?.weeklyBoss?.map((weeklyBoss) => {
-                    return (
-                      <div
-                        key={weeklyBoss.id}
-                        className="stoneIconBossNight"
-                        // onClick={() => {
-                        //   navigate("/WeeklyBoss/Details/" + weeklyBoss.id);
-                        // }}
-                      >
-                        <img src={weeklyBoss.icon} alt="icon boss" />
-                        <p>{weeklyBoss.name}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="stoneBossNight">
-                <p>Boss de monde</p>
-                <div>
-                  {stoneData?.normalBoss?.map((normalBoss) => {
-                    return (
-                      <div
-                        key={normalBoss.id}
-                        className="stoneIconBossNight"
-                        // onClick={() => {
-                        //   navigate("/NormalBoss/Details/" + normalBoss.id);
-                        // }}
-                      >
-                        <img src={normalBoss.icon} alt="icon boss" />
-                        <p>{normalBoss.name}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            <div className="stoneCharacterNight">
-              <h3>Ascension de personnages</h3>
-              <div>
-                {stoneData?.character.map((character) => {
-                  return (
-                    <div
-                      key={character.id}
-                      onClick={() => {
-                        navigate("/Characters/Details/" + character.id);
-                      }}
-                    >
-                      <img src={character.icon} alt="icon personnage" />
-                      <p>{character.name}</p>
-                    </div>
-                  );
-                })}
-              </div>
+              {stoneData?.obtainment.map((obtainment) => {
+                return (
+                  <div key={obtainment.text}>
+                    <p>⏺</p> <p>{obtainment.text}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
-      ) : (
-        <div>STONE LIGHT</div>
-      )}
+
+        <div className={theme === "night" ? "stoneLootNight" : "stoneLootDay"}>
+          <div>
+            <h3>Obtention des {stoneData?.name}</h3>
+
+            <div
+              className={theme === "night" ? "stoneBossNight" : "stoneBossDay"}
+            >
+              <p>Boss hebdomadaires</p>
+              <div>
+                {stoneData?.weeklyBoss?.map((weeklyBoss) => {
+                  return (
+                    <div
+                      key={weeklyBoss.id}
+                      className="stoneIconBoss"
+                      onClick={() => {
+                        navigate("/WeeklyBoss/Details/" + weeklyBoss.id);
+                      }}
+                    >
+                      <img src={weeklyBoss.icon} alt="icon boss" />
+                      <p>{weeklyBoss.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div
+              className={theme === "night" ? "stoneBossNight" : "stoneBossDay"}
+            >
+              <p>Boss de monde</p>
+              <div>
+                {stoneData?.normalBoss?.map((normalBoss) => {
+                  return (
+                    <div
+                      key={normalBoss.id}
+                      className="stoneIconBoss"
+                      onClick={() => {
+                        navigate("/NormalBoss/Details/" + normalBoss.id);
+                      }}
+                    >
+                      <img src={normalBoss.icon} alt="icon boss" />
+                      <p>{normalBoss.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="stoneCharacter">
+            <h3>Ascension de personnages</h3>
+            <div>
+              {stoneData?.character.map((character) => {
+                return (
+                  <div
+                    key={character.id}
+                    onClick={() => {
+                      navigate("/Characters/Details/" + character.id);
+                    }}
+                  >
+                    <img src={character.icon} alt="icon personnage" />
+                    <p>{character.name}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

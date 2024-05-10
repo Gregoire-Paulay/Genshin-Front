@@ -64,134 +64,167 @@ const WeeklyBossDetails = () => {
 
   return (
     <div className="container">
-      {theme === "night" ? (
-        <div className="weeklyBossDetailsNight">
-          <div className="weeklyBossDescriptionNight">
-            <h2>{bossDetails?.name}</h2>
-            <h6>{bossDetails?.title}</h6>
-            <div>
-              <p
-                onClick={() => {
-                  setPicture("archive");
-                }}
-                className={
-                  picture === "archive"
+      <div className="weeklyBossDetails">
+        <div
+          className={
+            theme === "night"
+              ? "weeklyBossDescriptionNight"
+              : "weeklyBossDescriptionDay"
+          }
+        >
+          <h2>{bossDetails?.name}</h2>
+          <h6>{bossDetails?.title}</h6>
+          <div>
+            <p
+              onClick={() => {
+                setPicture("archive");
+              }}
+              className={
+                picture === "archive"
+                  ? theme === "night"
                     ? "weeklyBossPictureChoiceBorderBottomNight"
-                    : "weeklyBossPictureChoiceNight"
-                }
-              >
-                Archive
-              </p>
-              <p
-                onClick={() => {
-                  setPicture("fullArt");
-                }}
-                className={
-                  picture === "fullArt"
+                    : "weeklyBossPictureChoiceBorderBottomDay"
+                  : "weeklyBossPictureChoice"
+              }
+            >
+              Archive
+            </p>
+            <p
+              onClick={() => {
+                setPicture("fullArt");
+              }}
+              className={
+                picture === "fullArt"
+                  ? theme === "night"
                     ? "weeklyBossPictureChoiceBorderBottomNight"
-                    : "weeklyBossPictureChoiceNight"
-                }
-              >
-                Full Art
-              </p>
-            </div>
-            {picture === "archive" && (
-              <img src={bossDetails?.art} alt="artwork boss" />
-            )}
-            {picture === "fullArt" && (
-              <img src={bossDetails?.art2} alt="artwork boss" />
-            )}
-
-            <div className="weeklyBossTextNight">
-              {bossDetails?.description.map((description, index) => {
-                return <div key={index}>{description.text}</div>;
-              })}
-            </div>
-
-            <div>
-              <div className="weeklyBossElementNight">
-                <p>Éléments</p>
-                <div>
-                  {bossDetails?.element.map((element) => {
-                    return (
-                      <div key={element.name}>
-                        <img src={element.icon} alt="icon élément" />
-                        <p>{element.name}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="weeklyBossLocationNight">
-                <p>Localisations</p>
-                <div>
-                  <img src={bossDetails?.region.icon} alt="icon region" />
-                  <p>
-                    {bossDetails?.region.name} - {bossDetails?.region.location}
-                  </p>
-                </div>
-              </div>
-            </div>
+                    : "weeklyBossPictureChoiceBorderBottomDay"
+                  : "weeklyBossPictureChoice"
+              }
+            >
+              Full Art
+            </p>
           </div>
 
-          <div className="weeklyBossAllRewardsNight">
-            <h2>Récompenses du Boss</h2>
-            <div className="weeklyBossUniqueMaterialsNight">
-              <h3>Matériaux d'amélioration de personnage</h3>
-              <div>
-                {bossDetails?.uniqueRewards.map((rewards) => {
-                  return (
-                    <div key={rewards.name}>
-                      <div className="uniqueMaterialsIconNight">
-                        <img src={rewards.icon} alt="icon rewards" />
-                        <p>{rewards.name}</p>
-                      </div>
+          {picture === "archive" && (
+            <img src={bossDetails?.art} alt="artwork boss" />
+          )}
+          {picture === "fullArt" && (
+            <img src={bossDetails?.art2} alt="artwork boss" />
+          )}
 
-                      <div className="uniqueMaterialsCharacterNight">
-                        {rewards.character?.map((character) => {
-                          return (
-                            <div
-                              key={character.id}
-                              onClick={() => {
-                                navigate("/Characters/Details/" + character.id);
-                              }}
-                            >
-                              <img src={character.icon} alt="icon character" />
-                              <p>{character.name}</p>
-                            </div>
-                          );
-                        })}
-                      </div>
+          <div
+            className={
+              theme === "night" ? "weeklyBossTextNight" : "weeklyBossTextDay"
+            }
+          >
+            {bossDetails?.description.map((description, index) => {
+              return <div key={index}>{description.text}</div>;
+            })}
+          </div>
+
+          <div>
+            <div className="weeklyBossElement">
+              <p className={theme === "light" ? "titleColorBlue" : ""}>
+                Éléments
+              </p>
+              <div>
+                {bossDetails?.element.map((element) => {
+                  return (
+                    <div key={element.name}>
+                      <img src={element.icon} alt="icon élément" />
+                      <p>{element.name}</p>
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            <div className="weeklyBossAscensionMaterialsNight">
-              <h3>Matériaux d'élévation de personnage</h3>
+            <div className="weeklyBossLocation">
+              <p className={theme === "light" ? "titleColorBlue" : ""}>
+                Localisations
+              </p>
               <div>
-                {bossDetails?.rewards.map((reward) => {
-                  return (
-                    <div
-                      key={reward.name}
-                      onClick={() => {
-                        navigate("/Stone/Details/" + reward.id);
-                      }}
-                    >
-                      <img src={reward.icon} alt="icon récompense" />
-                      <p>{reward.name}</p>
-                    </div>
-                  );
-                })}
+                <img src={bossDetails?.region.icon} alt="icon region" />
+                <p>
+                  {bossDetails?.region.name} - {bossDetails?.region.location}
+                </p>
               </div>
             </div>
           </div>
         </div>
-      ) : (
-        <div></div>
-      )}
+
+        <div
+          className={
+            theme === "night"
+              ? "weeklyBossAllRewardsNight"
+              : "weeklyBossAllRewardsDay"
+          }
+        >
+          <h2>Récompenses du Boss</h2>
+          <div
+            className={
+              theme === "night"
+                ? "weeklyBossUniqueMaterialsNight"
+                : "weeklyBossUniqueMaterialsDay"
+            }
+          >
+            <h3>Matériaux d'amélioration de personnage</h3>
+            <div>
+              {bossDetails?.uniqueRewards.map((rewards) => {
+                return (
+                  <div key={rewards.name}>
+                    <div className="uniqueMaterialsIcon">
+                      <img src={rewards.icon} alt="icon rewards" />
+                      <p>{rewards.name}</p>
+                    </div>
+
+                    <div className="uniqueMaterialsCharacter">
+                      {rewards.character?.map((character) => {
+                        return (
+                          <div
+                            key={character.id}
+                            onClick={() => {
+                              navigate("/Characters/Details/" + character.id);
+                            }}
+                          >
+                            <img src={character.icon} alt="icon character" />
+                            <p>{character.name}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div
+            className={
+              theme === "night"
+                ? "weeklyBossAscensionMaterialsNight"
+                : "weeklyBossAscensionMaterialsDay"
+            }
+          >
+            <h3>Matériaux d'élévation de personnage</h3>
+            <div>
+              {bossDetails?.rewards.map((reward) => {
+                return (
+                  <div
+                    key={reward.name}
+                    onClick={() => {
+                      navigate("/Stone/Details/" + reward.id);
+                    }}
+                  >
+                    <img src={reward.icon} alt="icon récompense" />
+                    <p>{reward.name}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

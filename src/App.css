@@ -1,15 +1,21 @@
 /* ---------- GENERAL ---------- */
 :root {
   --bcgdark: #1a1d24;
+  --bcglight: #f4f1eb;
   --moduleDark: #272935;
   --moduleDarkBlue: #1a2436;
   --moduleGrayBlue: #1e293b;
   --moduleLightDark: #334155;
-  --gray: #72778b;
-  --light: white;
   --moduleLight: #f2ece7;
+  --gray: #72778b;
+  --gray1: #f7f7f7;
+  --gray2: #e6e6e6;
+  --gray3: #f1f1f1;
+  --gray4: #dfdad5;
+  --light: white;
   --orange: #dea923;
   --gold: #e7b14c;
+  --titleBlue: #495c80;
   --star1: #51545d;
   --star2: #3f9154;
   --star3: #3d85ac;
@@ -71,7 +77,7 @@ h6 {
   background-color: var(--light);
   border: none;
   border-radius: 50%;
-  border: 1px solid white;
+  border: 1px solid var(--light);
   z-index: 1;
 }
 .moon:hover {
@@ -97,7 +103,7 @@ h6 {
 }
 
 /* --- Icone Unique Materials -- */
-.uniqueMaterialsIconNight {
+.uniqueMaterialsIcon {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -449,13 +455,21 @@ header {
   border-radius: 15px;
   margin-bottom: 10px;
 }
+.weeklyBossTitleDay {
+  color: var(--light);
+  background-color: var(--titleBlue);
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
 
-.allWeeklyBossNight {
+.allWeeklyBoss {
   /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 10px;
   > div {
     /* border: 3px solid blue; */
     display: flex;
@@ -466,7 +480,7 @@ header {
   }
 }
 
-.weeklyBossIconNight {
+.weeklyBossIcon {
   border: 2px solid black;
   background-color: var(--moduleDark);
   border-radius: 20px;
@@ -485,15 +499,16 @@ header {
     font-size: 25px;
     font-weight: bold;
     text-align: center;
+    color: white;
   }
 }
-.weeklyBossIconNight:hover {
+.weeklyBossIcon:hover {
   cursor: pointer;
   border: 2px solid var(--moduleLight);
   padding: 5px;
 }
 
-.allRewardsNight {
+.allRewards {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -510,8 +525,9 @@ header {
     border-radius: 12px;
   }
 }
-.rewardsIconNight {
+.rewardsIcon {
   border: 2px solid black;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -531,12 +547,13 @@ header {
     border-radius: 0 0 8px 8px;
   }
 }
-.rewardsIconNight:hover {
+.rewardsIcon:hover {
   cursor: pointer;
   border: 2px solid var(--moduleLight);
+  color: var(--blue);
 }
 
-.charactersBossNight {
+.charactersBoss {
   /* border: 3px solid darkorange; */
   display: flex;
   gap: 8px;
@@ -565,6 +582,7 @@ header {
   > div > p {
     height: 30px;
     font-size: 14px;
+    color: white;
     background-color: var(--bcgdark);
     width: 100%;
     display: flex;
@@ -578,14 +596,13 @@ header {
 /* ----------------------------- */
 /* - Page Details Weekly Boss -- */
 /* ----------------------------- */
-.weeklyBossDetailsNight {
+.weeklyBossDetails {
   /* border: 5px solid red; */
   display: flex;
   gap: 20px;
 }
 
-.weeklyBossPictureChoiceNight {
-  border-bottom: 2px solid var(--moduleLightDark);
+.weeklyBossPictureChoice {
   width: 50%;
   display: flex;
   padding: 6px 0;
@@ -594,6 +611,14 @@ header {
 .weeklyBossPictureChoiceBorderBottomNight {
   border-bottom: 2px solid var(--gold);
   color: var(--gold);
+  width: 50%;
+  display: flex;
+  padding: 6px 0;
+  justify-content: center;
+}
+.weeklyBossPictureChoiceBorderBottomDay {
+  border-bottom: 2px solid var(--titleBlue);
+  color: var(--titleBlue);
   width: 50%;
   display: flex;
   padding: 6px 0;
@@ -619,6 +644,7 @@ header {
   }
   > h6 {
     background-color: var(--moduleGrayBlue);
+    border-bottom: 1px solid var(--moduleDark);
     color: var(--gold);
     font-weight: bold;
     width: 100%;
@@ -643,6 +669,50 @@ header {
     background-color: var(--bcgdark);
   }
 }
+.weeklyBossDescriptionDay {
+  border: 1px solid var(--titleBlue);
+  background-color: var(--gray2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 100%;
+  > h2 {
+    background-color: var(--titleBlue);
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 18px 18px 0 0;
+  }
+  > h6 {
+    background-color: var(--gray2);
+    border-bottom: 1px solid lightgray;
+    color: black;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  > div:first-of-type {
+    /* border: 3px solid blue; */
+    background-color: var(--gray3);
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 15px;
+  }
+  > div:first-of-type:hover {
+    cursor: pointer;
+  }
+  > img {
+    /* border: 2px solid pink; */
+    width: 100%;
+    background-color: white;
+  }
+}
 
 .weeklyBossTextNight {
   /* border: 3px solid purple; */
@@ -658,8 +728,22 @@ header {
     font-size: 13px;
   }
 }
+.weeklyBossTextDay {
+  /* border: 3px solid purple; */
+  background-color: var(--moduleLight);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 6px;
+  gap: 8px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid var(--titleBlue);
+  > div {
+    /* border: 3px solid darkcyan; */
+    font-size: 13px;
+  }
+}
 
-.weeklyBossElementNight {
+.weeklyBossElement {
   /* border: 3px solid purple; */
   display: flex;
   align-items: center;
@@ -694,9 +778,11 @@ header {
     /* border: 1px solid red; */
     font-size: 15px;
   }
+  .titleColorBlue {
+    color: var(--titleBlue);
+  }
 }
-
-.weeklyBossLocationNight {
+.weeklyBossLocation {
   /* border: 3px solid limegreen; */
   display: flex;
   align-items: center;
@@ -723,6 +809,9 @@ header {
   > div > p {
     /* border: 2px solid palevioletred; */
     font-size: 14px;
+  }
+  .titleColorBlue {
+    color: var(--titleBlue);
   }
 }
 
@@ -756,9 +845,39 @@ header {
     border-radius: 17px 0 0 17px;
   }
 }
+.weeklyBossAllRewardsDay {
+  /* border: 3px solid yellow; */
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  > h2 {
+    color: white;
+    background-color: var(--titleBlue);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  h3 {
+    /* border: 3px solid pink; */
+    background-color: var(--moduleLight);
+    border-right: 1px solid black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 18px;
+    width: 19%;
+    text-align: center;
+    border-radius: 19px 0 0 19px;
+  }
+}
 
 .weeklyBossUniqueMaterialsNight {
-  /* border: 2px solid white; */
+  /* border: 2px solid darkorchid; */
+  border: 1px solid var(--bcgdark);
   background-color: var(--moduleLightDark);
   display: flex;
   justify-content: space-between;
@@ -781,8 +900,34 @@ header {
     border-radius: 12px;
   }
 }
+.weeklyBossUniqueMaterialsDay {
+  border: 1px solid var(--bcgdark);
+  /* border: 2px solid darkorchid; */
+  background-color: var(--gray1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  width: 100%;
+  color: white;
+  > div {
+    /* border: 3px solid yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 80%;
+    padding: 5px;
+  }
+  > div > div {
+    /* border: 3px solid purple; */
+    background-color: var(--gray4);
+    display: flex;
+    gap: 20px;
+    border-radius: 12px;
+  }
+}
 
-.uniqueMaterialsCharacterNight {
+.uniqueMaterialsCharacter {
   /* border: 3px solid darkorange; */
   display: flex;
   gap: 8px;
@@ -853,6 +998,53 @@ header {
   > div > div:hover {
     cursor: pointer;
     border: 2px solid var(--moduleLight);
+    color: var(--blue);
+  }
+  img {
+    width: 100%;
+  }
+  p {
+    background-color: var(--bcgdark);
+    border-radius: 0 0 5px 5px;
+    padding: 4px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
+}
+.weeklyBossAscensionMaterialsDay {
+  border: 1px solid black;
+  /* border: 3px solid green; */
+  background-color: var(--gray1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  > div {
+    /* border: 4px solid purple; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    padding: 8px;
+    gap: 4px;
+    width: 80%;
+  }
+  > div > div {
+    border: 2px solid var(--gray2);
+    /* border: 2px solid orange; */
+    background-color: var(--gray);
+    width: calc((100% - 24px) / 6);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+    /* padding: 3px; */
+  }
+  > div > div:hover {
+    cursor: pointer;
+    border: 2px solid var(--bcgdark);
+    color: var(--bcgBlue);
   }
   img {
     width: 100%;
@@ -879,6 +1071,15 @@ header {
   border-radius: 15px;
   margin-bottom: 20px;
 }
+.normalBossTitleDay {
+  color: white;
+  background-color: var(--titleBlue);
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
 
 .allNormalBossNight {
   border: 2px solid var(--gold);
@@ -898,6 +1099,7 @@ header {
   > div:hover {
     border: 2px solid var(--moduleLight);
     cursor: pointer;
+    transform: scale(1.05);
   }
   img {
     background-color: var(--bcgdark);
@@ -918,15 +1120,56 @@ header {
     border-radius: 0 0 12px 12px;
   }
 }
+.allNormalBossDay {
+  border: 2px solid var(--titleBlue);
+  background-color: var(--moduleLight);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px 15px;
+  border-radius: 25px;
+  > div {
+    border: 2px solid var(--bcgdark);
+    width: calc((100% - 75px) / 5);
+    display: flex;
+    flex-direction: column;
+    border-radius: 13px;
+  }
+  > div:hover {
+    border: 2px solid var(--bcgdark);
+    opacity: 0.8;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  img {
+    background-color: var(--bcgdark);
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+  p {
+    /* border: 2px solid purple; */
+    background-color: var(--gray4);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 0 0 12px 12px;
+  }
+}
 
 /* ----------------------------- */
 /* -- Page Détails Normal Boss - */
 /* ----------------------------- */
-.normalBossDetailsNight {
+.normalBossDetails {
   /* border: 4px solid yellow; */
   display: flex;
   gap: 20px;
 }
+
 .normalBossDescriptionNight {
   border: 2px solid var(--gold);
   background-color: var(--moduleDark);
@@ -957,6 +1200,35 @@ header {
     width: 100%;
   }
 }
+.normalBossDescriptionDay {
+  border: 2px solid var(--titleBlue);
+  background-color: var(--gray4);
+  height: 100%;
+  border-radius: 20px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  > h2 {
+    /* border: 2px solid pink; */
+    background-color: var(--titleBlue);
+    color: white;
+    text-align: center;
+    border-radius: 16px 16px 0 0;
+  }
+  > h6 {
+    background-color: var(--gray2);
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  > img {
+    /* border: 3px solid red; */
+    background-color: white;
+    width: 100%;
+  }
+}
 
 .normalBossTextNight {
   /* border: 2px solid purple; */
@@ -972,6 +1244,21 @@ header {
     font-size: 13px;
   }
 }
+.normalBossTextDay {
+  /* border: 2px solid purple; */
+  background-color: var(--moduleLight);
+  border-top: 1px solid black;
+  border-bottom: 1px solid var(--titleBlue);
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  > div {
+    /* border: 2px solid darkolivegreen; */
+    font-size: 13px;
+  }
+}
+
 .coralBossDescriptionNight {
   /* border: 3px solid lightseagreen; */
   background-color: var(--moduleDarkBlue);
@@ -994,8 +1281,30 @@ header {
     margin-bottom: 11px;
   }
 }
+.coralBossDescriptionDay {
+  /* border: 3px solid lightseagreen; */
+  background-color: var(--moduleLight);
+  border-top: 1px solid black;
+  border-bottom: 1px solid var(--titleBlue);
+  padding: 10px 6px;
+  display: flex;
+  flex-direction: column;
+  > p {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  > div {
+    /* border: 2px solid darkolivegreen; */
+    font-size: 13px;
+  }
+  > div:first-of-type {
+    /* border: 2px solid red; */
+    margin-bottom: 11px;
+  }
+}
 
-.normalBossElementNight {
+.normalBossElement {
   /* border: 3px solid purple; */
   display: flex;
   align-items: center;
@@ -1030,9 +1339,12 @@ header {
     /* border: 1px solid red; */
     font-size: 15px;
   }
+  .titleColorBlue {
+    color: var(--titleBlue);
+  }
 }
 
-.normalBossLocationNight {
+.normalBossLocation {
   /* border: 3px solid limegreen; */
   display: flex;
   align-items: center;
@@ -1059,6 +1371,9 @@ header {
   > div > p {
     /* border: 2px solid palevioletred; */
     font-size: 14px;
+  }
+  .titleColorBlue {
+    color: var(--titleBlue);
   }
 }
 
@@ -1092,9 +1407,38 @@ header {
     border-radius: 17px 0 0 17px;
   }
 }
+.normalBossAllRewardsDay {
+  /* border: 3px solid yellow; */
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  > h2 {
+    color: white;
+    background-color: var(--titleBlue);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-radius: 15px;
+  }
+  h3 {
+    /* border: 3px solid pink; */
+    background-color: var(--moduleLight);
+    border-right: 1px solid black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 18px;
+    width: 19%;
+    text-align: center;
+    border-radius: 17px 0 0 17px;
+  }
+}
 
 .normalBossUniqueMaterialsNight {
-  /* border: 2px solid white; */
+  /* border: 2px solid darkmagenta; */
   background-color: var(--moduleLightDark);
   display: flex;
   justify-content: space-between;
@@ -1116,13 +1460,68 @@ header {
     gap: 8px;
     border-radius: 12px;
   }
-  .uniqueMaterialsIconNight {
+  .uniqueMaterialsIcon {
     margin-top: 5px;
   }
 
   .uniqueMaterialsIconNight2 {
     /* border: 3px solid red; */
     background-color: var(--moduleDark);
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    > div:first-of-type {
+      /* border: 3px solid coral; */
+      background-color: var(--star5);
+      display: flex;
+      flex-direction: column;
+      width: 160px;
+      border-radius: 9px;
+      > img {
+        width: 100%;
+      }
+      > p {
+        background-color: var(--bcgdark);
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border-radius: 0 0 7px 7px;
+      }
+    }
+  }
+}
+.normalBossUniqueMaterialsDay {
+  border: 2px solid var(--bcgdark);
+  /* border: 2px solid darkmagenta; */
+  background-color: var(--gray1);
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  width: 100%;
+  > div {
+    /* border: 3px solid yellowgreen; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 81%;
+  }
+  > div > div {
+    /* border: 3px solid purple; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .uniqueMaterialsIcon {
+    margin-top: 5px;
+  }
+  .uniqueMaterialsIconNight2 {
+    /* border: 3px solid red; */
+    background-color: var(--gray4);
     display: flex;
     flex-direction: row;
     margin: 5px;
@@ -1154,7 +1553,7 @@ header {
   border-bottom-right-radius: 18px;
   display: flex;
   gap: 8px;
-  padding: 3px;
+  padding: 4px;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -1192,10 +1591,91 @@ header {
     border-radius: 0 0 3px 3px;
   }
 }
+.uniqueMaterialsNormalBossCharacterDay {
+  /* border: 1px solid var(--gold); */
+  background-color: var(--gray4);
+  border-bottom-right-radius: 18px;
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  > div {
+    border: 2px solid var(--gray4);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* height: 110px; */
+    width: 90px;
+    border-radius: 6px;
+  }
+  > div:hover {
+    border: 2px solid var(--bcgdark);
+    cursor: pointer;
+    color: var(--blue);
+  }
+  > div > img {
+    /* border: 5px solid blue; */
+    width: 100%;
+  }
+  > div > p {
+    height: 30px;
+    font-size: 12px;
+    background-color: var(--bcgdark);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5px;
+    border-radius: 0 0 3px 3px;
+  }
+}
 
 .uniqueMaterialsNormalBossCharacterNight2 {
   /* border: 3px solid darkcyan; */
   background-color: var(--moduleDark);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  > div {
+    border: 1px solid var(--moduleDark);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* height: 110px; */
+    width: 110px;
+    border-radius: 6px;
+  }
+  > div:hover {
+    border: 2px solid var(--moduleLight);
+    cursor: pointer;
+    color: var(--blue);
+  }
+  > div > img {
+    /* border: 5px solid blue; */
+    width: 100%;
+  }
+  > div > p {
+    font-size: 12px;
+    background-color: var(--bcgdark);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 0 0 4px 4px;
+  }
+}
+.uniqueMaterialsNormalBossCharacterDay2 {
+  /* border: 3px solid darkcyan; */
   display: flex;
   gap: 8px;
   align-items: center;
@@ -1262,6 +1742,53 @@ header {
   > div > div:hover {
     cursor: pointer;
     border: 2px solid var(--moduleLight);
+    color: var(--blue);
+  }
+  img {
+    width: 100%;
+  }
+  p {
+    background-color: var(--bcgdark);
+    border-radius: 0 0 6px 6px;
+    padding: 4px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
+}
+.normalBossAscensionMaterialsDay {
+  border: 2px solid var(--bcgdark);
+  /* border: 3px solid green; */
+  background-color: var(--gray1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  > div {
+    /* border: 4px solid purple; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    padding: 8px;
+    gap: 4px;
+    width: 80%;
+  }
+  > div > div {
+    border: 2px solid var(--gray1);
+    /* border: 2px solid orange; */
+    background-color: var(--gray);
+    width: calc((100% - 24px) / 6);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 8px;
+    /* padding: 3px; */
+  }
+  > div > div:hover {
+    cursor: pointer;
+    border: 2px solid var(--bcgdark);
+    color: var(--blue);
   }
   img {
     width: 100%;
@@ -1279,7 +1806,7 @@ header {
 /* ----------------------------- */
 /* ----- Page Détails Stone ---- */
 /* ----------------------------- */
-.stoneNight {
+.stone {
   /* border: 3px solid green; */
   display: flex;
   gap: 20px;
@@ -1346,10 +1873,77 @@ header {
     font-size: 13px;
   }
 }
+.stoneDescriptionDay {
+  border: 2px solid var(--titleBlue);
+  background-color: var(--gray4);
+  border-radius: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  > h2 {
+    background-color: var(--titleBlue);
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 16px 16px 0 0;
+  }
+  > div:first-of-type {
+    /* border: 2px solid purple; */
+    background-color: var(--gray2);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    font-size: 17px;
+    width: 100%;
+  }
+  > div:first-of-type > p {
+    /* border: 1px solid darkorange; */
+    padding: 6px 8px;
+  }
+  > div:first-of-type > p:hover {
+    cursor: pointer;
+  }
+  > div:nth-of-type(3) {
+    /* border: 2px solid darkcyan; */
+    border-top: 1px solid black;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 90px;
+    padding: 5px;
+    font-size: 14px;
+  }
+  > div:nth-of-type(3) > img {
+    width: 45px;
+  }
+  > div:nth-of-type(4) {
+    /* border: 2px solid darkcyan; */
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 5px;
+    font-size: 14px;
+  }
+  > div:nth-of-type(4) > p {
+    text-align: center;
+    font-size: 13px;
+  }
+}
+
 .stonePictureChoiceNight {
   border-bottom: 2px solid var(--gold);
   color: var(--gold);
 }
+.stonePictureChoiceDay {
+  border-bottom: 2px solid var(--titleBlue);
+  color: var(--titleBlue);
+}
+
 .pictureStoneNight {
   /* border: 2px solid red; */
   background-color: var(--bcgdark);
@@ -1360,8 +1954,18 @@ header {
     width: 70%;
   }
 }
+.pictureStoneDay {
+  /* border: 2px solid red; */
+  background-color: var(--light);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  > img {
+    width: 70%;
+  }
+}
 
-.stoneDetailsNight {
+.stoneDetails {
   /* border: 2px solid blue; */
   display: flex;
   flex-direction: column;
@@ -1386,6 +1990,10 @@ header {
     /* border: 1px solid lightseagreen; */
     display: flex;
     gap: 8px;
+  }
+  .titleBackgroundBlue {
+    background-color: var(--titleBlue);
+    color: white;
   }
 }
 
@@ -1418,8 +2026,37 @@ header {
     margin-bottom: 12px;
   }
 }
+.stoneLootDay {
+  /* border: 2px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 880px;
+  > div {
+    border: 2px solid var(--titleBlue);
+    /* border: 5px solid coral; */
+    width: 100%;
+    gap: 10px;
+    background-color: var(--moduleLight);
+    display: flex;
+    flex-direction: column;
+    border-radius: 17px;
+  }
+  > div > h3 {
+    background-color: var(--titleBlue);
+    color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 13px 13px 0 0;
+  }
+  > div > div:nth-of-type(2) {
+    /* border: 4px solid limegreen; */
+    margin-bottom: 12px;
+  }
+}
 
 .stoneBossNight {
+  border: 2px solid var(--moduleDark);
   /* border: 3px solid red; */
   background-color: var(--moduleLightDark);
   display: flex;
@@ -1449,9 +2086,41 @@ header {
     gap: 10px;
   }
 }
+.stoneBossDay {
+  border: 2px solid var(--bcgdark);
+  /* border: 3px solid red; */
+  background-color: var(--gray1);
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 14px;
+  color: white;
+  > p {
+    /* border: 3px solid darkblue; */
+    background-color: var(--gray4);
+    color: black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 12px;
+  }
+  > div {
+    /* border: 3px solid darkmagenta; */
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+    gap: 10px;
+  }
+}
 
-.stoneIconBossNight {
-  border: 1px solid var(--moduleLightDark);
+.stoneIconBoss {
+  border: 2px solid var(--gray1);
   /* border: 2px solid pink; */
   width: calc((100% - 40px) / 5);
   border-radius: 12px;
@@ -1470,19 +2139,18 @@ header {
     text-align: center;
     border-radius: 0 0 9px 9px;
     font-size: 12px;
-    padding: 3px 0;
+    padding: 3px;
     height: 100%;
     background-color: var(--bcgdark);
   }
 }
-.stoneIconBossNight:hover {
+.stoneIconBoss:hover {
   cursor: pointer;
   color: var(--blue);
-  border: 2px solid white;
+  border: 2px solid var(--bcgdark);
 }
 
-.stoneCharacterNight {
-  /* padding: 20px; */
+.stoneCharacter {
   > div {
     /* border: 3px solid red; */
     display: flex;
@@ -1492,15 +2160,18 @@ header {
     border-radius: 12px;
   }
   > div > div {
+    border: 1px solid var(--gray1);
     /* border: 2px solid purple; */
-    border: 1px solid var(--moduleDark);
     width: calc((100% - 60px) / 7);
-    border-radius: 8px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    color: white;
   }
   > div > div:hover {
     cursor: pointer;
     color: var(--blue);
-    border: 2px solid var(--moduleLight);
+    border: 2px solid var(--bcgdark);
   }
   img {
     width: 100%;
@@ -1508,6 +2179,7 @@ header {
     border-radius: 5px 5px 0 0;
   }
   p {
+    /* border: 2px solid darkcyan; */
     text-align: center;
     background-color: var(--bcgdark);
     padding: 3px 0;
