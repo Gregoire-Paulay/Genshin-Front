@@ -25,15 +25,15 @@ const StoneDetails = (): JSX.Element => {
       try {
         setError(null);
         // const { data } = await axios.get(
-        //   `https://site--genshinapi--m8kkvg9l2hpy.code.run/stone/details?id=${id}`
+        //   `http://localhost:3000/stone/details?id=${id}`
         // );
         const { data } = await axios.get(
-          `http://localhost:3000/stone/details?id=${id}`
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/stone/details?id=${id}`
         );
         // console.log(data);
 
         const stoneDetailsParsed = stoneDetailsSchema.parse(data);
-        console.log(stoneDetailsParsed);
+        // console.log(stoneDetailsParsed);
 
         setStoneData(stoneDetailsParsed);
         setIsLoading(false);

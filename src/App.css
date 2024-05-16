@@ -49,6 +49,10 @@ h3 {
   font-weight: bold;
   padding: 8px 0;
 }
+h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
 h6 {
   font-size: 16px;
 }
@@ -322,9 +326,9 @@ header {
   padding: 20px;
   border-radius: 25px;
   > div:first-of-type {
-    border: 2px solid var(--bcgdark);
+    border: 2px solid var(--gold);
     background-color: var(--moduleLightDark);
-    padding: 8px;
+    /* padding: 8px; */
     border-radius: 12px;
     width: 500px;
     display: flex;
@@ -336,31 +340,61 @@ header {
     height: 500px;
     object-fit: contain;
   }
-  > div:first-of-type > div {
-    /* border: 5px solid green; */
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
 }
 
 .descriptionDetailsNight {
-  border: 1px solid var(--light);
-  width: 50%;
-  padding: 10px 0;
+  border-top: 1px solid var(--bcgdark);
+  border-bottom: 1px solid var(--bcgdark);
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
   > div {
+    width: 50%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+  > div:first-child {
+    border-right: 1px solid var(--bcgdark);
+    border-bottom: 1px solid var(--bcgdark);
+  }
+  > div:nth-child(2) {
+    border-bottom: 1px solid var(--bcgdark);
+  }
+  > div:nth-child(3) {
+    border-right: 1px solid var(--bcgdark);
+  }
+  > div > div {
+    /* border: 2px solid blue; */
     display: flex;
     justify-content: center;
     gap: 5px;
     align-items: center;
   }
-  > div > img {
+  > div img {
     width: 25px;
+  }
+}
+
+.characterBioNight {
+  /* border: 3px solid darkcyan; */
+  display: flex;
+  flex-direction: column;
+
+  > h4 {
+    /* border: 2px solid darkgoldenrod; */
+    background-color: var(--moduleDark);
+    width: 100%;
+    padding: 6px 0;
+    text-align: center;
+  }
+  > div {
+    /* border: 2px solid purple; */
+    padding: 3px;
   }
 }
 
@@ -1090,7 +1124,7 @@ header {
   padding: 20px 15px;
   border-radius: 25px;
   > div {
-    border: 2px solid var(--moduleLightDark);
+    box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.68);
     width: calc((100% - 75px) / 5);
     display: flex;
     flex-direction: column;
@@ -1129,8 +1163,8 @@ header {
   padding: 20px 15px;
   border-radius: 25px;
   > div {
-    border: 2px solid var(--bcgdark);
     width: calc((100% - 75px) / 5);
+    box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.68);
     display: flex;
     flex-direction: column;
     border-radius: 13px;
@@ -1438,6 +1472,7 @@ header {
 }
 
 .normalBossUniqueMaterialsNight {
+  border: 2px solid var(--bcgdark);
   /* border: 2px solid darkmagenta; */
   background-color: var(--moduleLightDark);
   display: flex;
@@ -1713,6 +1748,7 @@ header {
 }
 
 .normalBossAscensionMaterialsNight {
+  border: 2px solid var(--bcgdark);
   /* border: 3px solid green; */
   background-color: var(--moduleLightDark);
   display: flex;
@@ -2186,6 +2222,198 @@ header {
     border-radius: 0 0 5px 5px;
   }
 }
+
+/* ----------------------------- */
+/* ------- Page All Books ------ */
+/* ----------------------------- */
+.allBooksDay {
+  /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  > div {
+    /* border: 5px solid darkcyan; */
+    border-radius: 25px;
+    padding: 0 8px;
+    background-color: var(--moduleLight);
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 15px 5px #000000;
+  }
+}
+.allBooksNight {
+  /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  > div {
+    /* border: 5px solid darkcyan; */
+    border-radius: 25px;
+    padding: 0 8px;
+    background-color: var(--moduleGrayBlue);
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 15px 5px #000000;
+  }
+}
+
+.domainDetails {
+  /* border: 3px solid darkgoldenrod; */
+  align-items: center;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  > img {
+    width: 100%;
+  }
+  > div {
+    /* border: 3px solid indigo; */
+    display: flex;
+    align-items: center;
+    > img {
+      width: 50px;
+    }
+  }
+}
+
+.bookDetails {
+  /* border: 3px solid purple; */
+  padding: 8px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .booksDetailsBCGDay {
+    border: 2px solid black;
+    /* border: 2px solid yellow; */
+    border-radius: 10px;
+    background-color: var(--gray1);
+    display: flex;
+  }
+  .booksDetailsBCGNight {
+    border: 2px solid black;
+    /* border: 2px solid yellow; */
+    border-radius: 10px;
+    background-color: var(--moduleDark);
+    display: flex;
+  }
+  .bookIcon {
+    /* border: 2px solid green; */
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 3px;
+    > p {
+      font-size: 17px;
+      font-weight: bold;
+    }
+    > div {
+      /* border: 3px solid coral; */
+      display: flex;
+      gap: 5px;
+      img {
+        /* border: 2px solid blue; */
+        width: 50px;
+      }
+    }
+    .bookDay {
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+  .bookCharactersDay {
+    /* border: 3px solid black; */
+    background-color: var(--gray4);
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    gap: 4px;
+    padding: 5px;
+    flex-wrap: wrap;
+    > div {
+      border: 1px solid var(--gray4);
+      background-color: var(--gray);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      width: calc((100% - 16px) / 5);
+      flex-direction: column;
+      align-items: center;
+      > p {
+        background-color: var(--bcgdark);
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2px;
+        border-radius: 0 0 8px 8px;
+      }
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    > div:hover {
+      border: 2px solid black;
+      color: var(--blue);
+      cursor: pointer;
+    }
+  }
+  .bookCharactersNight {
+    /* border: 3px solid black; */
+    background-color: var(--moduleLightDark);
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    gap: 4px;
+    padding: 5px;
+    flex-wrap: wrap;
+    > div {
+      border: 1px solid var(--moduleLightDark);
+      background-color: var(--gray);
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      width: calc((100% - 16px) / 5);
+      flex-direction: column;
+      align-items: center;
+      > p {
+        background-color: var(--bcgdark);
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2px;
+        border-radius: 0 0 8px 8px;
+      }
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    > div:hover {
+      border: 2px solid white;
+      color: var(--blue);
+      cursor: pointer;
+    }
+  }
+}
+
+/* ----------------------------- */
+/* ----- Page All Artifacts ---- */
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* ------ Page All Weapons ----- */
+/* ----------------------------- */
 
 /* ----------------------------- */
 /* ----------------------------- */

@@ -39,7 +39,7 @@ const Header = (): JSX.Element => {
           </p>
           <p
             onClick={() => {
-              navigate("");
+              navigate("/Books");
             }}
           >
             Matériaux d'aptitudes

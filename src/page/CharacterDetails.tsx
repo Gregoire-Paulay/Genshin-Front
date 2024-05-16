@@ -33,7 +33,7 @@ const CharactersDetails = () => {
         // console.log(data);
 
         const characterDetailsParsed = CharacterDetailsSchema.parse(data);
-        console.log(characterDetailsParsed);
+        console.log("Data Parsed", characterDetailsParsed);
 
         setCharactersDetails(characterDetailsParsed);
         setIsLoading(false);
@@ -65,175 +65,170 @@ const CharactersDetails = () => {
 
   return (
     <div className="container">
-      {theme === "night" ? (
-        <div className="characterDetailsNight">
-          <div>
-            <h2>{characterDetails?.name}</h2>
-            <p>{characterDetails?.title}</p>
-            <img src={characterDetails?.art} alt="" />
+      <div className="characterDetailsNight">
+        <div>
+          <h2>{characterDetails?.name}</h2>
+          <p>{characterDetails?.title}</p>
+          <img src={characterDetails?.art} alt="Image perso" />
+
+          <div className="descriptionDetailsNight">
             <div>
-              <div className="descriptionDetailsNight">
-                <h6>Élément</h6>
-                <div>
-                  <img
-                    src={characterDetails?.element.icon}
-                    alt="icon element"
-                  />
-                  <p>{characterDetails?.element.type}</p>
-                </div>
-              </div>
-
-              <div className="descriptionDetailsNight">
-                <h6>Arme</h6>
-                <div>
-                  <img src={characterDetails?.weapon.icon} alt="icon element" />
-                  <p>{characterDetails?.weapon.type}</p>
-                </div>
-              </div>
-
-              <div className="descriptionDetailsNight">
-                <h6>Constellation</h6>
-                <div>
-                  <img
-                    src={characterDetails?.constellation.icon}
-                    alt="icon element"
-                  />
-                  <p>{characterDetails?.constellation.name}</p>
-                </div>
-              </div>
-
-              <div className="descriptionDetailsNight">
-                <h6>Region</h6>
-                <div>
-                  {/* <img src={characterDetails?.region.icon} alt="icon element" />
-                  <p>{characterDetails?.region.name}</p> */}
-                </div>
-              </div>
-
-              <div className="descriptionDetailsNight">
-                <h6>Rareté</h6>
-                <div>
-                  {characterDetails?.star === 5 ? (
-                    <p>
-                      <i className="fa-solid fa-star"></i>{" "}
-                      <i className="fa-solid fa-star"></i>{" "}
-                      <i className="fa-solid fa-star"></i>{" "}
-                      <i className="fa-solid fa-star"></i>{" "}
-                      <i className="fa-solid fa-star"></i>
-                    </p>
-                  ) : (
-                    <p>
-                      <i className="fa-solid fa-star"></i>{" "}
-                      <i className="fa-solid fa-star"></i>{" "}
-                      <i className="fa-solid fa-star"></i>{" "}
-                      <i className="fa-solid fa-star"></i>
-                    </p>
-                  )}
-                </div>
+              <h6>Élément</h6>
+              <div>
+                <img src={characterDetails?.element.icon} alt="icon element" />
+                <p>{characterDetails?.element.type}</p>
               </div>
             </div>
-          </div>
 
-          <div className="allUpgradesNight">
             <div>
-              <p>Ascension</p>
-              <p
-                onClick={() => {
-                  setDetails("aptitude");
-                }}
-              >
-                Aptitudes
-              </p>
-              <p>Amélioration aptitudes</p>
-              <p
-                onClick={() => {
-                  setDetails("constellation");
-                }}
-              >
-                Constellation
-              </p>
+              <h6>Arme</h6>
+              <div>
+                <img src={characterDetails?.weapon.icon} alt="icon element" />
+                <p>{characterDetails?.weapon.type}</p>
+              </div>
             </div>
 
-            {details === "aptitude" && (
-              <div className="allTalentsNight">
-                {/* <h3>Aptitudes</h3> */}
-                {characterDetails?.talents.map((talent) => {
-                  return (
-                    <div key={talent.name} className="talentsNight">
-                      <div>
-                        <p>{talent.name}</p>
-                        <p>{talent.type}</p>
-                      </div>
-
-                      <div className="talentsDescriptionNight">
-                        {talent.description.map((description, index) => {
-                          return (
-                            <div key={index}>
-                              <p className="talentsTitleNight">
-                                {description.name}
-                              </p>
-                              <p>{description.text}</p>
-                              <div>
-                                {description.effect?.map((effect) => {
-                                  return (
-                                    <div key={effect.text}>
-                                      <p style={{ color: "blue" }}>
-                                        {effect.text}
-                                      </p>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  );
-                })}
+            <div>
+              <h6>Constellation</h6>
+              <div>
+                <img
+                  src={characterDetails?.constellation.icon}
+                  alt="icon element"
+                />
+                <p>{characterDetails?.constellation.name}</p>
               </div>
-            )}
+            </div>
 
-            {details === "constellation" && (
-              <div className="allTalentsNight">
-                {/* <h3>Constellation</h3> */}
-                {characterDetails?.constellation_upgrade.map(
-                  (constellation) => {
-                    return (
-                      <div key={constellation.name} className="talentsNight">
-                        <div>
-                          <p>{constellation.name}</p>
-                          <p>Constellation Niv.{constellation.level}</p>
-                        </div>
-
-                        <div className="talentsDescriptionNight">
-                          <div>
-                            <p>{constellation.description.text}</p>
-                            <div>
-                              {constellation.description.effect?.map(
-                                (effect) => {
-                                  return (
-                                    <div key={effect.text}>
-                                      <p>{effect.text}</p>
-                                    </div>
-                                  );
-                                }
-                              )}
-                            </div>
-                            <p>{constellation.description.note}</p>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  }
+            <div>
+              <h6>Rareté</h6>
+              <div>
+                {characterDetails?.star === 5 ? (
+                  <p>
+                    <i className="fa-solid fa-star"></i>{" "}
+                    <i className="fa-solid fa-star"></i>{" "}
+                    <i className="fa-solid fa-star"></i>{" "}
+                    <i className="fa-solid fa-star"></i>{" "}
+                    <i className="fa-solid fa-star"></i>
+                  </p>
+                ) : (
+                  <p>
+                    <i className="fa-solid fa-star"></i>{" "}
+                    <i className="fa-solid fa-star"></i>{" "}
+                    <i className="fa-solid fa-star"></i>{" "}
+                    <i className="fa-solid fa-star"></i>
+                  </p>
                 )}
               </div>
-            )}
+            </div>
+          </div>
+
+          <div className="characterBioNight">
+            <h4>Description</h4>
+            <div>{characterDetails?.description}</div>
+            <div>
+              <p>Affiliations</p>
+              {characterDetails?.affiliation?.map((affiliation) => {
+                return <div key={affiliation.name}>{affiliation.name}</div>;
+              })}
+            </div>
+
+            <div>{characterDetails?.birthday}</div>
           </div>
         </div>
-      ) : (
-        ""
-      )}
+
+        <div className="allUpgradesNight">
+          <div>
+            <p>Ascension</p>
+            <p
+              onClick={() => {
+                setDetails("aptitude");
+              }}
+            >
+              Aptitudes
+            </p>
+            <p>Amélioration aptitudes</p>
+            <p
+              onClick={() => {
+                setDetails("constellation");
+              }}
+            >
+              Constellation
+            </p>
+          </div>
+
+          {details === "aptitude" && (
+            <div className="allTalentsNight">
+              {/* <h3>Aptitudes</h3> */}
+              {characterDetails?.talents.map((talent) => {
+                return (
+                  <div key={talent.name} className="talentsNight">
+                    <div>
+                      <p>{talent.name}</p>
+                      <p>{talent.type}</p>
+                    </div>
+
+                    <div className="talentsDescriptionNight">
+                      {talent.description.map((description, index) => {
+                        return (
+                          <div key={index}>
+                            <p className="talentsTitleNight">
+                              {description.name}
+                            </p>
+                            <p>{description.text}</p>
+                            <div>
+                              {description.effect?.map((effect) => {
+                                return (
+                                  <div key={effect.text}>
+                                    <p style={{ color: "blue" }}>
+                                      {effect.text}
+                                    </p>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {details === "constellation" && (
+            <div className="allTalentsNight">
+              {/* <h3>Constellation</h3> */}
+              {characterDetails?.constellation_upgrade.map((constellation) => {
+                return (
+                  <div key={constellation.name} className="talentsNight">
+                    <div>
+                      <p>{constellation.name}</p>
+                      <p>Constellation Niv.{constellation.level}</p>
+                    </div>
+
+                    <div className="talentsDescriptionNight">
+                      <div>
+                        <p>{constellation.description.text}</p>
+                        <div>
+                          {constellation.description.effect?.map((effect) => {
+                            return (
+                              <div key={effect.text}>
+                                <p>{effect.text}</p>
+                              </div>
+                            );
+                          })}
+                        </div>
+                        <p>{constellation.description.note}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

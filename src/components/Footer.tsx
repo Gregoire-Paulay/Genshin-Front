@@ -26,7 +26,11 @@ const Footer = () => {
           <a href="https://my-portfolio-gp.netlify.app/">Grégoire Paulay</a> -
           Made with
           <a href="https://fr.legacy.reactjs.org/"> React</a> and{" "}
-          <a href="https://www.typescriptlang.org/">Typescript</a>
+          <a href="https://www.typescriptlang.org/">Typescript</a> - Data from{" "}
+          <a href="https://github.com/Gregoire-Paulay/Genshin-API">
+            {" "}
+            Genshin API
+          </a>
         </div>
       </div>
     </footer>
