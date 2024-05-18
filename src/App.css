@@ -57,6 +57,10 @@ h6 {
   font-size: 16px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .fa-star {
   color: gold;
 }
@@ -328,22 +332,72 @@ header {
   > div:first-of-type {
     border: 2px solid var(--gold);
     background-color: var(--moduleLightDark);
-    /* padding: 8px; */
     border-radius: 12px;
-    width: 500px;
     display: flex;
     flex-direction: column;
     height: 100%;
     align-items: center;
+    width: 280px;
   }
   > div:first-of-type > img {
-    height: 500px;
-    object-fit: contain;
+    width: 280px;
+    padding: 0 2px;
+  }
+  > div > h2 {
+    width: 100%;
+    text-align: center;
+    background-color: var(--gold);
+    color: black;
+    border-radius: 8px 8px 0 0;
+  }
+  > div > h6 {
+    background-color: var(--moduleGrayBlue);
+    border-bottom: 1px solid var(--moduleDark);
+    color: var(--gold);
+    width: 100%;
+    text-align: center;
+    padding: 6px;
   }
 }
 
+.characterPictureChoiceNight {
+  /* border: 2px solid darkgreen; */
+  display: flex;
+  width: 100%;
+  > p {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+  }
+  > p:hover {
+    cursor: pointer;
+  }
+  .pictureChoiceBorderNight {
+    border-bottom: 2px solid var(--gold);
+    color: var(--gold);
+  }
+}
+.characterPictureChoiceNight2 {
+  /* border: 2px solid darkgreen; */
+  display: flex;
+  width: 100%;
+  > p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    border-bottom: 2px solid var(--gold);
+    color: var(--gold);
+  }
+}
+.characterDescriptionNight {
+  /* border: 2px solid lightseagreen; */
+  padding: 8px 4px;
+  background-color: var(--moduleGrayBlue);
+  border-bottom: 1px solid var(--gold);
+}
 .descriptionDetailsNight {
-  border-top: 1px solid var(--bcgdark);
   border-bottom: 1px solid var(--bcgdark);
   display: flex;
   flex-wrap: wrap;
@@ -379,27 +433,81 @@ header {
     width: 25px;
   }
 }
-
 .characterBioNight {
   /* border: 3px solid darkcyan; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-
   > h4 {
     /* border: 2px solid darkgoldenrod; */
     background-color: var(--moduleDark);
     width: 100%;
-    padding: 6px 0;
+    padding: 8px 0;
     text-align: center;
   }
+  > h4:nth-of-type(2) {
+    border-top: 1px solid var(--bcgdark);
+  }
   > div {
+    border-top: 1px solid var(--bcgdark);
     /* border: 2px solid purple; */
-    padding: 3px;
+    padding: 6px 3px;
+    display: flex;
+    justify-content: space-between;
+    > p:first-child {
+      /* border: 1px solid white; */
+      display: flex;
+      width: 35%;
+      align-items: center;
+    }
+    > div {
+      /* border: 2px solid green; */
+      width: 64%;
+      padding: 3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    > .column {
+      flex-direction: column;
+      align-items: flex-start;
+      > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
+  img {
+    width: 25px;
+  }
+  .characterTitle {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 5px;
   }
 }
+.characterBioNight .characterTitle > p:first-child {
+  width: 100%;
+}
 
+/* .characterStats {
+  border: 2px solid coral;
+  width: 100%;
+  margin-top: 5px;
+  > p {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    background-color: var(--moduleDark);
+  }
+} */
+
+/* --------- Upgrades ---------- */
 .allUpgradesNight {
-  /* border: 3px solid coral; */
+  /* border: 3px solid darkorange; */
   background-color: var(--moduleLightDark);
   display: flex;
   flex-direction: column;

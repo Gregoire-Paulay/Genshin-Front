@@ -10,6 +10,7 @@ import { CharacterDetailsSchema } from "../Schema/CharactersSchema";
 type Character = z.infer<typeof CharacterDetailsSchema>;
 
 type Details = "aptitude" | "constellation";
+type Picture = "artwork" | "wish" | "archon";
 
 const CharactersDetails = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const CharactersDetails = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [characterDetails, setCharactersDetails] = useState<Character>();
   const [details, setDetails] = useState<Details>("aptitude");
+  const [pictureChoice, setPictureChoice] = useState<Picture>("artwork");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -68,8 +70,45 @@ const CharactersDetails = () => {
       <div className="characterDetailsNight">
         <div>
           <h2>{characterDetails?.name}</h2>
-          <p>{characterDetails?.title}</p>
-          <img src={characterDetails?.art} alt="Image perso" />
+          <h6>{characterDetails?.title}</h6>
+
+          {characterDetails?.wish ? (
+            <div className="characterPictureChoiceNight">
+              <p
+                onClick={() => {
+                  setPictureChoice("artwork");
+                }}
+                className={
+                  pictureChoice === "artwork" ? "pictureChoiceBorderNight" : ""
+                }
+              >
+                Artwork
+              </p>
+              <p
+                onClick={() => {
+                  setPictureChoice("wish");
+                }}
+                className={
+                  pictureChoice === "wish" ? "pictureChoiceBorderNight" : ""
+                }
+              >
+                Voeu
+              </p>
+            </div>
+          ) : (
+            <div className="characterPictureChoiceNight2">
+              <p>Artwork</p>
+            </div>
+          )}
+
+          {pictureChoice === "artwork" && (
+            <img src={characterDetails?.art} alt="Image perso" />
+          )}
+          {pictureChoice === "wish" && <img src={characterDetails?.wish} />}
+
+          <div className="characterDescriptionNight">
+            {characterDetails?.description}
+          </div>
 
           <div className="descriptionDetailsNight">
             <div>
@@ -124,16 +163,96 @@ const CharactersDetails = () => {
 
           <div className="characterBioNight">
             <h4>Description</h4>
-            <div>{characterDetails?.description}</div>
+
+            {characterDetails?.real_name && (
+              <div>
+                <p className="bold">Vrai nom</p>
+                <div>{characterDetails?.real_name}</div>
+              </div>
+            )}
+
             <div>
-              <p>Affiliations</p>
-              {characterDetails?.affiliation?.map((affiliation) => {
-                return <div key={affiliation.name}>{affiliation.name}</div>;
-              })}
+              <p className="bold">Anniversaire</p>
+              <div>{characterDetails?.birthday}</div>
             </div>
 
-            <div>{characterDetails?.birthday}</div>
+            <div>
+              <p className="bold">Region</p>
+              <div className="column">
+                {characterDetails?.region.map((region) => {
+                  return (
+                    <div key={region.name}>
+                      {region.icon && (
+                        <img src={region.icon} alt="icon region" />
+                      )}
+                      <p>{region.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {characterDetails?.affiliation && (
+              <div>
+                <p className="bold">Affiliations</p>
+                <div className="column">
+                  {characterDetails.affiliation.length === 1
+                    ? characterDetails.affiliation.map((affiliation) => {
+                        return (
+                          <p key={affiliation.name}> {affiliation.name}</p>
+                        );
+                      })
+                    : characterDetails?.affiliation?.map((affiliation) => {
+                        return (
+                          <p key={affiliation.name}>⏺ {affiliation.name}</p>
+                        );
+                      })}
+                </div>
+              </div>
+            )}
+
+            {characterDetails?.namecard && (
+              <div>
+                <p className="bold">Namecard</p>
+                <div>
+                  <img src={characterDetails?.namecard?.icon} alt="icon card" />
+                  <p>{characterDetails?.namecard?.name}</p>
+                </div>
+              </div>
+            )}
+
+            {characterDetails?.dish && (
+              <div>
+                <p className="bold">Spécialité</p>
+                <div>
+                  <img src={characterDetails?.dish?.icon} alt="icon plat" />
+                  <p>{characterDetails?.dish?.name}</p>
+                </div>
+              </div>
+            )}
+
+            <div>
+              <p className="bold">Date de sortie</p>
+              <div>{characterDetails?.release_date}</div>
+            </div>
+
+            <h4>Titres</h4>
+
+            <div className="characterTitle">
+              {characterDetails?.other_title.map((title) => {
+                return <p key={title.name}>⏺ {title.name}</p>;
+              })}
+            </div>
           </div>
+
+          {/* <div className="characterStats">
+            <p>Statistiques</p>
+
+            <div>
+              <p>test</p>
+              <p>test2</p>
+            </div>
+          </div> */}
         </div>
 
         <div className="allUpgradesNight">
