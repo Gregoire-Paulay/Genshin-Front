@@ -492,22 +492,10 @@ header {
   width: 100%;
 }
 
-/* .characterStats {
-  border: 2px solid coral;
-  width: 100%;
-  margin-top: 5px;
-  > p {
-    font-size: 17px;
-    font-weight: bold;
-    padding: 8px;
-    text-align: center;
-    background-color: var(--moduleDark);
-  }
-} */
-
 /* --------- Upgrades ---------- */
 .allUpgradesNight {
   /* border: 3px solid darkorange; */
+
   background-color: var(--moduleLightDark);
   display: flex;
   flex-direction: column;
@@ -515,6 +503,8 @@ header {
   gap: 20px;
   align-items: center;
   padding: 0 0 10px 0;
+  width: 100%;
+  height: 100%;
   > div:first-child {
     /* border: 3px solid pink; */
     background-color: var(--moduleDarkBlue);
@@ -538,51 +528,201 @@ header {
     background-color: var(--bcgdark);
   }
 }
+.characterUpgradesChoice {
+  border: 1px solid var(--gold);
+  background-color: var(--bcgdark);
+  color: var(--gold);
+}
 
 .allTalentsNight {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  gap: 15px;
 }
 .talentsNight {
   border: 2px solid var(--bcgdark);
   display: flex;
   flex-direction: column;
   background-color: var(--moduleDark);
-  padding: 10px;
+  padding: 0 10px 8px 10px;
   gap: 5px;
   border-radius: 12px;
   width: 97%;
-  margin-bottom: 6px;
   font-size: 14px;
+  line-height: 1.1;
+  img {
+    width: 60px;
+  }
   > div:first-child {
     /* border: 2px solid lightcoral; */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    > div {
+      /* border: 2px solid darkcyan; */
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    > div > p {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+    }
   }
-  > div > p:first-child {
-    font-size: 20px;
-    font-weight: bold;
+}
+.talentsDescriptionNight {
+  /* border: 2px solid yellowgreen; */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* margin-top: 8px; */
+  > div {
+    /* border: 2px solid coral; */
     display: flex;
+    flex-direction: column;
+    gap: 3px;
+    .talentsTitleNight {
+      /* border: 3px solid purple; */
+      font-weight: bold;
+      font-size: 15px;
+    }
+  }
+}
+.talentsEffectNight {
+  /* border: 2px solid darkgoldenrod; */
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 3px;
+  > div {
+    /* border: 2px solid coral; */
+    display: flex;
+    gap: 7px;
+    padding-left: 15px;
+  }
+}
+.talentNoteNight {
+  /* border: 2px solid green; */
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.allConstellationNight {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.1;
+  gap: 15px;
+}
+.constellationNight {
+  border: 2px solid var(--bcgdark);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--moduleDark);
+  padding: 0 10px 8px 10px;
+  gap: 5px;
+  border-radius: 12px;
+  width: 97%;
+  font-size: 14px;
+  line-height: 1.1;
+  > div:first-of-type {
+    /* border: 2px solid darkblue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > div {
+      /* border: 2px solid purple; */
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      > p {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      img {
+        width: 60px;
+      }
+    }
+  }
+}
+.constellationDescriptionNight {
+  /* border: 2px solid pink; */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  > p:first-of-type {
+    /* color: red; */
+  }
+  > p:nth-of-type(2) {
+    /* color: green; */
+    margin-top: 5px;
+  }
+  > div {
+    /* border: 3px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-left: 15px;
+    > div {
+      /* border: 2px solid darkmagenta; */
+      display: flex;
+      gap: 8px;
+    }
   }
 }
 
-.talentsDescriptionNight {
-  border: 2px solid yellowgreen;
-  padding: 5px;
-  /* margin-top: 8px; */
-  > div {
-    border: 2px solid coral;
+.allAscensionNight {
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+  font-size: 14px;
+  line-height: 1.1;
+  gap: 15px;
+  /* flex-wrap: wrap; */
+  img {
+    width: 90px;
   }
-}
-.talentsTitleNight {
-  /* border: 3px solid purple; */
-  font-weight: bold;
-  margin-top: 7px;
-  margin-bottom: 2px;
-  font-size: 15px;
+  .ascensionMoraNight {
+    border: 3px solid blue;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    > h3 {
+      /* border: 3px solid green; */
+      height: 100%;
+      background-color: var(--bcgBlue);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 180px;
+      color: black;
+    }
+    > div {
+      border: 2px solid var(--gold);
+      background-color: var(--gray);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 15px;
+      > p {
+        background-color: var(--bcgdark);
+        width: 100%;
+        text-align: center;
+        padding: 5px;
+        border-radius: 0 0 12px 12px;
+      }
+    }
+  }
 }
 
 /* ----------------------------- */

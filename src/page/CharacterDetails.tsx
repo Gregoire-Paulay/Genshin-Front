@@ -9,7 +9,7 @@ import HashLoader from "react-spinners/HashLoader";
 import { CharacterDetailsSchema } from "../Schema/CharactersSchema";
 type Character = z.infer<typeof CharacterDetailsSchema>;
 
-type Details = "aptitude" | "constellation";
+type Details = "aptitude" | "constellation" | "upgrade" | "ascension";
 type Picture = "artwork" | "wish" | "archon";
 
 const CharactersDetails = () => {
@@ -257,19 +257,41 @@ const CharactersDetails = () => {
 
         <div className="allUpgradesNight">
           <div>
-            <p>Ascension</p>
+            <p
+              onClick={() => {
+                setDetails("ascension");
+              }}
+              className={
+                details === "ascension" ? "characterUpgradesChoice" : ""
+              }
+            >
+              Ascension
+            </p>
             <p
               onClick={() => {
                 setDetails("aptitude");
               }}
+              className={
+                details === "aptitude" ? "characterUpgradesChoice" : ""
+              }
             >
               Aptitudes
             </p>
-            <p>Amélioration aptitudes</p>
+            <p
+              onClick={() => {
+                setDetails("upgrade");
+              }}
+              className={details === "upgrade" ? "characterUpgradesChoice" : ""}
+            >
+              Amélioration aptitudes
+            </p>
             <p
               onClick={() => {
                 setDetails("constellation");
               }}
+              className={
+                details === "constellation" ? "characterUpgradesChoice" : ""
+              }
             >
               Constellation
             </p>
@@ -277,12 +299,14 @@ const CharactersDetails = () => {
 
           {details === "aptitude" && (
             <div className="allTalentsNight">
-              {/* <h3>Aptitudes</h3> */}
               {characterDetails?.talents.map((talent) => {
                 return (
                   <div key={talent.name} className="talentsNight">
                     <div>
-                      <p>{talent.name}</p>
+                      <div>
+                        <img src={talent.icon} alt="icon talent" />
+                        <p>{talent.name}</p>
+                      </div>
                       <p>{talent.type}</p>
                     </div>
 
@@ -294,21 +318,25 @@ const CharactersDetails = () => {
                               {description.name}
                             </p>
                             <p>{description.text}</p>
-                            <div>
-                              {description.effect?.map((effect) => {
-                                return (
-                                  <div key={effect.text}>
-                                    <p style={{ color: "blue" }}>
-                                      {effect.text}
-                                    </p>
-                                  </div>
-                                );
-                              })}
-                            </div>
+                            {description.effect && (
+                              <div className="talentsEffectNight">
+                                {description.effect?.map((effect) => {
+                                  return (
+                                    <div key={effect.text}>
+                                      ⏺<p>{effect.text}</p>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
                           </div>
                         );
                       })}
                     </div>
+
+                    {talent.note && (
+                      <p className="talentNoteNight">{talent.note}</p>
+                    )}
                   </div>
                 );
               })}
@@ -316,35 +344,77 @@ const CharactersDetails = () => {
           )}
 
           {details === "constellation" && (
-            <div className="allTalentsNight">
+            <div className="allConstellationNight">
               {/* <h3>Constellation</h3> */}
               {characterDetails?.constellation_upgrade.map((constellation) => {
                 return (
-                  <div key={constellation.name} className="talentsNight">
+                  <div key={constellation.name} className="constellationNight">
                     <div>
-                      <p>{constellation.name}</p>
+                      <div>
+                        <img
+                          src={constellation.icon}
+                          alt="icon constellation"
+                        />
+                        <p>{constellation.name}</p>
+                      </div>
                       <p>Constellation Niv.{constellation.level}</p>
                     </div>
 
-                    <div className="talentsDescriptionNight">
-                      <div>
-                        <p>{constellation.description.text}</p>
+                    <div className="constellationDescriptionNight">
+                      <p>{constellation.description.text}</p>
+                      {constellation.description.effect && (
                         <div>
                           {constellation.description.effect?.map((effect) => {
                             return (
                               <div key={effect.text}>
-                                <p>{effect.text}</p>
+                                ⏺ <p>{effect.text}</p>
                               </div>
                             );
                           })}
                         </div>
+                      )}
+
+                      {constellation.description.note && (
                         <p>{constellation.description.note}</p>
-                      </div>
+                      )}
                     </div>
                   </div>
                 );
               })}
             </div>
+          )}
+
+          {details === "ascension" && (
+            <div className="allAscensionNight">
+              <div className="ascensionMoraNight">
+                <h3>Mora</h3>
+                <div>
+                  <img
+                    src={characterDetails?.ascension_materials.mora.picture}
+                    alt="icon mora"
+                  />
+                  <p> {characterDetails?.ascension_materials.mora.number}</p>
+                </div>
+              </div>
+
+              <div className="ascensionStoneNight">
+                {characterDetails?.ascension_materials.stone.map((stone) => {
+                  return (
+                    <div key={stone.id}>
+                      <div>
+                        <img src={stone.picture} alt="image stone" />
+                        <p>{stone.number}</p>
+                      </div>
+                      <p>{stone.name}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {details === "upgrade" && (
+            <div className="allTalentsNight">Talent Upgrade</div>
           )}
         </div>
       </div>
