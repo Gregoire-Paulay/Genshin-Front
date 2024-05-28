@@ -495,7 +495,6 @@ header {
 /* --------- Upgrades ---------- */
 .allUpgradesNight {
   /* border: 3px solid darkorange; */
-
   background-color: var(--moduleLightDark);
   display: flex;
   flex-direction: column;
@@ -680,33 +679,89 @@ header {
 }
 
 .allAscensionNight {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   width: 97%;
   font-size: 14px;
   line-height: 1.1;
   gap: 15px;
-  /* flex-wrap: wrap; */
   img {
     width: 90px;
   }
-  .ascensionMoraNight {
-    border: 3px solid blue;
-    height: 130px;
+  h4 {
     display: flex;
+    width: 100%;
+    justify-content: center;
     align-items: center;
-    gap: 25px;
-    > h3 {
-      /* border: 3px solid green; */
-      height: 100%;
-      background-color: var(--bcgBlue);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 180px;
-      color: black;
+  }
+}
+.ascensionMaterialNight {
+  /* border: 3px solid blue; */
+  background-color: var(--moduleDark);
+  border-radius: 20px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  > h3 {
+    /* border: 3px solid green; */
+    height: 100%;
+    background-color: var(--bcgBlue);
+    border-radius: 17px;
+    border: 2px solid var(--bcgdark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    color: black;
+    text-align: center;
+  }
+  > div {
+    border: 2px solid var(--gold);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    > p {
+      background-color: var(--bcgdark);
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      border-radius: 0 0 12px 12px;
     }
+  }
+  .ascensionLink:hover {
+    cursor: pointer;
+    color: var(--blue);
+    border-radius: 15px;
+  }
+}
+.ascensionMaterialNight2 {
+  /* border: 2px solid darkgoldenrod; */
+  background-color: var(--moduleDark);
+  border-radius: 20px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  > h3 {
+    height: 100%;
+    background-color: var(--bcgBlue);
+    border-radius: 17px;
+    border: 2px solid var(--bcgdark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    color: black;
+    text-align: center;
+  }
+  > div {
+    /* border: 2px solid red; */
+    display: flex;
+    gap: 20px;
     > div {
       border: 2px solid var(--gold);
       background-color: var(--gray);
@@ -714,14 +769,44 @@ header {
       flex-direction: column;
       align-items: center;
       border-radius: 15px;
-      > p {
-        background-color: var(--bcgdark);
-        width: 100%;
-        text-align: center;
-        padding: 5px;
-        border-radius: 0 0 12px 12px;
-      }
     }
+    p {
+      background-color: var(--bcgdark);
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      border-radius: 0 0 12px 12px;
+    }
+  }
+  .ascensionLink:hover {
+    cursor: pointer;
+    color: var(--blue);
+    border-radius: 15px;
+  }
+}
+
+.allTalentsUpgradesNight {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+  font-size: 14px;
+  line-height: 1.1;
+  gap: 15px;
+  img {
+    width: 90px;
+  }
+  > div {
+    /* border: 3px solid blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  h4 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -1745,6 +1830,7 @@ header {
   }
   .uniqueMaterialsIcon {
     margin-top: 5px;
+    width: 120px;
   }
 
   .uniqueMaterialsIconNight2 {
@@ -1801,6 +1887,7 @@ header {
   }
   .uniqueMaterialsIcon {
     margin-top: 5px;
+    width: 120px;
   }
   .uniqueMaterialsIconNight2 {
     /* border: 3px solid red; */

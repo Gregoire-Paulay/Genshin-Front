@@ -96,119 +96,241 @@ export const CharacterDetailsSchema = z.object({
       note: z.string().optional(),
     })
   ),
-  talent_upgrade: z
-    .object({
-      mora: z.object({
+  // talent_upgrade: z
+  //   .object({
+  //     mora: z.object({
+  //       name: z.string(),
+  //       picture: z.string().url(),
+  //       number: z.number(),
+  //       id: z.string(),
+  //     }),
+  //     mobLoot: z.array(
+  //       z.object({
+  //         name: z.string(),
+  //         picture: z.string().url(),
+  //         number: z.number(),
+  //         id: z.string(),
+  //       })
+  //     ),
+  //     books: z.array(
+  //       z.object({
+  //         name: z.string(),
+  //         picture: z.string().url(),
+  //         number: z.number(),
+  //         id: z.string(),
+  //       })
+  //     ),
+  //     bossLoot: z.object({
+  //       name: z.string(),
+  //       picture: z.string().url(),
+  //       number: z.number(),
+  //       id: z.string(),
+  //     }),
+  //     crown: z.object({
+  //       name: z.string(),
+  //       picture: z.string().url(),
+  //       number: z.number(),
+  //       id: z.string(),
+  //     }),
+  //   })
+  //   .or(
+  //     z.object({
+  //       normal_attack: z.object({
+  //         mora: z.object({
+  //           name: z.string(),
+  //           picture: z.string().url(),
+  //           number: z.number(),
+  //           id: z.string(),
+  //         }),
+  //         mobLoot: z.array(
+  //           z.object({
+  //             name: z.string(),
+  //             picture: z.string().url(),
+  //             number: z.number(),
+  //             id: z.string(),
+  //           })
+  //         ),
+  //         books: z.array(
+  //           z.object({
+  //             name: z.string(),
+  //             picture: z.string().url(),
+  //             number: z.number(),
+  //             id: z.string(),
+  //           })
+  //         ),
+  //         bossLoot: z.object({
+  //           name: z.string(),
+  //           picture: z.string().url(),
+  //           number: z.number(),
+  //           id: z.string(),
+  //         }),
+  //         crown: z.object({
+  //           name: z.string(),
+  //           picture: z.string().url(),
+  //           number: z.number(),
+  //           id: z.string(),
+  //         }),
+  //       }),
+  //       elemental_burst_skill: z.object({
+  //         mora: z.object({
+  //           name: z.string(),
+  //           picture: z.string().url(),
+  //           number: z.number(),
+  //           id: z.string(),
+  //         }),
+  //         mobLoot: z.array(
+  //           z.object({
+  //             name: z.string(),
+  //             picture: z.string().url(),
+  //             number: z.number(),
+  //             id: z.string(),
+  //           })
+  //         ),
+  //         books: z.array(
+  //           z.object({
+  //             name: z.string(),
+  //             picture: z.string().url(),
+  //             number: z.number(),
+  //             id: z.string(),
+  //           })
+  //         ),
+  //         bossLoot: z.object({
+  //           name: z.string(),
+  //           picture: z.string().url(),
+  //           number: z.number(),
+  //           id: z.string(),
+  //         }),
+  //         crown: z.object({
+  //           name: z.string(),
+  //           picture: z.string().url(),
+  //           number: z.number(),
+  //           id: z.string(),
+  //         }),
+  //       }),
+  //     })
+  //   ),
+  talent_upgrade: z.object({
+    mora: z
+      .object({
         name: z.string(),
         picture: z.string().url(),
         number: z.number(),
         id: z.string(),
-      }),
-      mobLoot: z.array(
+      })
+      .optional(),
+    mobLoot: z
+      .array(
         z.object({
           name: z.string(),
           picture: z.string().url(),
           number: z.number(),
           id: z.string(),
         })
-      ),
-      books: z.array(
+      )
+      .optional(),
+    books: z
+      .array(
         z.object({
           name: z.string(),
           picture: z.string().url(),
           number: z.number(),
           id: z.string(),
         })
-      ),
-      bossLoot: z.object({
+      )
+      .optional(),
+    bossLoot: z
+      .object({
         name: z.string(),
         picture: z.string().url(),
         number: z.number(),
         id: z.string(),
-      }),
-      crown: z.object({
+      })
+      .optional(),
+    crown: z
+      .object({
         name: z.string(),
         picture: z.string().url(),
         number: z.number(),
         id: z.string(),
-      }),
-    })
-    .or(
-      z.object({
-        normal_attack: z.object({
-          mora: z.object({
-            name: z.string(),
-            picture: z.string().url(),
-            number: z.number(),
-            id: z.string(),
-          }),
-          mobLoot: z.array(
-            z.object({
-              name: z.string(),
-              picture: z.string().url(),
-              number: z.number(),
-              id: z.string(),
-            })
-          ),
-          books: z.array(
-            z.object({
-              name: z.string(),
-              picture: z.string().url(),
-              number: z.number(),
-              id: z.string(),
-            })
-          ),
-          bossLoot: z.object({
-            name: z.string(),
-            picture: z.string().url(),
-            number: z.number(),
-            id: z.string(),
-          }),
-          crown: z.object({
-            name: z.string(),
-            picture: z.string().url(),
-            number: z.number(),
-            id: z.string(),
-          }),
+      })
+      .optional(),
+    normal_attack: z
+      .object({
+        mora: z.object({
+          name: z.string(),
+          picture: z.string().url(),
+          number: z.number(),
+          id: z.string(),
         }),
-        elemental_burst_skill: z.object({
-          mora: z.object({
+        mobLoot: z.array(
+          z.object({
             name: z.string(),
             picture: z.string().url(),
             number: z.number(),
             id: z.string(),
-          }),
-          mobLoot: z.array(
-            z.object({
-              name: z.string(),
-              picture: z.string().url(),
-              number: z.number(),
-              id: z.string(),
-            })
-          ),
-          books: z.array(
-            z.object({
-              name: z.string(),
-              picture: z.string().url(),
-              number: z.number(),
-              id: z.string(),
-            })
-          ),
-          bossLoot: z.object({
+          })
+        ),
+        books: z.array(
+          z.object({
             name: z.string(),
             picture: z.string().url(),
             number: z.number(),
             id: z.string(),
-          }),
-          crown: z.object({
-            name: z.string(),
-            picture: z.string().url(),
-            number: z.number(),
-            id: z.string(),
-          }),
+          })
+        ),
+        bossLoot: z.object({
+          name: z.string(),
+          picture: z.string().url(),
+          number: z.number(),
+          id: z.string(),
+        }),
+        crown: z.object({
+          name: z.string(),
+          picture: z.string().url(),
+          number: z.number(),
+          id: z.string(),
         }),
       })
-    ),
+      .optional(),
+    elemental_burst_skill: z
+      .object({
+        mora: z.object({
+          name: z.string(),
+          picture: z.string().url(),
+          number: z.number(),
+          id: z.string(),
+        }),
+        mobLoot: z.array(
+          z.object({
+            name: z.string(),
+            picture: z.string().url(),
+            number: z.number(),
+            id: z.string(),
+          })
+        ),
+        books: z.array(
+          z.object({
+            name: z.string(),
+            picture: z.string().url(),
+            number: z.number(),
+            id: z.string(),
+          })
+        ),
+        bossLoot: z.object({
+          name: z.string(),
+          picture: z.string().url(),
+          number: z.number(),
+          id: z.string(),
+        }),
+        crown: z.object({
+          name: z.string(),
+          picture: z.string().url(),
+          number: z.number(),
+          id: z.string(),
+        }),
+      })
+      .optional(),
+  }),
   constellation: z.object({
     name: z.string(),
     icon: z.string().url(),

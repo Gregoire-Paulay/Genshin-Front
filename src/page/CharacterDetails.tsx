@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { ZodError, z } from "zod";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useThemeContext } from "../context/theme-context";
 import HashLoader from "react-spinners/HashLoader";
 
@@ -15,6 +16,7 @@ type Picture = "artwork" | "wish" | "archon";
 const CharactersDetails = () => {
   const { id } = useParams();
   const { theme } = useThemeContext();
+  const navigate = useNavigate();
 
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -386,35 +388,184 @@ const CharactersDetails = () => {
 
           {details === "ascension" && (
             <div className="allAscensionNight">
-              <div className="ascensionMoraNight">
+              <h4>
+                Matériau nécéssaire pour monter le personnage au niveau 90
+              </h4>
+              <div className="ascensionMaterialNight">
                 <h3>Mora</h3>
                 <div>
                   <img
                     src={characterDetails?.ascension_materials.mora.picture}
                     alt="icon mora"
                   />
-                  <p> {characterDetails?.ascension_materials.mora.number}</p>
+                  <p> 420 000</p>
                 </div>
               </div>
 
-              <div className="ascensionStoneNight">
-                {characterDetails?.ascension_materials.stone.map((stone) => {
-                  return (
-                    <div key={stone.id}>
-                      <div>
-                        <img src={stone.picture} alt="image stone" />
-                        <p>{stone.number}</p>
+              <div className="ascensionMaterialNight2">
+                <h3>Pierre d'élévation</h3>
+
+                <div>
+                  {characterDetails?.ascension_materials.stone.map((stone) => {
+                    return (
+                      <div key={stone.name}>
+                        <div
+                          onClick={() => {
+                            navigate("/Stone/Details/" + stone.id);
+                          }}
+                          className="ascensionLink"
+                        >
+                          <img src={stone.picture} alt="image stone" />
+                          <p>{stone.number}</p>
+                        </div>
                       </div>
-                      <p>{stone.name}</p>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
+              </div>
+
+              {characterDetails?.ascension_materials.bossLoot && (
+                <div className="ascensionMaterialNight">
+                  <h3>Matériau de Boss de monde</h3>
+                  <div
+                    onClick={() => {
+                      navigate(
+                        "/NormalBoss/Details/" +
+                          characterDetails.ascension_materials.bossLoot?.id
+                      );
+                    }}
+                    className="ascensionLink"
+                  >
+                    <img
+                      src={
+                        characterDetails?.ascension_materials.bossLoot?.picture
+                      }
+                      alt=""
+                    />
+                    <p>
+                      {characterDetails.ascension_materials.bossLoot.number}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              <div className="ascensionMaterialNight">
+                <h3>Produit Régional</h3>
+                <div>
+                  <img
+                    src={characterDetails?.ascension_materials.material.picture}
+                    alt=""
+                  />
+                  <p>{characterDetails?.ascension_materials.material.number}</p>
+                </div>
+              </div>
+
+              <div className="ascensionMaterialNight2">
+                <h3>Matériau de mobs</h3>
+                <div>
+                  {characterDetails?.ascension_materials.mobLoot.map(
+                    (mobLoot) => {
+                      return (
+                        <div key={mobLoot.name}>
+                          <img src={mobLoot.picture} alt="" />
+                          <p>{mobLoot.number}</p>
+                        </div>
+                      );
+                    }
+                  )}
+                </div>
               </div>
             </div>
           )}
 
           {details === "upgrade" && (
-            <div className="allTalentsNight">Talent Upgrade</div>
+            <div className="allTalentsUpgradesNight">
+              {characterDetails?.talent_upgrade.normal_attack ? (
+                "1"
+              ) : (
+                <div>
+                  <h4>
+                    Matériau nécéssaire pour monter 1 aptitude au niveau 10
+                  </h4>
+                  <div className="ascensionMaterialNight">
+                    <h3>Mora</h3>
+                    <div>
+                      <img
+                        src={characterDetails?.talent_upgrade.mora?.picture}
+                        alt="image mora"
+                      />
+                      <p>1 652 000</p>
+                    </div>
+                  </div>
+
+                  <div className="ascensionMaterialNight2">
+                    <h3>Matériau de mobs</h3>
+                    <div>
+                      {characterDetails?.talent_upgrade.mobLoot?.map(
+                        (mobLoot) => {
+                          return (
+                            <div key={mobLoot.name}>
+                              <img src={mobLoot.picture} alt="image loot" />
+                              <p>{mobLoot.number}</p>
+                            </div>
+                          );
+                        }
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="ascensionMaterialNight2">
+                    <h3>Matériau d'aptitudes</h3>
+                    <div>
+                      {characterDetails?.talent_upgrade.books?.map((book) => {
+                        return (
+                          <div
+                            key={book.name}
+                            className="ascensionLink"
+                            onClick={() => {
+                              navigate("/Books");
+                            }}
+                          >
+                            <img src={book.picture} alt="image loot" />
+                            <p>{book.number}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="ascensionMaterialNight">
+                    <h3>Matériau de Boss hebdomadaires</h3>
+                    <div
+                      className="ascensionLink"
+                      onClick={() => {
+                        navigate(
+                          "/WeeklyBoss/Details/" +
+                            characterDetails?.talent_upgrade.bossLoot?.id
+                        );
+                      }}
+                    >
+                      <img
+                        src={characterDetails?.talent_upgrade.bossLoot?.picture}
+                        alt="image loot"
+                      />
+                      <p>{characterDetails?.talent_upgrade.bossLoot?.number}</p>
+                    </div>
+                  </div>
+
+                  <div className="ascensionMaterialNight">
+                    <h3>{characterDetails?.talent_upgrade.crown?.name}</h3>
+                    <div>
+                      <img
+                        src={characterDetails?.talent_upgrade.crown?.picture}
+                        alt="image mora"
+                      />
+                      <p>{characterDetails?.talent_upgrade.crown?.number}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           )}
         </div>
       </div>
