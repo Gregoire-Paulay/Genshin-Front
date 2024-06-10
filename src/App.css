@@ -23,6 +23,7 @@
   --star5: #ac7d40;
   --blue: #60a5fa;
   --bcgBlue: #64a1eb;
+  --bcgBlue2: #38a6c2;
 }
 body {
   font-family: "Roboto", sans-serif;
@@ -181,101 +182,74 @@ header {
 /* --- Page Liste Personnages -- */
 /* ----------------------------- */
 .allFilters {
-  background-color: var(--moduleLightDark);
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 15px;
+  /* background-color: var(--moduleLightDark); */
+  /* padding: 12px; */
+  margin-bottom: 25px;
   position: relative;
-}
-.showFiltersNight {
-  /* border: 1px solid blue; */
   display: flex;
-  justify-content: flex-end;
-  > button {
-    border: 2px solid var(--moduleLightDark);
-    margin-bottom: 15px;
-    background-color: var(--moduleLightDark);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 5px 8px;
-    border-radius: 9px;
-  }
-  > button:hover {
-    cursor: pointer;
-    border: 2px solid var(--blue);
-  }
+  flex-direction: column;
+  gap: 15px;
 }
-.hideFiltersNight {
-  position: absolute;
-  top: 8px;
-  right: 12px;
+.filters {
   display: flex;
-  gap: 12px;
-  > button {
-    border: 2px solid var(--bcgdark);
-    background-color: var(--bcgdark);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 5px 8px;
-    border-radius: 9px;
-  }
-  > button:hover {
-    cursor: pointer;
-    border: 2px solid var(--blue);
-  }
-}
-.filtersNight {
-  display: flex;
-  gap: 12px;
+  gap: 15px;
+  justify-content: center;
   > div {
-    border: 2px solid var(--moduleDark);
-    background-color: var(--bcgdark);
+    border: 1px solid var(--bcgBlue2);
+    background-color: var(--moduleLightDark);
     display: flex;
-    padding: 3px 5px;
+    padding: 5px 5px;
     border-radius: 7px;
     font-size: 16px;
-    gap: 4px;
+
     align-items: center;
     justify-content: center;
   }
   > div:hover {
     cursor: pointer;
-    border: 2px solid var(--moduleLight);
+    background-color: var(--bcgBlue);
+    transform: scale(1.2);
   }
   img {
-    height: 20px;
+    height: 40px;
+  }
+  > div:first-of-type i {
+    color: var(--star5);
+    font-size: 35px;
+  }
+  > div:nth-of-type(2) i {
+    color: var(--star4);
+    font-size: 35px;
+  }
+  .filtersHighlight {
+    background-color: var(--bcgBlue2);
   }
 }
 
-.characterListNight {
+.characterList {
+  /* border: 3px solid green; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  background-color: var(--moduleLightDark);
+  gap: 18px;
   padding: 20px 0;
-  border-radius: 25px;
-  border: 2px solid var(--gold);
   > div {
-    border: 3px solid var(--bcgdark);
     background-color: var(--moduleGrayBlue);
     position: relative;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    width: 180px;
+    width: 150px;
     color: white;
+    box-shadow: 6px 6px 10px 1px #616161;
   }
   > div:hover {
     cursor: pointer;
-    border: 3px solid whitesmoke;
     color: var(--blue);
+    transform: scale(1.015);
   }
   > div > img:first-child {
-    /* border: 3px solid blue; */
-    height: 180px;
+    height: 150px;
   }
   > div > p {
     width: 100%;
@@ -291,27 +265,23 @@ header {
   }
 }
 
-.characterListDay {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  background-color: var(--moduleLight);
-  padding: 20px 0;
-  border-radius: 25px;
-  border: 2px solid #222222;
-}
-
 .star4BCG {
   width: 100%;
   background-color: var(--star4);
   border-radius: 17px 17px 0 0;
+}
+.star4BCG:hover {
+  background-color: #8e71ad;
 }
 .star5BCG {
   width: 100%;
   background-color: var(--star5);
   border-radius: 17px 17px 0 0;
 }
+.star5BCG:hover {
+  background-color: #a58458;
+}
+
 .characterElement {
   position: absolute;
   top: 3px;
