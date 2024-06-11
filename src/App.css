@@ -141,16 +141,17 @@ h6 {
 /* ----------------------------- */
 /* ----------------------------- */
 header {
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
   /* border: 3px solid red; */
+  background-color: var(--moduleLightDark);
   display: flex;
   align-items: center;
   gap: 30px;
-  padding: 15px 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   img {
-    width: 250px;
-    height: 100px;
+    height: 80%;
+    display: flex;
+    align-items: center;
   }
   img:hover {
     cursor: pointer;
@@ -158,20 +159,34 @@ header {
 }
 
 .headerNav {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   display: flex;
   justify-content: space-between;
+  height: 70px;
+  color: white;
+  > div {
+    /* border: 3px solid purple; */
+    display: flex;
+    align-items: center;
+  }
   > p {
-    border: 1px solid black;
-    font-size: 25px;
+    /* border: 3px solid red; */
+    border-bottom: 4px solid var(--moduleLightDark);
+    display: flex;
+    align-items: center;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 15px;
+    display: flex;
   }
   > p:hover {
     cursor: pointer;
     color: #ffcc03;
   }
+  .headerBottomBorder {
+    border-bottom: 4px solid var(--bcgBlue2);
+  }
 }
+
 /* ----------------------------- */
 /* ----------------------------- */
 /* ----------- MAIN ------------ */
@@ -854,100 +869,12 @@ header {
   }
 }
 .ascensionMaterialNight {
-  /* border: 3px solid blue; */
-  background-color: var(--moduleDark);
-  border-radius: 20px;
-  height: 130px;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  > h3 {
-    /* border: 3px solid green; */
-    height: 100%;
-    background-color: var(--bcgBlue);
-    border-radius: 17px;
-    border: 2px solid var(--bcgdark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    color: black;
-    text-align: center;
-  }
-  > div {
-    border: 2px solid var(--gold);
-    background-color: var(--gray);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 15px;
-    > p {
-      background-color: var(--bcgdark);
-      width: 100%;
-      text-align: center;
-      padding: 5px;
-      border-radius: 0 0 12px 12px;
-    }
-  }
-  .ascensionLink:hover {
-    cursor: pointer;
-    color: var(--blue);
-    border-radius: 15px;
-  }
-}
-.ascensionMaterialDay {
-  /* border: 3px solid blue; */
-  background-color: var(--moduleLight);
-  border-radius: 20px;
-  height: 130px;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  > h3 {
-    /* border: 3px solid green; */
-    height: 100%;
-    background-color: var(--bcgBlue);
-    border-radius: 17px;
-    border: 2px solid var(--bcgdark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    color: black;
-    text-align: center;
-  }
-  > div {
-    border: 2px solid var(--titleBlue);
-    background-color: var(--gray2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 15px;
-    > p {
-      background-color: var(--bcgdark);
-      color: white;
-      width: 100%;
-      text-align: center;
-      padding: 5px;
-      border-radius: 0 0 12px 12px;
-    }
-  }
-  .ascensionLink:hover {
-    cursor: pointer;
-    color: var(--blue);
-    border-radius: 15px;
-  }
-}
-.ascensionMaterialNight2 {
   /* border: 2px solid darkgoldenrod; */
   background-color: var(--moduleDark);
   border-radius: 20px;
-  height: 130px;
   display: flex;
-  align-items: center;
   gap: 25px;
   > h3 {
-    height: 100%;
     background-color: var(--bcgBlue);
     border-radius: 17px;
     border: 2px solid var(--bcgdark);
@@ -961,7 +888,11 @@ header {
   > div {
     /* border: 2px solid red; */
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+    width: 610px;
     > div {
       border: 2px solid var(--gold);
       background-color: var(--gray);
@@ -984,16 +915,13 @@ header {
     border-radius: 15px;
   }
 }
-.ascensionMaterialDay2 {
+.ascensionMaterialDay {
   /* border: 2px solid darkgoldenrod; */
   background-color: var(--moduleLight);
   border-radius: 20px;
-  height: 130px;
   display: flex;
-  align-items: center;
   gap: 25px;
   > h3 {
-    height: 100%;
     background-color: var(--bcgBlue);
     border-radius: 17px;
     border: 2px solid var(--bcgdark);
@@ -1007,7 +935,11 @@ header {
   > div {
     /* border: 2px solid red; */
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    padding: 5px;
+    width: 610px;
     > div {
       border: 2px solid var(--titleBlue);
       background-color: var(--gray2);
@@ -1054,6 +986,40 @@ header {
     width: 100%;
     justify-content: center;
     align-items: center;
+  }
+}
+.talentsUpgradeTravelerNight {
+  /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  color: black;
+  > div {
+    /* border: 3px solid green; */
+    border: 2px solid var(--titleBlue);
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 8px;
+    border-radius: 10px;
+    p {
+      color: white;
+    }
+  }
+}
+.talentsUpgradeTravelerDay {
+  /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  > div {
+    /* border: 3px solid green; */
+    border: 2px solid var(--titleBlue);
+    background-color: var(--gray1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 8px;
+    border-radius: 10px;
   }
 }
 

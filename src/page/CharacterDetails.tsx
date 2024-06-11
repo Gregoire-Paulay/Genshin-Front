@@ -550,23 +550,150 @@ const CharactersDetails = () => {
           {details === "upgrade" && (
             <div className="allTalentsUpgrades">
               {characterDetails?.talent_upgrade.normal_attack ? (
-                <div>
+                <div
+                  className={
+                    theme === "night"
+                      ? "talentsUpgradeTravelerNight"
+                      : "talentsUpgradeTravelerDay"
+                  }
+                >
                   <div>
                     <h4>
                       Matériau nécéssaire pour monter l'attaque normale au
                       niveau 10
                     </h4>
-                    <div className="ascensionMaterialNight">
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
                       <h3>Mora</h3>
                       <div>
-                        <img
-                          src={
-                            characterDetails.talent_upgrade.normal_attack.mora
-                              .picture
+                        <div>
+                          <img
+                            src={
+                              characterDetails.talent_upgrade.normal_attack.mora
+                                .picture
+                            }
+                            alt="image mora"
+                          />
+                          <p>1 652 000</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Matériau de mobs</h3>
+                      <div>
+                        {characterDetails.talent_upgrade.normal_attack.mobLoot.map(
+                          (loot) => {
+                            return (
+                              <div key={loot.id}>
+                                <img src={loot.picture} alt="" />
+                                <p>{loot.number}</p>
+                              </div>
+                            );
                           }
-                          alt="image mora"
-                        />
-                        <p>1 652 000</p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Matériau d'aptitudes</h3>
+                      <div>
+                        {characterDetails.talent_upgrade.normal_attack.books.map(
+                          (book) => {
+                            return (
+                              <div
+                                key={book.id}
+                                className="ascensionLink"
+                                onClick={() => {
+                                  navigate("/Books");
+                                }}
+                              >
+                                <img src={book.picture} alt="icon book" />
+                                <p>{book.number}</p>
+                              </div>
+                            );
+                          }
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Matériau de Boss hebdomadaires</h3>
+                      <div>
+                        <div
+                          className="ascensionLink"
+                          onClick={() => {
+                            navigate(
+                              "/WeeklyBoss/Details/" +
+                                characterDetails.talent_upgrade.normal_attack
+                                  ?.bossLoot.id
+                            );
+                          }}
+                        >
+                          <img
+                            src={
+                              characterDetails.talent_upgrade.normal_attack
+                                .bossLoot.picture
+                            }
+                            alt="image boss loot"
+                          />
+                          <p>
+                            {
+                              characterDetails.talent_upgrade.normal_attack
+                                .bossLoot.number
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Couronne de la sagesse</h3>
+                      <div>
+                        <div>
+                          <img
+                            src={
+                              characterDetails.talent_upgrade.normal_attack
+                                .crown.picture
+                            }
+                            alt="image couronne"
+                          />
+                          <p>
+                            {
+                              characterDetails.talent_upgrade.normal_attack
+                                .crown.number
+                            }
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -576,17 +703,138 @@ const CharactersDetails = () => {
                       Matériau nécéssaire pour monter la compétence et le
                       déchainement élémentaire au niveau 10
                     </h4>
-                    <div className="ascensionMaterialNight">
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
                       <h3>Mora</h3>
                       <div>
-                        <img
-                          src={
-                            characterDetails.talent_upgrade
-                              .elemental_burst_skill?.mora.picture
+                        <div>
+                          <img
+                            src={
+                              characterDetails.talent_upgrade
+                                .elemental_burst_skill?.mora.picture
+                            }
+                            alt="image mora"
+                          />
+                          <p>1 652 000</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Matériau de mobs</h3>
+                      <div>
+                        {characterDetails.talent_upgrade.elemental_burst_skill?.mobLoot.map(
+                          (loot) => {
+                            return (
+                              <div key={loot.id}>
+                                <img src={loot.picture} alt="" />
+                                <p>{loot.number}</p>
+                              </div>
+                            );
                           }
-                          alt="image mora"
-                        />
-                        <p>1 652 000</p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Matériau d'aptitudes</h3>
+                      <div>
+                        {characterDetails.talent_upgrade.elemental_burst_skill?.books.map(
+                          (book) => {
+                            return (
+                              <div
+                                key={book.id}
+                                className="ascensionLink"
+                                onClick={() => {
+                                  navigate("/Books");
+                                }}
+                              >
+                                <img src={book.picture} alt="icon book" />
+                                <p>{book.number}</p>
+                              </div>
+                            );
+                          }
+                        )}
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Matériau de Boss hebdomadaires</h3>
+                      <div>
+                        <div
+                          className="ascensionLink"
+                          onClick={() => {
+                            navigate(
+                              "/WeeklyBoss/Details/" +
+                                characterDetails?.talent_upgrade
+                                  .elemental_burst_skill?.bossLoot.id
+                            );
+                          }}
+                        >
+                          <img
+                            src={
+                              characterDetails.talent_upgrade
+                                .elemental_burst_skill?.bossLoot.picture
+                            }
+                            alt="image boss loot"
+                          />
+                          <p>
+                            {
+                              characterDetails.talent_upgrade.normal_attack
+                                .bossLoot.number
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={
+                        theme === "night"
+                          ? "ascensionMaterialNight"
+                          : "ascensionMaterialDay"
+                      }
+                    >
+                      <h3>Couronne de la sagesse</h3>
+                      <div>
+                        <div>
+                          <img
+                            src={
+                              characterDetails.talent_upgrade
+                                .elemental_burst_skill?.crown.picture
+                            }
+                            alt="image couronne"
+                          />
+                          <p>
+                            {
+                              characterDetails.talent_upgrade.normal_attack
+                                .crown.number
+                            }
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -605,19 +853,21 @@ const CharactersDetails = () => {
                   >
                     <h3>Mora</h3>
                     <div>
-                      <img
-                        src={characterDetails?.talent_upgrade.mora?.picture}
-                        alt="image mora"
-                      />
-                      <p>1 652 000</p>
+                      <div>
+                        <img
+                          src={characterDetails?.talent_upgrade.mora?.picture}
+                          alt="image mora"
+                        />
+                        <p>1 652 000</p>
+                      </div>
                     </div>
                   </div>
 
                   <div
                     className={
                       theme === "night"
-                        ? "ascensionMaterialNight2"
-                        : "ascensionMaterialDay2"
+                        ? "ascensionMaterialNight"
+                        : "ascensionMaterialDay"
                     }
                   >
                     <h3>Matériau de mobs</h3>
@@ -638,8 +888,8 @@ const CharactersDetails = () => {
                   <div
                     className={
                       theme === "night"
-                        ? "ascensionMaterialNight2"
-                        : "ascensionMaterialDay2"
+                        ? "ascensionMaterialNight"
+                        : "ascensionMaterialDay"
                     }
                   >
                     <h3>Matériau d'aptitudes</h3>
@@ -678,11 +928,17 @@ const CharactersDetails = () => {
                         );
                       }}
                     >
-                      <img
-                        src={characterDetails?.talent_upgrade.bossLoot?.picture}
-                        alt="image loot"
-                      />
-                      <p>{characterDetails?.talent_upgrade.bossLoot?.number}</p>
+                      <div>
+                        <img
+                          src={
+                            characterDetails?.talent_upgrade.bossLoot?.picture
+                          }
+                          alt="image loot"
+                        />
+                        <p>
+                          {characterDetails?.talent_upgrade.bossLoot?.number}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
@@ -695,11 +951,13 @@ const CharactersDetails = () => {
                   >
                     <h3>{characterDetails?.talent_upgrade.crown?.name}</h3>
                     <div>
-                      <img
-                        src={characterDetails?.talent_upgrade.crown?.picture}
-                        alt="image mora"
-                      />
-                      <p>{characterDetails?.talent_upgrade.crown?.number}</p>
+                      <div>
+                        <img
+                          src={characterDetails?.talent_upgrade.crown?.picture}
+                          alt="image mora"
+                        />
+                        <p>{characterDetails?.talent_upgrade.crown?.number}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
