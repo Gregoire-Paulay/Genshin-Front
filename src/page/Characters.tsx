@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { ZodError, z } from "zod";
 import { useNavigate } from "react-router-dom";
-import { useThemeContext } from "../context/theme-context";
+// import { useThemeContext } from "../context/theme-context";
 import HashLoader from "react-spinners/HashLoader";
 
 //Type
@@ -23,7 +23,6 @@ type Rarity = 4 | 5;
 import { sortCharacterAlphabetically } from "../utils/sortFunction";
 
 const Characters = (): JSX.Element => {
-  const { theme } = useThemeContext();
   const navigate = useNavigate();
 
   const [error, setError] = useState<Error | null>(null);
@@ -119,355 +118,175 @@ const Characters = (): JSX.Element => {
 
   return (
     <div className="container">
-      {theme === "night" ? (
-        <div className="">
-          <div className="allFilters">
-            <div className="filters">
-              <div
-                className={rarityFilters === 5 ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (rarityFilters === 5) {
-                    setRarityFilters(null);
-                  } else {
-                    setRarityFilters(5);
-                  }
-                }}
-              >
-                <i className="fa-solid fa-star"></i>
-              </div>
-              <div
-                className={rarityFilters === 4 ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (rarityFilters === 4) {
-                    setRarityFilters(null);
-                  } else {
-                    setRarityFilters(4);
-                  }
-                }}
-              >
-                <i className="fa-solid fa-star"></i>
-              </div>
+      <div className="">
+        <div className="allFilters">
+          <div className="filters">
+            <div
+              className={rarityFilters === 5 ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (rarityFilters === 5) {
+                  setRarityFilters(null);
+                } else {
+                  setRarityFilters(5);
+                }
+              }}
+            >
+              <i className="fa-solid fa-star"></i>
             </div>
-
-            <div className="filters">
-              <div
-                className={elementFilters === "Anémo" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Anémo") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Anémo");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618455/Genshin/IconAnemo.webp"
-                  alt="icon anémo"
-                />
-              </div>
-
-              <div
-                className={elementFilters === "Cryo" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Cryo") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Cryo");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618399/Genshin/IconCryo.webp"
-                  alt="icon cryo"
-                />
-              </div>
-
-              <div
-                className={
-                  elementFilters === "Dendro" ? "filtersHighlight" : ""
+            <div
+              className={rarityFilters === 4 ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (rarityFilters === 4) {
+                  setRarityFilters(null);
+                } else {
+                  setRarityFilters(4);
                 }
-                onClick={() => {
-                  if (elementFilters === "Dendro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Dendro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618418/Genshin/IconDendro.webp"
-                  alt="icon dendro"
-                />
-              </div>
-
-              <div
-                className={
-                  elementFilters === "Électro" ? "filtersHighlight" : ""
-                }
-                onClick={() => {
-                  if (elementFilters === "Électro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Électro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618437/Genshin/IconElectro.webp"
-                  alt="icon électro"
-                />
-              </div>
-
-              <div
-                className={elementFilters === "Géo" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Géo") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Géo");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618493/Genshin/IconGeo.webp"
-                  alt="icon géo"
-                />
-              </div>
-
-              <div
-                className={elementFilters === "Hydro" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Hydro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Hydro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618474/Genshin/IconHydro.webp"
-                  alt="icon hydro"
-                />
-              </div>
-
-              <div
-                className={elementFilters === "Pyro" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Pyro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Pyro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618493/Genshin/IconPyro.webp"
-                  alt="icon pyro"
-                />
-              </div>
+              }}
+            >
+              <i className="fa-solid fa-star"></i>
             </div>
           </div>
 
-          <div className="characterList">
-            {charactersData?.map((character) => {
-              return (
-                <div
-                  key={character.id}
-                  onClick={() => {
-                    navigate("/Characters/Details/" + character.id);
-                  }}
-                >
-                  <img
-                    src={character.icon}
-                    alt="Icon Personnages"
-                    className={character.star === 4 ? "star4BCG" : "star5BCG"}
-                  />
-                  <img
-                    src={character.element.icon}
-                    alt="Élément personnages"
-                    className="characterElement"
-                  />
-                  <p>{character.name}</p>
-                </div>
-              );
-            })}
+          <div className="filters">
+            <div
+              className={elementFilters === "Anémo" ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (elementFilters === "Anémo") {
+                  setElementFilters(null);
+                } else {
+                  setElementFilters("Anémo");
+                }
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618455/Genshin/IconAnemo.webp"
+                alt="icon anémo"
+              />
+            </div>
+
+            <div
+              className={elementFilters === "Cryo" ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (elementFilters === "Cryo") {
+                  setElementFilters(null);
+                } else {
+                  setElementFilters("Cryo");
+                }
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618399/Genshin/IconCryo.webp"
+                alt="icon cryo"
+              />
+            </div>
+
+            <div
+              className={elementFilters === "Dendro" ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (elementFilters === "Dendro") {
+                  setElementFilters(null);
+                } else {
+                  setElementFilters("Dendro");
+                }
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618418/Genshin/IconDendro.webp"
+                alt="icon dendro"
+              />
+            </div>
+
+            <div
+              className={elementFilters === "Électro" ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (elementFilters === "Électro") {
+                  setElementFilters(null);
+                } else {
+                  setElementFilters("Électro");
+                }
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618437/Genshin/IconElectro.webp"
+                alt="icon électro"
+              />
+            </div>
+
+            <div
+              className={elementFilters === "Géo" ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (elementFilters === "Géo") {
+                  setElementFilters(null);
+                } else {
+                  setElementFilters("Géo");
+                }
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618493/Genshin/IconGeo.webp"
+                alt="icon géo"
+              />
+            </div>
+
+            <div
+              className={elementFilters === "Hydro" ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (elementFilters === "Hydro") {
+                  setElementFilters(null);
+                } else {
+                  setElementFilters("Hydro");
+                }
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618474/Genshin/IconHydro.webp"
+                alt="icon hydro"
+              />
+            </div>
+
+            <div
+              className={elementFilters === "Pyro" ? "filtersHighlight" : ""}
+              onClick={() => {
+                if (elementFilters === "Pyro") {
+                  setElementFilters(null);
+                } else {
+                  setElementFilters("Pyro");
+                }
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618493/Genshin/IconPyro.webp"
+                alt="icon pyro"
+              />
+            </div>
           </div>
         </div>
-      ) : (
-        <div className="">
-          <div className="allFilters">
-            <div className="filters">
-              <div
-                className={rarityFilters === 5 ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (rarityFilters === 5) {
-                    setRarityFilters(null);
-                  } else {
-                    setRarityFilters(5);
-                  }
-                }}
-              >
-                <i className="fa-solid fa-star"></i>
-              </div>
-              <div
-                className={rarityFilters === 4 ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (rarityFilters === 4) {
-                    setRarityFilters(null);
-                  } else {
-                    setRarityFilters(4);
-                  }
-                }}
-              >
-                <i className="fa-solid fa-star"></i>
-              </div>
-            </div>
 
-            <div className="filters">
+        <div className="characterList">
+          {charactersData?.map((character) => {
+            return (
               <div
-                className={elementFilters === "Anémo" ? "filtersHighlight" : ""}
+                key={character.id}
                 onClick={() => {
-                  if (elementFilters === "Anémo") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Anémo");
-                  }
+                  navigate("/Characters/Details/" + character.id);
                 }}
               >
                 <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618455/Genshin/IconAnemo.webp"
-                  alt="icon anémo"
+                  src={character.icon}
+                  alt="Icon Personnages"
+                  className={character.star === 4 ? "star4BCG" : "star5BCG"}
                 />
-              </div>
-
-              <div
-                className={elementFilters === "Cryo" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Cryo") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Cryo");
-                  }
-                }}
-              >
                 <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618399/Genshin/IconCryo.webp"
-                  alt="icon cryo"
+                  src={character.element.icon}
+                  alt="Élément personnages"
+                  className="characterElement"
                 />
+                <p>{character.name}</p>
               </div>
-
-              <div
-                className={
-                  elementFilters === "Dendro" ? "filtersHighlight" : ""
-                }
-                onClick={() => {
-                  if (elementFilters === "Dendro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Dendro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618418/Genshin/IconDendro.webp"
-                  alt="icon dendro"
-                />
-              </div>
-
-              <div
-                className={
-                  elementFilters === "Électro" ? "filtersHighlight" : ""
-                }
-                onClick={() => {
-                  if (elementFilters === "Électro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Électro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618437/Genshin/IconElectro.webp"
-                  alt="icon électro"
-                />
-              </div>
-
-              <div
-                className={elementFilters === "Géo" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Géo") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Géo");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618493/Genshin/IconGeo.webp"
-                  alt="icon géo"
-                />
-              </div>
-
-              <div
-                className={elementFilters === "Hydro" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Hydro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Hydro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618474/Genshin/IconHydro.webp"
-                  alt="icon hydro"
-                />
-              </div>
-
-              <div
-                className={elementFilters === "Pyro" ? "filtersHighlight" : ""}
-                onClick={() => {
-                  if (elementFilters === "Pyro") {
-                    setElementFilters(null);
-                  } else {
-                    setElementFilters("Pyro");
-                  }
-                }}
-              >
-                <img
-                  src="https://res.cloudinary.com/dy2ayuond/image/upload/v1708618493/Genshin/IconPyro.webp"
-                  alt="icon pyro"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="characterList">
-            {charactersData?.map((character) => {
-              return (
-                <div
-                  key={character.id}
-                  onClick={() => {
-                    navigate("/Characters/Details/" + character.id);
-                  }}
-                >
-                  <img
-                    src={character.icon}
-                    alt="Icon Personnages"
-                    className={character.star === 4 ? "star4BCG" : "star5BCG"}
-                  />
-                  <img
-                    src={character.element.icon}
-                    alt="Élément personnages"
-                    className="characterElement"
-                  />
-                  <p>{character.name}</p>
-                </div>
-              );
-            })}
-          </div>
+            );
+          })}
         </div>
-      )}
+      </div>
     </div>
   );
 };

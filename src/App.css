@@ -329,6 +329,42 @@ header {
     padding: 6px;
   }
 }
+.characterDetailsDay {
+  /* border: 3px solid red; */
+  /* background-color: var(--moduleLight); */
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 25px;
+  > div:first-of-type {
+    border: 2px solid var(--titleBlue);
+    background-color: var(--gray2);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    width: 280px;
+  }
+  > div:first-of-type > img {
+    width: 280px;
+    padding: 0 2px;
+  }
+  > div > h2 {
+    width: 100%;
+    text-align: center;
+    background-color: var(--titleBlue);
+    color: white;
+    border-radius: 8px 8px 0 0;
+  }
+  > div > h6 {
+    border-bottom: 1px solid lightgray;
+    color: black;
+    width: 100%;
+    text-align: center;
+    padding: 6px;
+  }
+}
 
 .characterPictureChoiceNight {
   /* border: 2px solid darkgreen; */
@@ -343,9 +379,28 @@ header {
   > p:hover {
     cursor: pointer;
   }
-  .pictureChoiceBorderNight {
+  .pictureChoiceBorder {
     border-bottom: 2px solid var(--gold);
     color: var(--gold);
+  }
+}
+.characterPictureChoiceDay {
+  /* border: 2px solid darkgreen; */
+  display: flex;
+  width: 100%;
+  background-color: var(--gray3);
+  > p {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+  }
+  > p:hover {
+    cursor: pointer;
+  }
+  .pictureChoiceBorder {
+    border-bottom: 2px solid var(--titleBlue);
+    color: var(--titleBlue);
   }
 }
 .characterPictureChoiceNight2 {
@@ -361,13 +416,35 @@ header {
     color: var(--gold);
   }
 }
+.characterPictureChoiceDay2 {
+  /* border: 2px solid darkgreen; */
+  display: flex;
+  width: 100%;
+  background-color: var(--gray3);
+  > p {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    border-bottom: 2px solid var(--titleBlue);
+    color: var(--titleBlue);
+  }
+}
+
 .characterDescriptionNight {
   /* border: 2px solid lightseagreen; */
   padding: 8px 4px;
   background-color: var(--moduleGrayBlue);
   border-bottom: 1px solid var(--gold);
 }
-.descriptionDetailsNight {
+.characterDescriptionDay {
+  /* border: 2px solid lightseagreen; */
+  padding: 8px 4px;
+  background-color: var(--moduleLight);
+  border-bottom: 1px solid var(--titleBlue);
+}
+
+.descriptionDetails {
   border-bottom: 1px solid var(--bcgdark);
   display: flex;
   flex-wrap: wrap;
@@ -403,18 +480,12 @@ header {
     width: 25px;
   }
 }
-.characterBioNight {
+
+.characterBio {
   /* border: 3px solid darkcyan; */
   width: 100%;
   display: flex;
   flex-direction: column;
-  > h4 {
-    /* border: 2px solid darkgoldenrod; */
-    background-color: var(--moduleDark);
-    width: 100%;
-    padding: 8px 0;
-    text-align: center;
-  }
   > h4:nth-of-type(2) {
     border-top: 1px solid var(--bcgdark);
   }
@@ -458,7 +529,22 @@ header {
     gap: 5px;
   }
 }
-.characterBioNight .characterTitle > p:first-child {
+.characterBioTitleNight {
+  /* border: 2px solid darkgoldenrod; */
+  background-color: var(--moduleDark);
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+}
+.characterBioTitleDay {
+  /* border: 2px solid darkgoldenrod; */
+  background-color: var(--titleBlue);
+  color: white;
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+}
+.characterBio .characterTitle > p:first-child {
   width: 100%;
 }
 
@@ -496,14 +582,54 @@ header {
     cursor: pointer;
     background-color: var(--bcgdark);
   }
+  .characterUpgradesChoice {
+    border: 1px solid var(--gold);
+    background-color: var(--bcgdark);
+    color: var(--gold);
+  }
 }
-.characterUpgradesChoice {
-  border: 1px solid var(--gold);
-  background-color: var(--bcgdark);
-  color: var(--gold);
+.allUpgradesDay {
+  /* border: 3px solid darkorange; */
+  background-color: var(--gray4);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 20px;
+  align-items: center;
+  padding: 0 0 10px 0;
+  width: 100%;
+  height: 100%;
+  > div:first-child {
+    /* border: 3px solid pink; */
+    background-color: var(--titleBlue);
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  > div:first-child > p {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 2px solid blue; */
+    padding: 10px 0;
+  }
+  > div:first-child > p:hover {
+    cursor: pointer;
+    background-color: var(--bcgdark);
+    color: white;
+  }
+  .characterUpgradesChoice {
+    border: 1px solid var(--titleBlue);
+    background-color: var(--bcgdark);
+    color: white;
+  }
 }
 
-.allTalentsNight {
+.allTalents {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
@@ -543,7 +669,40 @@ header {
     }
   }
 }
-.talentsDescriptionNight {
+.talentsDay {
+  border: 2px solid var(--bcgdark);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--moduleLight);
+  padding: 0 10px 8px 10px;
+  gap: 5px;
+  border-radius: 12px;
+  width: 97%;
+  font-size: 14px;
+  line-height: 1.1;
+  img {
+    width: 60px;
+  }
+  > div:first-child {
+    /* border: 2px solid lightcoral; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > div {
+      /* border: 2px solid darkcyan; */
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    > div > p {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+    }
+  }
+}
+
+.talentsDescription {
   /* border: 2px solid yellowgreen; */
   display: flex;
   flex-direction: column;
@@ -554,14 +713,14 @@ header {
     display: flex;
     flex-direction: column;
     gap: 3px;
-    .talentsTitleNight {
+    .talentsTitle {
       /* border: 3px solid purple; */
       font-weight: bold;
       font-size: 15px;
     }
   }
 }
-.talentsEffectNight {
+.talentsEffect {
   /* border: 2px solid darkgoldenrod; */
   display: flex;
   flex-direction: column;
@@ -574,14 +733,14 @@ header {
     padding-left: 15px;
   }
 }
-.talentNoteNight {
+.talentNote {
   /* border: 2px solid green; */
   margin-top: 10px;
   font-style: italic;
   font-size: 16px;
 }
 
-.allConstellationNight {
+.allConstellation {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
@@ -622,14 +781,42 @@ header {
     }
   }
 }
-.constellationDescriptionNight {
+.constellationDay {
+  border: 2px solid var(--bcgdark);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--moduleLight);
+  padding: 0 10px 8px 10px;
+  gap: 5px;
+  border-radius: 12px;
+  width: 97%;
+  font-size: 14px;
+  line-height: 1.1;
+  > div:first-of-type {
+    /* border: 2px solid darkblue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > div {
+      /* border: 2px solid purple; */
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      > p {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      img {
+        width: 60px;
+      }
+    }
+  }
+}
+.constellationDescription {
   /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
   gap: 5px;
-  > p:first-of-type {
-    /* color: red; */
-  }
   > p:nth-of-type(2) {
     /* color: green; */
     margin-top: 5px;
@@ -648,7 +835,7 @@ header {
   }
 }
 
-.allAscensionNight {
+.allAscension {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
@@ -708,6 +895,49 @@ header {
     border-radius: 15px;
   }
 }
+.ascensionMaterialDay {
+  /* border: 3px solid blue; */
+  background-color: var(--moduleLight);
+  border-radius: 20px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  > h3 {
+    /* border: 3px solid green; */
+    height: 100%;
+    background-color: var(--bcgBlue);
+    border-radius: 17px;
+    border: 2px solid var(--bcgdark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    color: black;
+    text-align: center;
+  }
+  > div {
+    border: 2px solid var(--titleBlue);
+    background-color: var(--gray2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    > p {
+      background-color: var(--bcgdark);
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      border-radius: 0 0 12px 12px;
+    }
+  }
+  .ascensionLink:hover {
+    cursor: pointer;
+    color: var(--blue);
+    border-radius: 15px;
+  }
+}
 .ascensionMaterialNight2 {
   /* border: 2px solid darkgoldenrod; */
   background-color: var(--moduleDark);
@@ -754,8 +984,55 @@ header {
     border-radius: 15px;
   }
 }
+.ascensionMaterialDay2 {
+  /* border: 2px solid darkgoldenrod; */
+  background-color: var(--moduleLight);
+  border-radius: 20px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  > h3 {
+    height: 100%;
+    background-color: var(--bcgBlue);
+    border-radius: 17px;
+    border: 2px solid var(--bcgdark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    color: black;
+    text-align: center;
+  }
+  > div {
+    /* border: 2px solid red; */
+    display: flex;
+    gap: 20px;
+    > div {
+      border: 2px solid var(--titleBlue);
+      background-color: var(--gray2);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 15px;
+    }
+    p {
+      background-color: var(--bcgdark);
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      border-radius: 0 0 12px 12px;
+    }
+  }
+  .ascensionLink:hover {
+    cursor: pointer;
+    color: var(--blue);
+    border-radius: 15px;
+  }
+}
 
-.allTalentsUpgradesNight {
+.allTalentsUpgrades {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
@@ -783,31 +1060,14 @@ header {
 /* ----------------------------- */
 /* -- Page Liste Weekly Boss --- */
 /* ----------------------------- */
-.weeklyBossTitleNight {
-  color: black;
-  background-color: var(--gold);
-  display: flex;
-  justify-content: center;
-  padding: 12px;
-  border-radius: 15px;
-  margin-bottom: 10px;
-}
-.weeklyBossTitleDay {
-  color: var(--light);
-  background-color: var(--titleBlue);
-  display: flex;
-  justify-content: center;
-  padding: 12px;
-  border-radius: 15px;
-  margin-bottom: 10px;
-}
 
-.allWeeklyBoss {
+.allWeeklyBossNight {
   /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
   gap: 30px;
   > div {
+    border: 2px solid var(--gold);
     /* border: 3px solid blue; */
     display: flex;
     padding: 8px;
@@ -816,10 +1076,23 @@ header {
     background-color: var(--moduleLightDark);
   }
 }
+.allWeeklyBossDay {
+  /* border: 2px solid pink; */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  > div {
+    border: 2px solid var(--bcgdark);
+    display: flex;
+    padding: 8px;
+    border-radius: 20px;
+    gap: 20px;
+    background-color: var(--gray4);
+  }
+}
 
 .weeklyBossIcon {
-  border: 2px solid black;
-  background-color: var(--moduleDark);
+  /* border: 2px solid black; */
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -836,32 +1109,45 @@ header {
     font-size: 25px;
     font-weight: bold;
     text-align: center;
-    color: white;
   }
 }
 .weeklyBossIcon:hover {
   cursor: pointer;
-  border: 2px solid var(--moduleLight);
+  /* border: 2px solid var(--moduleLight); */
   padding: 5px;
 }
 
-.allRewards {
-  border: 2px solid black;
+.allRewardsNight {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 12px;
   width: 73%;
-  background-color: var(--moduleDark);
   border-radius: 20px;
   > div {
     /* border: 3px solid purple; */
-    background-color: var(--moduleLightDark);
+    background-color: var(--moduleDark);
     display: flex;
     gap: 20px;
     border-radius: 12px;
   }
 }
+.allRewardsDay {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  width: 73%;
+  border-radius: 20px;
+  > div {
+    /* border: 3px solid purple; */
+    background-color: var(--gray3);
+    display: flex;
+    gap: 20px;
+    border-radius: 12px;
+  }
+}
+
 .rewardsIcon {
   border: 2px solid black;
   color: white;
@@ -908,9 +1194,11 @@ header {
     border-radius: 6px;
   }
   > div:hover {
-    border: 2px solid var(--moduleLight);
     cursor: pointer;
-    color: var(--blue);
+    transform: scale(1.05);
+    > p {
+      color: var(--blue);
+    }
   }
   > div > img {
     /* border: 5px solid blue; */
@@ -1271,7 +1559,7 @@ header {
   padding: 3px;
   align-items: center;
   > div {
-    border: 2px solid var(--moduleDark);
+    /* border: 3px solid purple; */
     background-color: var(--gray);
     display: flex;
     flex-direction: column;
@@ -1399,44 +1687,24 @@ header {
 /* ----------------------------- */
 /* -- Page Liste Normal Boss --- */
 /* ----------------------------- */
-.normalBossTitleNight {
-  color: black;
-  background-color: var(--gold);
-  display: flex;
-  justify-content: center;
-  padding: 12px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
-.normalBossTitleDay {
-  color: white;
-  background-color: var(--titleBlue);
-  display: flex;
-  justify-content: center;
-  padding: 12px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-}
 
 .allNormalBossNight {
-  border: 2px solid var(--gold);
-  background-color: var(--moduleLightDark);
+  /* border: 5px solid red; */
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: 20px 15px;
+  gap: 18px;
   border-radius: 25px;
   > div {
-    box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.68);
-    width: calc((100% - 75px) / 5);
+    box-shadow: 5px 5px 10px 0px #616161;
+    width: calc((100% - 90px) / 6);
     display: flex;
     flex-direction: column;
     border-radius: 15px;
   }
   > div:hover {
-    border: 2px solid var(--moduleLight);
     cursor: pointer;
     transform: scale(1.05);
+    color: var(--blue);
   }
   img {
     background-color: var(--bcgdark);
@@ -1451,30 +1719,26 @@ header {
     justify-content: center;
     align-items: center;
     height: 60px;
-    padding: 5px;
+    padding: 3px;
     font-size: 15px;
     font-weight: bold;
     border-radius: 0 0 12px 12px;
   }
 }
 .allNormalBossDay {
-  border: 2px solid var(--titleBlue);
-  background-color: var(--moduleLight);
+  /* border: 5px solid red; */
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: 20px 15px;
+  gap: 18px;
   border-radius: 25px;
   > div {
-    width: calc((100% - 75px) / 5);
+    width: calc((100% - 90px) / 6);
     box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.68);
     display: flex;
     flex-direction: column;
     border-radius: 13px;
   }
   > div:hover {
-    border: 2px solid var(--bcgdark);
-    opacity: 0.8;
     cursor: pointer;
     transform: scale(1.05);
   }

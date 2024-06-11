@@ -69,19 +69,29 @@ const CharactersDetails = () => {
 
   return (
     <div className="container">
-      <div className="characterDetailsNight">
+      <div
+        className={
+          theme === "night" ? "characterDetailsNight" : "characterDetailsDay"
+        }
+      >
         <div>
           <h2>{characterDetails?.name}</h2>
           <h6>{characterDetails?.title}</h6>
 
           {characterDetails?.wish ? (
-            <div className="characterPictureChoiceNight">
+            <div
+              className={
+                theme === "night"
+                  ? "characterPictureChoiceNight"
+                  : "characterPictureChoiceDay"
+              }
+            >
               <p
                 onClick={() => {
                   setPictureChoice("artwork");
                 }}
                 className={
-                  pictureChoice === "artwork" ? "pictureChoiceBorderNight" : ""
+                  pictureChoice === "artwork" ? "pictureChoiceBorder" : ""
                 }
               >
                 Artwork
@@ -91,14 +101,20 @@ const CharactersDetails = () => {
                   setPictureChoice("wish");
                 }}
                 className={
-                  pictureChoice === "wish" ? "pictureChoiceBorderNight" : ""
+                  pictureChoice === "wish" ? "pictureChoiceBorder" : ""
                 }
               >
                 Voeu
               </p>
             </div>
           ) : (
-            <div className="characterPictureChoiceNight2">
+            <div
+              className={
+                theme === "night"
+                  ? "characterPictureChoiceNight2"
+                  : "characterPictureChoiceDay2"
+              }
+            >
               <p>Artwork</p>
             </div>
           )}
@@ -108,11 +124,17 @@ const CharactersDetails = () => {
           )}
           {pictureChoice === "wish" && <img src={characterDetails?.wish} />}
 
-          <div className="characterDescriptionNight">
+          <div
+            className={
+              theme === "night"
+                ? "characterDescriptionNight"
+                : "characterDescriptionDay"
+            }
+          >
             {characterDetails?.description}
           </div>
 
-          <div className="descriptionDetailsNight">
+          <div className="descriptionDetails">
             <div>
               <h6>Élément</h6>
               <div>
@@ -163,8 +185,16 @@ const CharactersDetails = () => {
             </div>
           </div>
 
-          <div className="characterBioNight">
-            <h4>Description</h4>
+          <div className="characterBio">
+            <h4
+              className={
+                theme === "night"
+                  ? "characterBioTitleNight"
+                  : "characterBioTitleDay"
+              }
+            >
+              Description
+            </h4>
 
             {characterDetails?.real_name && (
               <div>
@@ -238,7 +268,15 @@ const CharactersDetails = () => {
               <div>{characterDetails?.release_date}</div>
             </div>
 
-            <h4>Titres</h4>
+            <h4
+              className={
+                theme === "night"
+                  ? "characterBioTitleNight"
+                  : "characterBioTitleDay"
+              }
+            >
+              Titres
+            </h4>
 
             <div className="characterTitle">
               {characterDetails?.other_title.map((title) => {
@@ -246,18 +284,11 @@ const CharactersDetails = () => {
               })}
             </div>
           </div>
-
-          {/* <div className="characterStats">
-            <p>Statistiques</p>
-
-            <div>
-              <p>test</p>
-              <p>test2</p>
-            </div>
-          </div> */}
         </div>
 
-        <div className="allUpgradesNight">
+        <div
+          className={theme === "night" ? "allUpgradesNight" : "allUpgradesDay"}
+        >
           <div>
             <p
               onClick={() => {
@@ -300,10 +331,15 @@ const CharactersDetails = () => {
           </div>
 
           {details === "aptitude" && (
-            <div className="allTalentsNight">
+            <div className="allTalents">
               {characterDetails?.talents.map((talent) => {
                 return (
-                  <div key={talent.name} className="talentsNight">
+                  <div
+                    key={talent.name}
+                    className={
+                      theme === "night" ? "talentsNight" : "talentsDay"
+                    }
+                  >
                     <div>
                       <div>
                         <img src={talent.icon} alt="icon talent" />
@@ -312,16 +348,14 @@ const CharactersDetails = () => {
                       <p>{talent.type}</p>
                     </div>
 
-                    <div className="talentsDescriptionNight">
+                    <div className="talentsDescription">
                       {talent.description.map((description, index) => {
                         return (
                           <div key={index}>
-                            <p className="talentsTitleNight">
-                              {description.name}
-                            </p>
+                            <p className="talentsTitle">{description.name}</p>
                             <p>{description.text}</p>
                             {description.effect && (
-                              <div className="talentsEffectNight">
+                              <div className="talentsEffect">
                                 {description.effect?.map((effect) => {
                                   return (
                                     <div key={effect.text}>
@@ -336,9 +370,7 @@ const CharactersDetails = () => {
                       })}
                     </div>
 
-                    {talent.note && (
-                      <p className="talentNoteNight">{talent.note}</p>
-                    )}
+                    {talent.note && <p className="talentNote">{talent.note}</p>}
                   </div>
                 );
               })}
@@ -346,11 +378,18 @@ const CharactersDetails = () => {
           )}
 
           {details === "constellation" && (
-            <div className="allConstellationNight">
+            <div className="allConstellation">
               {/* <h3>Constellation</h3> */}
               {characterDetails?.constellation_upgrade.map((constellation) => {
                 return (
-                  <div key={constellation.name} className="constellationNight">
+                  <div
+                    key={constellation.name}
+                    className={
+                      theme === "night"
+                        ? "constellationNight"
+                        : "constellationDay"
+                    }
+                  >
                     <div>
                       <div>
                         <img
@@ -362,7 +401,7 @@ const CharactersDetails = () => {
                       <p>Constellation Niv.{constellation.level}</p>
                     </div>
 
-                    <div className="constellationDescriptionNight">
+                    <div className="constellationDescription">
                       <p>{constellation.description.text}</p>
                       {constellation.description.effect && (
                         <div>
@@ -387,11 +426,17 @@ const CharactersDetails = () => {
           )}
 
           {details === "ascension" && (
-            <div className="allAscensionNight">
+            <div className="allAscension">
               <h4>
                 Matériau nécéssaire pour monter le personnage au niveau 90
               </h4>
-              <div className="ascensionMaterialNight">
+              <div
+                className={
+                  theme === "night"
+                    ? "ascensionMaterialNight"
+                    : "ascensionMaterialDay"
+                }
+              >
                 <h3>Mora</h3>
                 <div>
                   <img
@@ -402,7 +447,13 @@ const CharactersDetails = () => {
                 </div>
               </div>
 
-              <div className="ascensionMaterialNight2">
+              <div
+                className={
+                  theme === "night"
+                    ? "ascensionMaterialNight2"
+                    : "ascensionMaterialDay2"
+                }
+              >
                 <h3>Pierre d'élévation</h3>
 
                 <div>
@@ -425,7 +476,13 @@ const CharactersDetails = () => {
               </div>
 
               {characterDetails?.ascension_materials.bossLoot && (
-                <div className="ascensionMaterialNight">
+                <div
+                  className={
+                    theme === "night"
+                      ? "ascensionMaterialNight"
+                      : "ascensionMaterialDay"
+                  }
+                >
                   <h3>Matériau de Boss de monde</h3>
                   <div
                     onClick={() => {
@@ -449,7 +506,13 @@ const CharactersDetails = () => {
                 </div>
               )}
 
-              <div className="ascensionMaterialNight">
+              <div
+                className={
+                  theme === "night"
+                    ? "ascensionMaterialNight"
+                    : "ascensionMaterialDay"
+                }
+              >
                 <h3>Produit Régional</h3>
                 <div>
                   <img
@@ -460,7 +523,13 @@ const CharactersDetails = () => {
                 </div>
               </div>
 
-              <div className="ascensionMaterialNight2">
+              <div
+                className={
+                  theme === "night"
+                    ? "ascensionMaterialNight2"
+                    : "ascensionMaterialDay2"
+                }
+              >
                 <h3>Matériau de mobs</h3>
                 <div>
                   {characterDetails?.ascension_materials.mobLoot.map(
@@ -479,15 +548,61 @@ const CharactersDetails = () => {
           )}
 
           {details === "upgrade" && (
-            <div className="allTalentsUpgradesNight">
+            <div className="allTalentsUpgrades">
               {characterDetails?.talent_upgrade.normal_attack ? (
-                "1"
+                <div>
+                  <div>
+                    <h4>
+                      Matériau nécéssaire pour monter l'attaque normale au
+                      niveau 10
+                    </h4>
+                    <div className="ascensionMaterialNight">
+                      <h3>Mora</h3>
+                      <div>
+                        <img
+                          src={
+                            characterDetails.talent_upgrade.normal_attack.mora
+                              .picture
+                          }
+                          alt="image mora"
+                        />
+                        <p>1 652 000</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4>
+                      Matériau nécéssaire pour monter la compétence et le
+                      déchainement élémentaire au niveau 10
+                    </h4>
+                    <div className="ascensionMaterialNight">
+                      <h3>Mora</h3>
+                      <div>
+                        <img
+                          src={
+                            characterDetails.talent_upgrade
+                              .elemental_burst_skill?.mora.picture
+                          }
+                          alt="image mora"
+                        />
+                        <p>1 652 000</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <div>
                   <h4>
-                    Matériau nécéssaire pour monter 1 aptitude au niveau 10
+                    Matériau nécéssaire pour monter une aptitude au niveau 10
                   </h4>
-                  <div className="ascensionMaterialNight">
+                  <div
+                    className={
+                      theme === "night"
+                        ? "ascensionMaterialNight"
+                        : "ascensionMaterialDay"
+                    }
+                  >
                     <h3>Mora</h3>
                     <div>
                       <img
@@ -498,7 +613,13 @@ const CharactersDetails = () => {
                     </div>
                   </div>
 
-                  <div className="ascensionMaterialNight2">
+                  <div
+                    className={
+                      theme === "night"
+                        ? "ascensionMaterialNight2"
+                        : "ascensionMaterialDay2"
+                    }
+                  >
                     <h3>Matériau de mobs</h3>
                     <div>
                       {characterDetails?.talent_upgrade.mobLoot?.map(
@@ -514,7 +635,13 @@ const CharactersDetails = () => {
                     </div>
                   </div>
 
-                  <div className="ascensionMaterialNight2">
+                  <div
+                    className={
+                      theme === "night"
+                        ? "ascensionMaterialNight2"
+                        : "ascensionMaterialDay2"
+                    }
+                  >
                     <h3>Matériau d'aptitudes</h3>
                     <div>
                       {characterDetails?.talent_upgrade.books?.map((book) => {
@@ -534,7 +661,13 @@ const CharactersDetails = () => {
                     </div>
                   </div>
 
-                  <div className="ascensionMaterialNight">
+                  <div
+                    className={
+                      theme === "night"
+                        ? "ascensionMaterialNight"
+                        : "ascensionMaterialDay"
+                    }
+                  >
                     <h3>Matériau de Boss hebdomadaires</h3>
                     <div
                       className="ascensionLink"
@@ -553,7 +686,13 @@ const CharactersDetails = () => {
                     </div>
                   </div>
 
-                  <div className="ascensionMaterialNight">
+                  <div
+                    className={
+                      theme === "night"
+                        ? "ascensionMaterialNight"
+                        : "ascensionMaterialDay"
+                    }
+                  >
                     <h3>{characterDetails?.talent_upgrade.crown?.name}</h3>
                     <div>
                       <img

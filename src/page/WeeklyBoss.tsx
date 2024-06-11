@@ -60,14 +60,11 @@ const WeeklyBoss = (): JSX.Element => {
   return (
     <div className="container">
       <div>
-        <h1
+        <div
           className={
-            theme === "night" ? "weeklyBossTitleNight" : "weeklyBossTitleDay"
+            theme === "night" ? "allWeeklyBossNight" : "allWeeklyBossDay"
           }
         >
-          Liste des Boss hebdomadaires
-        </h1>
-        <div className="allWeeklyBoss">
           {bossData?.map((boss) => {
             return (
               <div key={boss.id}>
@@ -81,7 +78,11 @@ const WeeklyBoss = (): JSX.Element => {
                   <p>{boss.name}</p>
                 </div>
 
-                <div className="allRewards">
+                <div
+                  className={
+                    theme === "night" ? "allRewardsNight" : "allRewardsDay"
+                  }
+                >
                   {boss.uniqueRewards.map((rewards) => {
                     return (
                       <div key={rewards.name}>

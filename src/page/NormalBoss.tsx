@@ -66,13 +66,6 @@ const NormalBoss = (): JSX.Element => {
   return (
     <div className="container">
       <div>
-        <h1
-          className={
-            theme === "night" ? "normalBossTitleNight" : "normalBossTitleDay"
-          }
-        >
-          Liste des Boss de monde
-        </h1>
         <div
           className={
             theme === "night" ? "allNormalBossNight" : "allNormalBossDay"
