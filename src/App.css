@@ -194,6 +194,65 @@ header {
 /* ----------------------------- */
 
 /* ----------------------------- */
+/* --------- Page Home --------- */
+/* ----------------------------- */
+.homeAllInfo {
+  border: 3px solid red;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  img {
+    width: 80%;
+  }
+}
+
+.homeInfo {
+  border: 2px solid blue;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  > div:first-of-type {
+    border: 3px solid pink;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+  > div:nth-of-type(2) {
+    border: 3px solid yellow;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.homeInfo2 {
+  border: 2px solid blue;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  > div:first-of-type {
+    border: 3px solid pink;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+  > div:nth-of-type(2) {
+    border: 3px solid yellow;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.homeInfo3 {
+  border: 2px solid blue;
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  > div {
+    border: 3px solid green;
+    width: 32%;
+  }
+}
+/* ----------------------------- */
 /* --- Page Liste Personnages -- */
 /* ----------------------------- */
 .allFilters {
@@ -2951,6 +3010,79 @@ header {
 /* ----------------------------- */
 
 /* ----------------------------- */
+/* -------- PAGE CONTACT ------- */
+/* ----------------------------- */
+.message {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
+  > div {
+    /* border: 2px solid purple; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+  }
+  input {
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 12px 8px;
+  }
+  textarea {
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 12px 8px;
+  }
+  .errorRedBorder {
+    border: 2px solid red;
+  }
+}
+
+.sendMessage {
+  /* border: 2px solid pink; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  > button {
+    width: 100px;
+    font-size: 24px;
+    padding: 8px 0;
+    border-radius: 15px;
+    background-color: var(--bcgdark);
+    color: white;
+    border: 1px solid gray;
+    box-shadow: 0 4px #999;
+  }
+  > button:hover {
+    cursor: pointer;
+    color: white;
+    opacity: 0.9;
+  }
+  > button:active {
+    box-shadow: 0 1px #666;
+    transform: translateY(3px);
+  }
+}
+
+.error {
+  color: red;
+  border: 1px solid red;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 17px;
+}
+.success {
+  color: green;
+  border: 1px solid green;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 17px;
+}
+
+/* ----------------------------- */
 /* ----------------------------- */
 /* ---------- FOOTER ----------- */
 /* ----------------------------- */
@@ -2962,16 +3094,17 @@ footer {
   background-color: #190d33;
   color: white;
   > div {
+    /* border: 3px solid red; */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
   }
   > div > div:first-of-type {
+    /* border: 3px solid green; */
     display: flex;
     justify-content: space-around;
     width: 100%;
-    gap: 50px;
     border-bottom: 1px solid #333333;
     padding-bottom: 10px;
   }
@@ -2987,24 +3120,62 @@ footer {
 }
 
 .footerDescription {
+  /* border: 3px solid blue; */
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  > p:first-of-type {
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 8px;
+  justify-content: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 14px;
+  font-family: "Montserrat";
+}
+.footerAllLinks {
+  /* border: 3px solid pink; */
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  gap: 6px;
+  > div {
+    /* border: 2px solid orange; */
+    display: flex;
+    flex-direction: column;
+    > p:first-child {
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 9px;
+    }
+    > div {
+      /* border: 3px solid green; */
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
   }
 }
+
 .footerLink {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  > p:first-child {
-    color: var(--orange);
+  gap: 8px;
+  align-items: center;
+  padding-left: 5px;
+  > i {
     font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 9px;
+  }
+  > a {
+    font-size: 14px;
+  }
+  > img {
+    width: 18px;
+  }
+  > p {
+    font-size: 14px;
+  }
+  > p:hover {
+    color: var(--orange);
+    cursor: pointer;
   }
 }
 

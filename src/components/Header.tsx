@@ -1,4 +1,4 @@
-import { useThemeContext } from "../context/theme-context";
+// import { useThemeContext } from "../context/theme-context";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ type Navigate =
   | "book";
 
 const Header = (): JSX.Element => {
-  const { theme } = useThemeContext();
+  // const { theme } = useThemeContext();
   const navigate = useNavigate();
   const [headerNavigate, setHeaderNavigate] = useState<Navigate | null>(null);
 

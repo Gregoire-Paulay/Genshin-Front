@@ -28,12 +28,12 @@ const CharactersDetails = () => {
     const fetchData = async () => {
       try {
         setError(null);
-        // const { data } = await axios.get(
-        //   `https://site--genshinapi--m8kkvg9l2hpy.code.run/characters/details?id=${id}`
-        // );
         const { data } = await axios.get(
-          `http://localhost:3000/characters/details?id=${id}`
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/characters/details?id=${id}`
         );
+        // const { data } = await axios.get(
+        //   `http://localhost:3000/characters/details?id=${id}`
+        // );
         // console.log(data);
 
         const characterDetailsParsed = CharacterDetailsSchema.parse(data);
@@ -439,19 +439,21 @@ const CharactersDetails = () => {
               >
                 <h3>Mora</h3>
                 <div>
-                  <img
-                    src={characterDetails?.ascension_materials.mora.picture}
-                    alt="icon mora"
-                  />
-                  <p> 420 000</p>
+                  <div>
+                    <img
+                      src={characterDetails?.ascension_materials.mora.picture}
+                      alt="icon mora"
+                    />
+                    <p> 420 000</p>
+                  </div>
                 </div>
               </div>
 
               <div
                 className={
                   theme === "night"
-                    ? "ascensionMaterialNight2"
-                    : "ascensionMaterialDay2"
+                    ? "ascensionMaterialNight"
+                    : "ascensionMaterialDay"
                 }
               >
                 <h3>Pierre d'élévation</h3>
@@ -493,15 +495,18 @@ const CharactersDetails = () => {
                     }}
                     className="ascensionLink"
                   >
-                    <img
-                      src={
-                        characterDetails?.ascension_materials.bossLoot?.picture
-                      }
-                      alt=""
-                    />
-                    <p>
-                      {characterDetails.ascension_materials.bossLoot.number}
-                    </p>
+                    <div>
+                      <img
+                        src={
+                          characterDetails?.ascension_materials.bossLoot
+                            ?.picture
+                        }
+                        alt=""
+                      />
+                      <p>
+                        {characterDetails.ascension_materials.bossLoot.number}
+                      </p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -515,19 +520,25 @@ const CharactersDetails = () => {
               >
                 <h3>Produit Régional</h3>
                 <div>
-                  <img
-                    src={characterDetails?.ascension_materials.material.picture}
-                    alt=""
-                  />
-                  <p>{characterDetails?.ascension_materials.material.number}</p>
+                  <div>
+                    <img
+                      src={
+                        characterDetails?.ascension_materials.material.picture
+                      }
+                      alt=""
+                    />
+                    <p>
+                      {characterDetails?.ascension_materials.material.number}
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <div
                 className={
                   theme === "night"
-                    ? "ascensionMaterialNight2"
-                    : "ascensionMaterialDay2"
+                    ? "ascensionMaterialNight"
+                    : "ascensionMaterialDay"
                 }
               >
                 <h3>Matériau de mobs</h3>
