@@ -77,7 +77,7 @@ const Characters = (): JSX.Element => {
         sortCharacterAlphabetically(data);
 
         const allCharactersParsed = CharactersListSchema.parse(data);
-        console.log("All Char Parsed", allCharactersParsed);
+        // console.log("All Char Parsed", allCharactersParsed);
 
         // Tri avec le filtre des éléments
         if (elementFilters || rarityFilters) {

@@ -24,7 +24,7 @@ const Contacts = (): JSX.Element => {
     setMessageError(false);
     try {
       const response = await axios.post(
-        "https://site--formulaire--hpyqm5px6d9r.code.run/form",
+        "https://site--formulairegenshin--m8kkvg9l2hpy.code.run/form",
         { email, name, sujet, message }
       );
       console.log(response.data);

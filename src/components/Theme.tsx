@@ -12,7 +12,7 @@ const Theme = (): JSX.Element => {
 
   return (
     <div>
-      <button
+      {/* <button
         className={themeButton}
         onClick={() => {
           if (theme === "night") {
@@ -32,7 +32,44 @@ const Theme = (): JSX.Element => {
         ) : (
           <i className="fa-solid fa-moon"></i>
         )}
-      </button>
+      </button> */}
+      <nav className="navTheme">
+        <ul>
+          <li className="deroulant">
+            <a href="#">
+              {themeButton === "sun" ? (
+                <i className="fa-solid fa-sun"></i>
+              ) : (
+                <i className="fa-solid fa-moon"></i>
+              )}
+              &ensp;
+            </a>
+            <ul className="sous">
+              <li
+                onClick={() => {
+                  const mode = "night";
+                  Cookies.set("mode", mode, { expires: 15 });
+                  setTheme("night");
+                  setThemeButton("sun");
+                }}
+              >
+                <a href="#">Mode nuit</a>
+              </li>
+              <li
+                onClick={() => {
+                  if (theme === "night") {
+                    Cookies.remove("mode");
+                    setTheme("light");
+                    setThemeButton("moon");
+                  }
+                }}
+              >
+                <a href="#">Mode Jour</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

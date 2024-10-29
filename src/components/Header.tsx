@@ -18,7 +18,7 @@ const Header = (): JSX.Element => {
   return (
     <header>
       <div className="container">
-        <div className="headerNav">
+        <nav className="headerNav">
           <div>
             <img
               src="https://res.cloudinary.com/dy2ayuond/image/upload/v1718119694/Genshin/Logo.webp"
@@ -29,8 +29,7 @@ const Header = (): JSX.Element => {
               }}
             />
           </div>
-
-          <p
+          <ul
             className={
               headerNavigate === "character" ? "headerBottomBorder" : ""
             }
@@ -40,17 +39,18 @@ const Header = (): JSX.Element => {
             }}
           >
             Personnages
-          </p>
-          {/* <p
+          </ul>
+          <ul
             className={headerNavigate === "weapon" ? "headerBottomBorder" : ""}
             onClick={() => {
-              navigate("");
+              navigate("/Weapons");
               setHeaderNavigate("weapon");
             }}
           >
             Armes
-          </p>
-          <p
+          </ul>
+
+          <ul
             className={
               headerNavigate === "artifact" ? "headerBottomBorder" : ""
             }
@@ -60,8 +60,9 @@ const Header = (): JSX.Element => {
             }}
           >
             Artéfacts
-          </p> */}
-          <p
+          </ul>
+
+          <ul
             className={
               headerNavigate === "weeklyBoss" ? "headerBottomBorder" : ""
             }
@@ -71,8 +72,9 @@ const Header = (): JSX.Element => {
             }}
           >
             Boss hebdomadaire
-          </p>
-          <p
+          </ul>
+
+          <ul
             className={
               headerNavigate === "normalBoss" ? "headerBottomBorder" : ""
             }
@@ -82,8 +84,9 @@ const Header = (): JSX.Element => {
             }}
           >
             Boss de monde
-          </p>
-          <p
+          </ul>
+
+          <ul
             className={headerNavigate === "book" ? "headerBottomBorder" : ""}
             onClick={() => {
               navigate("/Books");
@@ -91,8 +94,8 @@ const Header = (): JSX.Element => {
             }}
           >
             Matériaux d'aptitudes
-          </p>
-        </div>
+          </ul>
+        </nav>
       </div>
     </header>
   );

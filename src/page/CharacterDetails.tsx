@@ -28,13 +28,13 @@ const CharactersDetails = () => {
     const fetchData = async () => {
       try {
         setError(null);
-        const { data } = await axios.get(
-          `https://site--genshinapi--m8kkvg9l2hpy.code.run/characters/details?id=${id}`
-        );
         // const { data } = await axios.get(
         //   `http://localhost:3000/characters/details?id=${id}`
         // );
-        // console.log(data);
+        const { data } = await axios.get(
+          `https://site--genshinapi--m8kkvg9l2hpy.code.run/characters/details?id=${id}`
+        );
+        console.log(data);
 
         const characterDetailsParsed = CharacterDetailsSchema.parse(data);
         console.log("Data Parsed", characterDetailsParsed);
@@ -268,21 +268,28 @@ const CharactersDetails = () => {
               <div>{characterDetails?.release_date}</div>
             </div>
 
-            <h4
-              className={
-                theme === "night"
-                  ? "characterBioTitleNight"
-                  : "characterBioTitleDay"
-              }
-            >
-              Titres
-            </h4>
-
-            <div className="characterTitle">
-              {characterDetails?.other_title.map((title) => {
-                return <p key={title.name}>⏺ {title.name}</p>;
-              })}
-            </div>
+            {characterDetails?.other_title[0].name ? (
+              <h4
+                className={
+                  theme === "night"
+                    ? "characterBioTitleNight"
+                    : "characterBioTitleDay"
+                }
+              >
+                Titres
+              </h4>
+            ) : (
+              ""
+            )}
+            {characterDetails?.other_title[0].name ? (
+              <div className="characterTitle">
+                {characterDetails?.other_title.map((title) => {
+                  return <p key={title.name}>⏺ {title.name}</p>;
+                })}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
 

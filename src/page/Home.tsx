@@ -1,26 +1,7 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { ZodError, z } from "zod";
-import HashLoader from "react-spinners/HashLoader";
+import { useNavigate } from "react-router-dom";
 
 const Home = (): JSX.Element => {
-  // const [error, setError] = useState<Error | null>(null);
-  // const [isLoading, setIsLoading] = useState<boolean>(true);
-
-  // if (error)
-  //   return (
-  //     <div className="container">
-  //       <div className="error">Error: {error.message}</div>
-  //     </div>
-  //   );
-  // if (isLoading)
-  //   return (
-  //     <div className="container">
-  //       <div className="loading">
-  //         <HashLoader size={150} color="#6890f0" />
-  //       </div>
-  //     </div>
-  //   );
+  const navigate = useNavigate();
 
   return (
     <div className="container">
@@ -59,7 +40,11 @@ const Home = (): JSX.Element => {
         </div>
 
         <div className="homeInfo2">
-          <div>
+          <div
+          // onClick={() => {
+          //   navigate("/Characters");
+          // }}
+          >
             <h3>Information des personnages</h3>
             <img
               src="https://res.cloudinary.com/dy2ayuond/image/upload/v1709043661/Genshin/Promo_personnages_Liyue_tdnczd.webp"
@@ -87,7 +72,7 @@ const Home = (): JSX.Element => {
 
         <div className="homeInfo3">
           <div>
-            <h3>test</h3>
+            <h3>News</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
               eligendi consequatur animi cum assumenda voluptatum tempore
@@ -96,7 +81,7 @@ const Home = (): JSX.Element => {
             </p>
           </div>
           <div>
-            <h3>test</h3>
+            <h3>Site officiel</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
               eligendi consequatur animi cum assumenda voluptatum tempore

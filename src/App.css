@@ -69,46 +69,72 @@ h6 {
 /* -- Gestion light/dark mode -- */
 .night {
   background-color: var(--bcgdark);
-  color: var(--light);
+  color: white;
 }
 .light {
-  background-color: var(--light);
-  color: var(--dark);
+  background-color: var(--bcglight);
+  color: black;
 }
 
-.moon {
+.navTheme {
+  width: 80px;
+  margin: 0 auto;
+  /* background-color: white; */
   position: absolute;
   top: 8px;
   right: 10px;
-  cursor: pointer;
-  font-size: 28px;
-  color: var(--dark);
-  background-color: var(--light);
-  border: none;
-  border-radius: 50%;
-  border: 1px solid var(--light);
-  z-index: 1;
+  ul {
+    list-style-type: none;
+  }
+  ul li {
+    float: left;
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  ul::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent;
+    padding: 10px 0px;
+  }
+  a:hover {
+    color: var(--orange);
+    border-bottom: 2px solid var(--gold);
+  }
+  i {
+    font-size: 25px;
+  }
 }
-.moon:hover {
-  border: 1px solid black;
-  background-color: gray;
-}
-.sun {
+.sous {
+  display: none;
+  box-shadow: 0px 1px 2px #ccc;
+  background-color: white;
   position: absolute;
-  top: 8px;
-  right: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 26px;
-  color: var(--light);
-  border: 1px solid var(--dark);
-  background-color: var(--dark);
-  border-radius: 50%;
-  z-index: 1;
+  width: 100%;
+  z-index: 1000;
+  li {
+    float: none;
+    width: 100%;
+    text-align: left;
+  }
+  a {
+    padding: 10px;
+    border-bottom: none;
+  }
+  a:hover {
+    border-bottom: none;
+    background-color: RGBa(200, 200, 200, 0.1);
+  }
 }
-.sun:hover {
-  border: 1px solid white;
-  background-color: gray;
+.navTheme > ul li:hover .sous {
+  display: block;
 }
 
 /* --- Icone Unique Materials -- */
@@ -169,7 +195,7 @@ header {
     display: flex;
     align-items: center;
   }
-  > p {
+  > ul {
     /* border: 3px solid red; */
     border-bottom: 4px solid var(--moduleLightDark);
     display: flex;
@@ -178,7 +204,7 @@ header {
     font-weight: bold;
     display: flex;
   }
-  > p:hover {
+  > ul:hover {
     cursor: pointer;
     color: #ffcc03;
   }
@@ -2929,6 +2955,7 @@ header {
     gap: 4px;
     padding: 5px;
     flex-wrap: wrap;
+    width: 100%;
     > div {
       border: 1px solid var(--gray4);
       background-color: var(--gray);
@@ -2968,6 +2995,7 @@ header {
     gap: 4px;
     padding: 5px;
     flex-wrap: wrap;
+    width: 100%;
     > div {
       border: 1px solid var(--moduleLightDark);
       background-color: var(--gray);
@@ -3008,7 +3036,283 @@ header {
 /* ----------------------------- */
 /* ------ Page All Weapons ----- */
 /* ----------------------------- */
+.weaponPage {
+  min-height: 900px;
+}
+.allWeaponsFilters {
+  /* border: 3px solid lightseagreen; */
+  display: flex;
+  margin-bottom: 25px;
+  align-items: center;
+  > div:first-of-type {
+    /* border: 3px solid blue; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 75%;
+  }
+  .refinment {
+    /* border: 2px solid lightcoral; */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    > p {
+      font-size: 17px;
+      font-weight: bold;
+    }
 
+    > .refinmentLvl1 {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      > div {
+        font-size: 22px;
+        font-weight: bold;
+        border: 3px solid #5c5a5d;
+        padding: 2px 7px;
+        background-color: #8d8a89;
+        border-radius: 12px 0 0 12px;
+      }
+      > p {
+        border: 3px solid #958f86;
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+        background-color: white;
+        padding: 1px 8px;
+        border-radius: 6px;
+      }
+      > button {
+        font-size: 23px;
+        font-weight: bold;
+        border: 3px solid #958f86;
+        padding: 0 7px;
+        border-radius: 0 12px 12px 0;
+      }
+      > button:hover {
+        cursor: pointer;
+        border: 3px solid floralwhite;
+      }
+    }
+    > .refinmentLvl5 {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      > button {
+        font-size: 23px;
+        font-weight: bold;
+        border: 3px solid #958f86;
+        padding: 0 7px;
+        border-radius: 12px 0 0 12px;
+      }
+      > button:hover {
+        cursor: pointer;
+        border: 3px solid floralwhite;
+      }
+      > div {
+        font-size: 22px;
+        font-weight: bold;
+        border: 3px solid #5c5a5d;
+        padding: 2px 7px;
+        background-color: #8d8a89;
+        border-radius: 0 12px 12px 0;
+      }
+      > p {
+        border: 3px solid #958f86;
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+        background-color: white;
+        padding: 1px 8px;
+        border-radius: 6px;
+      }
+    }
+    > .refinmentOtherLvl {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      > button:first-of-type {
+        font-size: 23px;
+        font-weight: bold;
+        border: 3px solid #958f86;
+        padding: 0 7px;
+        border-radius: 12px 0 0 12px;
+      }
+      > button:nth-of-type(2) {
+        font-size: 23px;
+        font-weight: bold;
+        border: 3px solid #958f86;
+        padding: 0 7px;
+        border-radius: 0 12px 12px 0;
+      }
+
+      > button:hover {
+        cursor: pointer;
+        border: 3px solid floralwhite;
+      }
+      > p {
+        border: 3px solid #958f86;
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+        background-color: white;
+        padding: 1px 8px;
+        border-radius: 6px;
+      }
+    }
+  }
+}
+.weaponFilters {
+  /* border: 2px solid pink; */
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  > div {
+    border: 1px solid var(--bcgBlue2);
+    background-color: var(--moduleLightDark);
+    display: flex;
+    border-radius: 7px;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  > div:hover {
+    cursor: pointer;
+    background-color: var(--moduleGrayBlue);
+    transform: scale(1.2);
+  }
+  img {
+    width: 60px;
+  }
+  .filtersHighlight {
+    background-color: var(--moduleDarkBlue);
+  }
+}
+
+.weaponFilters {
+  > div:first-of-type i {
+    color: var(--star1);
+    font-size: 35px;
+    padding: 5px;
+  }
+  > div:nth-of-type(2) i {
+    color: var(--star2);
+    font-size: 35px;
+    padding: 5px;
+  }
+  > div:nth-of-type(3) i {
+    color: var(--star3);
+    font-size: 35px;
+    padding: 5px;
+  }
+  > div:nth-of-type(4) i {
+    color: var(--star4);
+    font-size: 35px;
+    padding: 5px;
+  }
+  > div:nth-of-type(5) i {
+    color: var(--star5);
+    font-size: 35px;
+    padding: 5px;
+  }
+}
+
+.allWeapons {
+  /* border: 3px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  > div {
+    border: 1px solid black;
+    /* border: 4px solid yellow; */
+    border-radius: 12px;
+    width: 90%;
+    background-color: var(--moduleDark);
+    box-shadow: 5px 5px 11px -3px #000000;
+    > p {
+      /* border: 2px solid green; */
+      padding: 6px 10px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 12px 12px 0 0;
+    }
+  }
+}
+
+.weaponDetails {
+  /* border: 3px solid blue; */
+  display: flex;
+  padding: 6px;
+  align-items: center;
+  > img {
+    height: 85px;
+    width: 85px;
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+  .weaponStats {
+    /* border: 3px solid purple; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    margin-left: 15px;
+    width: 30%;
+    border-right: 1px solid gray;
+    > div {
+      /* border: 2px solid red; */
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      > p:first-of-type {
+        color: #7c7c7c;
+        font-size: 16px;
+      }
+      > p:nth-of-type(2) {
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.weaponDescription {
+  /* border-top: 3px solid lightsalmon; */
+  width: 60%;
+  padding: 3px 15px;
+  > h6 {
+    margin-bottom: 6px;
+  }
+  span {
+    font-size: 12px;
+    line-height: 17px;
+  }
+  .effectRefinment {
+    /* border: 1px solid red; */
+    padding: 0 4px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #99ffff;
+  }
+}
+
+.weapon1 {
+  background-color: var(--star1);
+}
+.weapon2 {
+  background-color: var(--star2);
+}
+.weapon3 {
+  background-color: var(--star3);
+}
+.weapon4 {
+  background-color: var(--star4);
+}
+.weapon5 {
+  background-color: var(--star5);
+}
 /* ----------------------------- */
 /* -------- PAGE CONTACT ------- */
 /* ----------------------------- */
