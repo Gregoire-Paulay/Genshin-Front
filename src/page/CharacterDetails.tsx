@@ -34,10 +34,10 @@ const CharactersDetails = () => {
         const { data } = await axios.get(
           `https://site--genshinapi--m8kkvg9l2hpy.code.run/characters/details?id=${id}`
         );
-        console.log(data);
+        // console.log(data);
 
         const characterDetailsParsed = CharacterDetailsSchema.parse(data);
-        console.log("Data Parsed", characterDetailsParsed);
+        // console.log("Data Parsed", characterDetailsParsed);
 
         setCharactersDetails(characterDetailsParsed);
         setIsLoading(false);
@@ -638,10 +638,10 @@ const CharactersDetails = () => {
                             return (
                               <div
                                 key={book.id}
-                                className="ascensionLink"
-                                onClick={() => {
-                                  navigate("/Books");
-                                }}
+                                // className="ascensionLink"
+                                // onClick={() => {
+                                //   navigate("/Books");
+                                // }}
                               >
                                 <img src={book.picture} alt="icon book" />
                                 <p>{book.number}</p>
@@ -916,10 +916,10 @@ const CharactersDetails = () => {
                         return (
                           <div
                             key={book.name}
-                            className="ascensionLink"
-                            onClick={() => {
-                              navigate("/Books");
-                            }}
+                            // className="ascensionLink"
+                            // onClick={() => {
+                            //   navigate("/Books");
+                            // }}
                           >
                             <img src={book.picture} alt="image loot" />
                             <p>{book.number}</p>

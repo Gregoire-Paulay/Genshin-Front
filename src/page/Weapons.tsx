@@ -72,7 +72,7 @@ const AllWeapons = (): JSX.Element => {
 
         sortWeaponsAlphabetically(data);
         const allWeaponsParsed = allWeaponsSchema.parse(data);
-        console.log("PARSED ===>", allWeaponsParsed);
+        // console.log("WEAPON PARSED ===>", allWeaponsParsed);
 
         if (rarityFilters || typeFilters) {
           setIsLoading(true);
@@ -338,7 +338,7 @@ const AllWeapons = (): JSX.Element => {
           {weaponsData?.map((weapons) => {
             return (
               <div key={weapons.id}>
-                <p
+                <h4
                   className={
                     weapons.star === 1
                       ? "weapon1"
@@ -352,7 +352,7 @@ const AllWeapons = (): JSX.Element => {
                   }
                 >
                   {weapons.name}
-                </p>
+                </h4>
 
                 <div className="weaponDetails">
                   <img

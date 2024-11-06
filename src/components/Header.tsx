@@ -29,72 +29,77 @@ const Header = (): JSX.Element => {
               }}
             />
           </div>
-          <ul
-            className={
-              headerNavigate === "character" ? "headerBottomBorder" : ""
-            }
-            onClick={() => {
-              navigate("/Characters");
-              setHeaderNavigate("character");
-            }}
-          >
-            Personnages
-          </ul>
-          <ul
-            className={headerNavigate === "weapon" ? "headerBottomBorder" : ""}
-            onClick={() => {
-              navigate("/Weapons");
-              setHeaderNavigate("weapon");
-            }}
-          >
-            Armes
-          </ul>
 
-          <ul
-            className={
-              headerNavigate === "artifact" ? "headerBottomBorder" : ""
-            }
-            onClick={() => {
-              navigate("");
-              setHeaderNavigate("artifact");
-            }}
-          >
-            Artéfacts
-          </ul>
+          <div>
+            <ul
+              className={
+                headerNavigate === "character" ? "headerBottomBorder" : ""
+              }
+              onClick={() => {
+                navigate("/Characters");
+                setHeaderNavigate("character");
+              }}
+            >
+              Personnages
+            </ul>
+            <ul
+              className={
+                headerNavigate === "weapon" ? "headerBottomBorder" : ""
+              }
+              onClick={() => {
+                navigate("/Weapons");
+                setHeaderNavigate("weapon");
+              }}
+            >
+              Armes
+            </ul>
 
-          <ul
-            className={
-              headerNavigate === "weeklyBoss" ? "headerBottomBorder" : ""
-            }
-            onClick={() => {
-              navigate("/WeeklyBoss");
-              setHeaderNavigate("weeklyBoss");
-            }}
-          >
-            Boss hebdomadaire
-          </ul>
+            <ul
+              className={
+                headerNavigate === "artifact" ? "headerBottomBorder" : ""
+              }
+              onClick={() => {
+                navigate("/Artifacts");
+                setHeaderNavigate("artifact");
+              }}
+            >
+              Artéfacts
+            </ul>
 
-          <ul
-            className={
-              headerNavigate === "normalBoss" ? "headerBottomBorder" : ""
-            }
-            onClick={() => {
-              navigate("/NormalBoss");
-              setHeaderNavigate("normalBoss");
-            }}
-          >
-            Boss de monde
-          </ul>
+            <ul
+              className={
+                headerNavigate === "weeklyBoss" ? "headerBottomBorder" : ""
+              }
+              onClick={() => {
+                navigate("/WeeklyBoss");
+                setHeaderNavigate("weeklyBoss");
+              }}
+            >
+              Boss hebdomadaire
+            </ul>
 
-          <ul
-            className={headerNavigate === "book" ? "headerBottomBorder" : ""}
-            onClick={() => {
-              navigate("/Books");
-              setHeaderNavigate("book");
-            }}
-          >
-            Matériaux d'aptitudes
-          </ul>
+            <ul
+              className={
+                headerNavigate === "normalBoss" ? "headerBottomBorder" : ""
+              }
+              onClick={() => {
+                navigate("/NormalBoss");
+                setHeaderNavigate("normalBoss");
+              }}
+            >
+              Boss de monde
+            </ul>
+            {/* 
+            <ul
+              className={headerNavigate === "book" ? "headerBottomBorder" : ""}
+              onClick={() => {
+                navigate("/Books");
+                setHeaderNavigate("book");
+              }}
+            >
+              Matériaux d'aptitudes
+            </ul> */}
+          </div>
         </nav>
       </div>
     </header>

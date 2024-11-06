@@ -19,6 +19,7 @@ import StoneDetails from "./page/StoneDetails";
 import BooksList from "./page/Books";
 import Contacts from "./page/Contact";
 import AllWeapons from "./page/Weapons";
+import AllArtifacts from "./page/Artifacts";
 
 function App() {
   const { theme } = useThemeContext();
@@ -49,8 +50,7 @@ function App() {
           <Route path="/Books" element={<BooksList />}></Route>
           <Route path="/Contacts" element={<Contacts />}></Route>
           <Route path="/Weapons" element={<AllWeapons />}></Route>
-          <Route></Route>
-          <Route></Route>
+          <Route path="/Artifacts" element={<AllArtifacts />}></Route>
         </Routes>
         <Footer />
       </div>
