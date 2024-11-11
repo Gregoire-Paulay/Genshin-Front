@@ -40,26 +40,9 @@ const Home = (): JSX.Element => {
               onClick={() => {
                 navigate("/Characters");
               }}
-              src="https://res.cloudinary.com/dy2ayuond/image/upload/v1709043661/Genshin/Promo_personnages_Liyue_tdnczd.webp"
+              src="https://res.cloudinary.com/dy2ayuond/image/upload/v1731344865/Genshin/Home.webp"
               alt=""
             />
-          </div>
-          <div>
-            <h3>Test</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-              quibusdam. Maiores, dolorem. Odit accusantium tenetur enim,
-              recusandae, sapiente explicabo sequi modi reiciendis eius
-              consequuntur debitis aut temporibus et, beatae facilis! Ipsam
-              autem minima praesentium alias rerum, impedit laudantium atque,
-              repellat tempora consequuntur dolor sed dignissimos eligendi culpa
-              sit possimus similique at quis saepe hic exercitationem.
-              Accusantium deserunt aut aliquid esse. Aperiam tempora inventore
-              dicta nulla, nisi deleniti, totam laboriosam incidunt perferendis
-              numquam commodi! Corrupti, obcaecati maiores, repudiandae laborum
-              quisquam veritatis velit minima illum accusantium excepturi quidem
-              officiis cum aut minus?
-            </p>
           </div>
         </div>
 

@@ -300,8 +300,8 @@ header {
   display: flex;
   gap: 20px;
   justify-content: space-around;
-  > div:first-of-type {
-    width: 28%;
+  > div {
+    width: 70%;
     > img {
       width: 90%;
       border-radius: 8px;
@@ -313,12 +313,6 @@ header {
       cursor: pointer;
       scale: 1.02;
     }
-  }
-  > div:nth-of-type(2) {
-    border: 3px solid yellow;
-    width: 65%;
-    display: flex;
-    flex-direction: column;
   }
 }
 
@@ -2122,6 +2116,7 @@ header {
     width: 100%;
     justify-content: center;
     border-radius: 15px;
+    text-align: center;
   }
   h3 {
     /* border: 3px solid pink; */
@@ -2289,6 +2284,7 @@ header {
   padding: 4px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   > div {
     border: 2px solid var(--moduleDark);
@@ -3443,8 +3439,8 @@ header {
     justify-content: center;
     gap: 7px;
     margin-left: 15px;
-    width: 30%;
-    border-right: 1px solid gray;
+    width: 280px;
+    /* border-right: 1px solid gray; */
     > div {
       /* border: 2px solid red; */
       display: flex;
@@ -3466,6 +3462,7 @@ header {
   /* border-top: 3px solid lightsalmon; */
   width: 60%;
   padding: 3px 15px;
+  border-left: 1px solid gray;
   > h6 {
     margin-bottom: 6px;
   }
@@ -3772,6 +3769,67 @@ footer {
       width: 160px;
     }
   }
+
+  .normalBossDetails {
+    flex-direction: column;
+    align-items: center;
+  }
+  .normalBossAllRewardsNight {
+    width: 99%;
+    h3 {
+      width: 100%;
+      justify-content: center;
+      border-radius: 17px;
+    }
+  }
+  .normalBossAllRewardsDay {
+    width: 99%;
+    h3 {
+      width: 100%;
+      justify-content: center;
+      border-radius: 17px;
+    }
+  }
+
+  .normalBossUniqueMaterialsNight {
+    flex-direction: column;
+    > div {
+      width: 100%;
+    }
+  }
+  .normalBossUniqueMaterialsDay {
+    flex-direction: column;
+    > div {
+      width: 100%;
+    }
+  }
+  .uniqueMaterialsNormalBossCharacterNight {
+    border-bottom-left-radius: 18px;
+  }
+  .uniqueMaterialsNormalBossCharacterDay {
+    border-bottom-left-radius: 18px;
+  }
+
+  .normalBossAscensionMaterialsNight {
+    flex-direction: column;
+    > div {
+      width: 99%;
+      justify-content: center;
+    }
+    > div > div {
+      width: 110px;
+    }
+  }
+  .normalBossAscensionMaterialsDay {
+    flex-direction: column;
+    > div {
+      width: 99%;
+      justify-content: center;
+    }
+    > div > div {
+      width: 110px;
+    }
+  }
 }
 
 /* -------- MEDIA 1000PX -------- */
@@ -3825,6 +3883,21 @@ footer {
     }
     > div > div {
       width: 80px;
+    }
+  }
+
+  .homeInfo {
+    > div:first-of-type {
+      width: 70%;
+      gap: 0;
+    }
+    > div:nth-of-type(2) {
+      display: none;
+    }
+  }
+  .homeInfo2 {
+    > div {
+      width: 90%;
     }
   }
 }
@@ -3974,6 +4047,51 @@ footer {
       display: none;
     }
   }
+
+  .allWeapons {
+    > div {
+      text-align: center;
+    }
+  }
+  .weaponDetails {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    .weaponStats {
+      width: 100%;
+      align-items: center;
+    }
+  }
+
+  .weaponDescription {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid gray;
+    padding-top: 8px;
+  }
+}
+
+/* -------- MEDIA 700PX -------- */
+@media (max-width: 700px) {
+  .homeInfo {
+    > div:first-of-type {
+      width: 95%;
+    }
+  }
+  .homeInfo2 {
+    > div {
+      width: 92%;
+    }
+  }
+
+  .homeInfo3 {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    > div {
+      width: 70%;
+    }
+  }
 }
 
 /* -------- MEDIA 600PX -------- */
@@ -3998,6 +4116,36 @@ footer {
         width: 100%;
         height: 80px;
       }
+    }
+  }
+
+  .allArtifacts {
+    > div {
+      width: 98%;
+      text-align: center;
+    }
+  }
+  .artifactDetails {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .artifactBonus {
+    border-left: none;
+    border-top: 1px solid lightgray;
+  }
+
+  .allWeaponsFilters {
+    flex-direction: column;
+    gap: 18px;
+    > div:first-of-type {
+      width: 100%;
+    }
+  }
+  .weaponFilters {
+    /* border: 3px solid red; */
+    gap: 10px;
+    img {
+      width: 50px;
     }
   }
 }
